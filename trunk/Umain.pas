@@ -127,7 +127,7 @@ type
 
   public
     auser:userinfo;{ Public declarations }
-    operid:int64;
+    operid:string;
    end;
 
 var

@@ -105,11 +105,11 @@ begin
   Application.Initialize;
   flash := tfac.Create(application);
 
-  flash.BitBtn1.Visible := false;
-  flash.Label4.Visible := true;
-  flash.Show;
-  flash.Update;
-  sleep(1000);
+  //flash.BitBtn1.Visible := false;
+  //flash.Label4.Visible := true;
+  //flash.Show;
+  //flash.Update;
+  //sleep(1000);
 
   Application.Title := '理疗保健智能管理系统';
   Application.CreateForm(TDMod, DMod);
@@ -206,6 +206,7 @@ begin
     flash.Label4.Caption := '联接成功！请继续操作';
     flash.Close;
     flash.Free;
+    Application.CreateForm(Tfmain, fmain);
     flogin := tflogin.Create(application);
     flogin.ShowModal;
     flogin.Update;

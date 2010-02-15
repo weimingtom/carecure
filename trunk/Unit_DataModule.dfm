@@ -145,7 +145,7 @@ object DMod: TDMod
   object toper: TADODataSet
     Connection = ADOCON
     CursorType = ctStatic
-    CommandText = 'select  * from oper '
+    CommandText = 'select  * from oper'
     Parameters = <>
     Left = 328
     Top = 200
