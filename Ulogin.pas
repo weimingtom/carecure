@@ -65,7 +65,6 @@ begin
       fmain.auser.name:=DMod.tuser.FieldValues['userid'];
       fmain.auser.qx:=qx;
       //fmain.auser.id:=DMod.tuser.fieldvalues['userid'];
-      fmain.auser.id:= 1;
 
       DMod.toper.Open;
       DMod.toper.append;
@@ -74,7 +73,7 @@ begin
       DMod.toper.Post;
 
       DMod.toper.Last;
-      fmain.operid:=DMod.toper.FieldByName('operid').AsVariant ;
+      fmain.operid:=DMod.toper.FieldByName('userid').AsVariant ;
       iniapp(qx);
      // showmessage(inttostr(fmain.operid));
 

@@ -1948,7 +1948,6 @@ object fmain: Tfmain
       Width = 878
       Height = 54
       Align = alTop
-      AutoScroll = False
       Control = ToolBar1
       TabOrder = 0
       object ToolBar1: TToolBar
@@ -1958,7 +1957,7 @@ object fmain: Tfmain
         Height = 54
         Align = alNone
         ButtonHeight = 55
-        ButtonWidth = 59
+        ButtonWidth = 55
         Caption = 'ToolBar1'
         Customizable = True
         EdgeInner = esNone
@@ -1977,7 +1976,7 @@ object fmain: Tfmain
           MenuItem = ls1
         end
         object ToolButton2: TToolButton
-          Left = 59
+          Left = 55
           Top = 0
           Cursor = crHandPoint
           Caption = #33647#21697#25209#21457
@@ -1985,7 +1984,7 @@ object fmain: Tfmain
           MenuItem = pf1
         end
         object ToolButton3: TToolButton
-          Left = 118
+          Left = 110
           Top = 0
           Width = 8
           Caption = 'ToolButton3'
@@ -1993,7 +1992,7 @@ object fmain: Tfmain
           Style = tbsDivider
         end
         object ToolButton4: TToolButton
-          Left = 126
+          Left = 118
           Top = 0
           Cursor = crHandPoint
           Caption = #33647#21697#20837#24211
@@ -2001,7 +2000,7 @@ object fmain: Tfmain
           MenuItem = rk1
         end
         object ToolButton5: TToolButton
-          Left = 185
+          Left = 173
           Top = 0
           Cursor = crHandPoint
           Caption = #33647#21697#36864#33647
@@ -2009,7 +2008,7 @@ object fmain: Tfmain
           MenuItem = ty1
         end
         object ToolButton6: TToolButton
-          Left = 244
+          Left = 228
           Top = 0
           Width = 8
           Caption = 'ToolButton6'
@@ -2017,7 +2016,7 @@ object fmain: Tfmain
           Style = tbsDivider
         end
         object ToolButton8: TToolButton
-          Left = 252
+          Left = 236
           Top = 0
           Cursor = crHandPoint
           Caption = #38144#21806#32479#35745
@@ -2025,7 +2024,7 @@ object fmain: Tfmain
           MenuItem = xstj
         end
         object ToolButton7: TToolButton
-          Left = 311
+          Left = 291
           Top = 0
           Cursor = crHandPoint
           Caption = #21333#25454#26597#35810
@@ -2033,7 +2032,7 @@ object fmain: Tfmain
           MenuItem = djsearch
         end
         object ToolButton10: TToolButton
-          Left = 370
+          Left = 346
           Top = 0
           Width = 8
           Caption = 'ToolButton10'
@@ -2041,7 +2040,7 @@ object fmain: Tfmain
           Style = tbsDivider
         end
         object ToolButton9: TToolButton
-          Left = 378
+          Left = 354
           Top = 0
           Cursor = crHandPoint
           Caption = #26032#22686#33647#21697
@@ -2049,7 +2048,7 @@ object fmain: Tfmain
           MenuItem = ypadd
         end
         object ToolButton11: TToolButton
-          Left = 437
+          Left = 409
           Top = 0
           Width = 8
           Caption = 'ToolButton11'
@@ -2057,7 +2056,7 @@ object fmain: Tfmain
           Style = tbsDivider
         end
         object ToolButton12: TToolButton
-          Left = 445
+          Left = 417
           Top = 0
           Cursor = crHandPoint
           Caption = #21592#24037#31649#29702
@@ -2065,7 +2064,7 @@ object fmain: Tfmain
           MenuItem = yg1
         end
         object ToolButton13: TToolButton
-          Left = 504
+          Left = 472
           Top = 0
           Cursor = crHandPoint
           Caption = #37096#38376#31649#29702
@@ -2073,7 +2072,7 @@ object fmain: Tfmain
           MenuItem = bm1
         end
         object ToolButton14: TToolButton
-          Left = 563
+          Left = 527
           Top = 0
           Cursor = crHandPoint
           Caption = #24448#26469#21333#20301
@@ -2081,7 +2080,7 @@ object fmain: Tfmain
           MenuItem = company1
         end
         object ToolButton15: TToolButton
-          Left = 622
+          Left = 582
           Top = 0
           Cursor = crHandPoint
           Caption = #29992#25143#31649#29702
@@ -2089,7 +2088,7 @@ object fmain: Tfmain
           MenuItem = user1
         end
         object ToolButton16: TToolButton
-          Left = 681
+          Left = 637
           Top = 0
           Cursor = crHandPoint
           Caption = #22791#20221#25968#25454
@@ -2097,7 +2096,7 @@ object fmain: Tfmain
           MenuItem = back1
         end
         object ToolButton17: TToolButton
-          Left = 740
+          Left = 692
           Top = 0
           Width = 8
           Caption = 'ToolButton17'
@@ -2105,7 +2104,7 @@ object fmain: Tfmain
           Style = tbsDivider
         end
         object ToolButton19: TToolButton
-          Left = 748
+          Left = 700
           Top = 0
           Cursor = crHandPoint
           Caption = #20851#20110#31243#24207
@@ -2113,7 +2112,7 @@ object fmain: Tfmain
           MenuItem = about
         end
         object ToolButton18: TToolButton
-          Left = 807
+          Left = 755
           Top = 0
           Cursor = crHandPoint
           Caption = #36864#20986#31243#24207
@@ -2138,7 +2137,6 @@ object fmain: Tfmain
       item
         Width = 400
       end>
-    SimplePanel = False
   end
   object MainMenu1: TMainMenu
     Images = adodm.ImageList2
