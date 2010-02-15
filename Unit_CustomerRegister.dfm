@@ -1,0 +1,20 @@
+object frm_CustomerRegister: Tfrm_CustomerRegister
+  Left = 192
+  Top = 114
+  Width = 696
+  Height = 480
+  Caption = #39038#23458#30331#35760
+  Color = clBtnFace
+  Font.Charset = GB2312_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = #23435#20307
+  Font.Style = []
+  FormStyle = fsMDIChild
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  Visible = True
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 12
+end
