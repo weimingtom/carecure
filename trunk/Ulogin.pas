@@ -38,7 +38,7 @@ var
   Flogin: TFlogin;
 
 implementation
-uses umain;
+uses umain, Unit_Main;
 {$R *.dfm}
 
 procedure TFlogin.FormShow(Sender: TObject);
@@ -62,20 +62,20 @@ begin
       begin
 
       
-      fmain.auser.name:=DMod.tuser.FieldValues['userid'];
-      fmain.auser.qx:=qx;
-      //fmain.auser.id:=DMod.tuser.fieldvalues['userid'];
+      frm_main.auser.name:=DMod.tuser.FieldValues['userid'];
+      frm_main.auser.qx:=qx;
+      //frm_main.auser.id:=DMod.tuser.fieldvalues['userid'];
 
       DMod.toper.Open;
       DMod.toper.append;
       DMod.toper.FieldByName('登录时间').AsDateTime:=now;
-      DMod.toper.FieldByName('userid').AsVariant:=fmain.auser.id;
+      DMod.toper.FieldByName('userid').AsVariant:=frm_main.auser.id;
       DMod.toper.Post;
 
       DMod.toper.Last;
-      fmain.operid:=DMod.toper.FieldByName('userid').AsVariant ;
+      frm_main.operid:=DMod.toper.FieldByName('userid').AsVariant ;
       iniapp(qx);
-     // showmessage(inttostr(fmain.operid));
+     // showmessage(inttostr(frm_main.operid));
 
       flogin.Close;
       end
@@ -105,9 +105,9 @@ end;
 procedure TFlogin.iniapp(qx: int64);
 var i,j:integer;
 begin
-  for i:=0 to fmain.MainMenu1.items.Count-1 do
-   for j:=0 to fmain.MainMenu1.Items[i].Count-1 do
-   fmain.MainMenu1.items[i].Items[j].Enabled:=false;
+  for i:=0 to frm_main.MainMenu1.items.Count-1 do
+   for j:=0 to frm_main.MainMenu1.Items[i].Count-1 do
+   frm_main.MainMenu1.items[i].Items[j].Enabled:=false;
     qx:=qx xor 1234567890;
    qx:=qx shr 10;
    for i:=0 to 6 do //共有7 种权限
@@ -115,53 +115,53 @@ begin
    case i of
 
      0:begin
-        fmain.ls1.Enabled:=true;
-        fmain.pf1.Enabled:=true;
-        fmain.crlist1.Enabled:=true;
+        frm_main.mnuGoodsRetail.Enabled:=true;
+        frm_main.mnuGoodsWholeSale.Enabled:=true;
+        //frm_main.crlist1.Enabled:=true;
         end;
      1:begin
-        fmain.rk1.Enabled:=true;
-        fmain.ty1.Enabled:=true;
-        fmain.bs1.Enabled:=true;
-        fmain.xl1.Enabled:=true;
-        fmain.pd1.Enabled:=true;
-        fmain.kclist1.Enabled:=true;
+        frm_main.mnuGoodsCheckIn.Enabled:=true;
+        frm_main.mnuGoodsBizReturn.Enabled:=true;
+        frm_main.mnuGoodsLoss.Enabled:=true;
+        frm_main.mnuStoreLimite.Enabled:=true;
+        frm_main.mnuStoreCheck.Enabled:=true;
+        frm_main.mnuStoreList.Enabled:=true;
 
        end;
      2:begin
-        fmain.xstj.Enabled:=true;
-        fmain.kctj.Enabled:=true;
-        fmain.djsearch.Enabled:=true;
-        fmain.support.Enabled:=true;
+        frm_main.mnuSalesStatistic.Enabled:=true;
+        //frm_main.kctj.Enabled:=true;
+        frm_main.mnuReceiptQuery.Enabled:=true;
+        //frm_main.support.Enabled:=true;
        end;
      3:begin
-        fmain.yplist1.Enabled:=true;
-        fmain.ypadd.Enabled:=true;
-        fmain.ypedit.Enabled:=true;
-        fmain.ypprice.Enabled:=true;
+        //frm_main.yplist1.Enabled:=true;
+        //frm_main.ypadd.Enabled:=true;
+        //frm_main.ypedit.Enabled:=true;
+        //frm_main.ypprice.Enabled:=true;
        end;
      4:begin
-        fmain.yg1.Enabled:=true;
-        fmain.bm1.Enabled:=true;
-        fmain.company1.Enabled:=true;
+        //frm_main.yg1.Enabled:=true;
+        //frm_main.bm1.Enabled:=true;
+        //frm_main.company1.Enabled:=true;
        end;
      5:begin
-        fmain.user1.Enabled:=true;
+        //frm_main.user1.Enabled:=true;
        end;
      6:begin
-        fmain.back1.Enabled:=true;
+        //frm_main.back1.Enabled:=true;
        end;
 
      end;
-        fmain.mm.Enabled:=true;
-        fmain.relogin.Enabled:=true;
-        fmain.quit.Enabled:=true;
-        fmain.systemhelp.Enabled:=true;
-        fmain.about.Enabled:=true;
+        frm_main.mnuPassword.Enabled:=true;
+        frm_main.mnuReLogin.Enabled:=true;
+        frm_main.mnuSysExit.Enabled:=true;
+        frm_main.mnuHelp.Enabled:=true;
+        frm_main.mnuAbout.Enabled:=true;
         
         check:=true;
-        fmain.StatusBar1.Panels[1].Text:='操作员:'+fmain.auser.name;
-        fmain.StatusBar1.Panels[2].Text:='深度工作室 邮箱:server@deepcast.net';
+        frm_main.Bar1.Panels[1].Text:='操作员:'+frm_main.auser.name;
+        frm_main.Bar1.Panels[2].Text:='深度工作室 邮箱:server@deepcast.net';
 end;
 
 procedure TFlogin.FormCloseQuery(Sender: TObject; var CanClose: Boolean);

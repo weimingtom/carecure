@@ -453,22 +453,20 @@ object fypzdk: Tfypzdk
     Height = 22
     DropDownBox.Width = 300
     EditButtons = <>
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     KeyField = #32534#21495
     ListField = #32534#21495';'#31616#30721';'#21517#31216
     ListFieldIndex = 2
     ListSource = adodm.dsypzdk
     Style = csDropDownEh
     TabOrder = 1
+    Visible = True
     OnChange = searchChange
     OnExit = searchExit
   end
   object PrintDBGridEh1: TPrintDBGridEh
     DBGridEh = dbshow
     Options = [pghFitGridToPageWidth]
-    Page.BottomMargin = 2
-    Page.LeftMargin = 2
-    Page.RightMargin = 2
-    Page.TopMargin = 2
     PageFooter.Font.Charset = DEFAULT_CHARSET
     PageFooter.Font.Color = clWindowText
     PageFooter.Font.Height = -11

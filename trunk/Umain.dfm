@@ -2325,11 +2325,10 @@ object fmain: Tfmain
     end
   end
   object XPMenu1: TXPMenu
-    Font.Charset = GB2312_CHARSET
+    Font.Charset = DEFAULT_CHARSET
     Font.Color = clMenuText
     Font.Height = -12
     Font.Name = #23435#20307
-    Font.Pitch = fpVariable
     Font.Style = []
     Color = clBtnFace
     IconBackColor = clBtnFace

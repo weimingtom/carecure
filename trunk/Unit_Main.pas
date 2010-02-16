@@ -4,8 +4,13 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Menus, ExtCtrls, ComCtrls;
-
+  Dialogs, Menus, ExtCtrls, ComCtrls, ToolWin, ImgList,
+  udm,uypzdk,uxl,udj, Uypzdk2,uyg,urk,uxstj, ukctj,ulogin, StdCtrls,uty,ubs,upd,ukl,ukc,upf,uls,uac,ucr,uback,uuser;
+type userinfo=record
+       name:string;
+       qx:int64;
+       id:int64;
+       end;
 type
   Tfrm_main = class(TForm)
     MainMenu1: TMainMenu;
@@ -16,7 +21,7 @@ type
     mnuUserManager: TMenuItem;
     N6: TMenuItem;
     mnuSysInitial: TMenuItem;
-    N8: TMenuItem;
+    mnuUserInfo: TMenuItem;
     mnuSysExit: TMenuItem;
     mnuBasicEmployee: TMenuItem;
     N3: TMenuItem;
@@ -39,7 +44,7 @@ type
     N22: TMenuItem;
     mnuCardManager: TMenuItem;
     mnuCardTrack: TMenuItem;
-    N1: TMenuItem;
+    mnuFrontManage: TMenuItem;
     mnuFrontCheck: TMenuItem;
     Image1: TImage;
     Bar1: TStatusBar;
@@ -55,6 +60,63 @@ type
     N24: TMenuItem;
     mnuServiceMeal: TMenuItem;
     mnuCustomerRegister: TMenuItem;
+    N1: TMenuItem;
+    mnuGoodsRetail: TMenuItem;
+    mnuGoodsWholeSale: TMenuItem;
+    mnuSalesStatistic: TMenuItem;
+    mnuAdjustSaleStat: TMenuItem;
+    N2: TMenuItem;
+    mnuReceiptQuery: TMenuItem;
+    mnuWholeSaleSummary: TMenuItem;
+    N5: TMenuItem;
+    mnuMemberBuyQuery: TMenuItem;
+    N7: TMenuItem;
+    N11: TMenuItem;
+    mnuGoodsDictionary: TMenuItem;
+    N13: TMenuItem;
+    mnuGoodsCheckIn: TMenuItem;
+    mnuGoodsBizReturn: TMenuItem;
+    mnuGoodsManReturn: TMenuItem;
+    mnuStoreCheck: TMenuItem;
+    mnuGoodsMaintain: TMenuItem;
+    mnuGoodsLoss: TMenuItem;
+    N14: TMenuItem;
+    mnuStoreLimite: TMenuItem;
+    mnuStoreList: TMenuItem;
+    mnuExpireQuery: TMenuItem;
+    mnuStoreInQuery: TMenuItem;
+    N17: TMenuItem;
+    mnuStoreInStat: TMenuItem;
+    mnuStoreCostStat: TMenuItem;
+    mnuBizDictionary: TMenuItem;
+    mnuDataBackUp: TMenuItem;
+    N23: TMenuItem;
+    mnuDataRecovery: TMenuItem;
+    mnuDataOptimize: TMenuItem;
+    mnuAbout: TMenuItem;
+    mnuStyle: TMenuItem;
+    mnuTour: TMenuItem;
+    N8: TMenuItem;
+    mnuHelp: TMenuItem;
+    N21: TMenuItem;
+    ImageList1: TImageList;
+    CoolBar1: TCoolBar;
+    scroll1: TPageScroller;
+    ToolBar1: TToolBar;
+    ToolButton1: TToolButton;
+    ToolButton3: TToolButton;
+    ToolButton9: TToolButton;
+    ToolButton11: TToolButton;
+    ToolButton12: TToolButton;
+    ToolButton10: TToolButton;
+    ToolButton15: TToolButton;
+    ToolButton6: TToolButton;
+    ToolButton4: TToolButton;
+    ToolButton17: TToolButton;
+    ToolButton19: TToolButton;
+    ToolButton2: TToolButton;
+    ToolButton18: TToolButton;
+    ToolButton13: TToolButton;
     procedure mnuBasicEmployeeClick(Sender: TObject);
     procedure mnuDeveloperClick(Sender: TObject);
     procedure mnuBasicCustomerClick(Sender: TObject);
@@ -89,15 +151,34 @@ type
     procedure ClientWndProc(var Message: TMessage);
     procedure dorw(var MyDC : hDC);
   public
-    { Public declarations }
+    auser:userinfo;{ Public declarations }
+    operid:string;
   end;
 
 var
   frm_main: Tfrm_main;
-
+  ypzdk:tfypzdk;
+  ypzdk2:tfypzdk2;
+  yg:tfyg;
+  rk:tfrk;
+  ty:tfty;
+  bs:tfbs ;
+  pd:tfpd;
+  kc:tfkc;
+  pf:tfpf ;
+  ls:tfls;
+  ac:tfac;
+  cr:tfcr;
+  back:tfback;
+  user:tfuser;
+  xl:tfxl;
+  kl:tfkl;
+  xstj1:tfxstj ;
+  dj:tfdj;
+  kctj1:tfkctj;
 implementation
 
-uses Unit_PublicFunction, Unit_TotalPublic;
+uses Unit_PublicFunction, Unit_TotalPublic,upreview;
 
 {$R *.dfm}
 

@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs,udm, StdCtrls, Buttons, Grids, DBGridEh,uypzdk2, PrnDbgeh, Mask,
-  DBCtrlsEh, DBLookupEh, ComCtrls;
+  DBCtrlsEh, DBLookupEh, ComCtrls, GridsEh;
 
 type
   Tfypzdk = class(TForm)

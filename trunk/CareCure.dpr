@@ -206,7 +206,7 @@ begin
     flash.Label4.Caption := '联接成功！请继续操作';
     flash.Close;
     flash.Free;
-    Application.CreateForm(Tfmain, fmain);
+    Application.CreateForm(Tfrm_main, frm_main);
     flogin := tflogin.Create(application);
     flogin.ShowModal;
     flogin.Update;
