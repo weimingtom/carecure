@@ -9,5 +9,5 @@
 
 
   * [http://www.winu.cn/dispdocnew.php?tid=11097 |DELPHI连接ACCESS　用ADO方式|]
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+  * [http://blog.csdn.net/blog51/archive/2007/08/23/1755947.aspx |SQL语句操作Access数据库，关键字引起语法错误的问题及解决|]
+  * []
