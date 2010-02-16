@@ -1,4 +1,4 @@
-#summary One-sentence FastReport控件使用汇总
+#summary FastReport控件使用汇总
 
 = Introduction =
 
