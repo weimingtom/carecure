@@ -66,4 +66,8 @@ http://www.2ccc.com/article.asp?articleid=5429|VclSkin V5.4 for D7-D2010 FullSou
   * [http://blog.csdn.net/iiprogram/archive/2007/08/06/1728767.aspx |VclSkin使用教程|]
 
   * [http://hi.baidu.com/hjylinyi/blog/item/6eb829f74f89b827730eec18.html |delphi vclskin实现动态换肤|]
+  * [http://www.delphibbs.com/delphibbs/dispq.asp?lid=2478512 |全局界面控件VCLSkin使用手记及发现的一些问题|]
+  * [http://topic.csdn.net/u/20090711/20/21e3e68f-b7d7-4f71-bcb9-2ada24aeba25.html |vclskin突然变慢了该怎么办？|]
+  * [http://zhidao.baidu.com/question/61246668.html |Delphi的高手请进，请教一个关于窗体创建的问题！|]
+  * []
   * []
