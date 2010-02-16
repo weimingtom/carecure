@@ -1,6 +1,6 @@
 object fmain: Tfmain
-  Left = 50
-  Top = -13
+  Left = 77
+  Top = 29
   BorderStyle = bsSingle
   Caption = #20250#36798#21307#33647#31649#29702#31995#32479
   ClientHeight = 233
