@@ -1,0 +1,13 @@
+#summary DELPHI连接数据库
+
+= Introduction =
+
+
+
+
+= Details =
+
+
+  * [http://www.winu.cn/dispdocnew.php?tid=11097 |DELPHI连接ACCESS　用ADO方式|]
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
