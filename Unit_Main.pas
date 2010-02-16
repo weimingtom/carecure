@@ -18,7 +18,7 @@ uses
 type
   userinfo = record
     name: string;
-    qx: int64;
+    UserPower: int64;
     id: string; //int64;-->String
   end;
 type
@@ -157,6 +157,7 @@ type
     ToolButton5: TToolButton;
     mnuDataInitial: TMenuItem;
     skindata1: TSkinData;
+    mnuDatabaseSetup: TMenuItem;
     procedure mnuBasicEmployeeClick(Sender: TObject);
     procedure mnuDeveloperClick(Sender: TObject);
     procedure mnuBasicCustomerClick(Sender: TObject);
@@ -202,6 +203,7 @@ type
     procedure mnuDataOptimizeClick(Sender: TObject);
     procedure mnuStyleClick(Sender: TObject);
     procedure mnuBizInfoClick(Sender: TObject);
+    procedure mnuDatabaseSetupClick(Sender: TObject);
   private
     { Private declarations }
     FClientInstance, FPrevClientProc: TfarProc;
@@ -244,7 +246,7 @@ uses Unit_MainFunPro;    //Unit_TotalPublic,
 
 {$R *.dfm}
 
-procedure Tfrm_main.ClientWndProc(var Message: TMessage);
+procedure Tfrm_main.ClientWndProc(var Message: TMessage); //MDI主窗口背景图案的设置
 var
   MyDC: hDC;
   Ro, Co: Word;
@@ -263,7 +265,7 @@ begin
     end;
 end;
 
-procedure Tfrm_main.dorw(var MyDC: hDC);
+procedure Tfrm_main.dorw(var MyDC: hDC); //MDI主窗口背景图案的填满
 var
   ro, co: word;
 begin
@@ -500,5 +502,9 @@ begin
   DoBizInfo;
 end;
 
-end.
+procedure Tfrm_main.mnuDatabaseSetupClick(Sender: TObject);
+begin
+DoDatabaseSetup;
+end;
 
+end.

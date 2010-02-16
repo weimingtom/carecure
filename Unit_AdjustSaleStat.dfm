@@ -14,6 +14,7 @@ object frm_AdjustSaleStat: Tfrm_AdjustSaleStat
   OldCreateOrder = False
   Position = poDefault
   Visible = True
+  OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
 end

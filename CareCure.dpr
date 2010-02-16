@@ -46,12 +46,18 @@ uses
   Unit_ReportCustomer in 'Unit_ReportCustomer.pas' {frm_ReportCustomer},
   Unit_ReportEmployee in 'Unit_ReportEmployee.pas' {frm_reportemployee},
   Unit_Employee in 'Unit_Employee.pas' {frm_employee},
-  Unit_ReportBasicSalary in 'Unit_ReportBasicSalary.pas' {frm_reportbasicsalary},
-  Unit_ReportAttendStatistic in 'Unit_ReportAttendStatistic.pas' {frm_reportattendstatistic},
-  Unit_ReportCustomerCard in 'Unit_ReportCustomerCard.pas' {frm_reportCustomerCard},
-  Unit_ReportServiceBooking in 'Unit_ReportServiceBooking.pas' {frm_ReportServiceBooking},
-  Unit_ReportDayStatistic in 'Unit_ReportDayStatistic.pas' {frm_ReportDayStatistic},
-  Unit_ReportMonthStatistic in 'Unit_ReportMonthStatistic.pas' {frm_ReportMonthStatistic},
+  Unit_ReportBasicSalary in 'Unit_ReportBasicSalary.pas'
+  {frm_reportbasicsalary},
+  Unit_ReportAttendStatistic in 'Unit_ReportAttendStatistic.pas'
+  {frm_reportattendstatistic},
+  Unit_ReportCustomerCard in 'Unit_ReportCustomerCard.pas'
+  {frm_reportCustomerCard},
+  Unit_ReportServiceBooking in 'Unit_ReportServiceBooking.pas'
+  {frm_ReportServiceBooking},
+  Unit_ReportDayStatistic in 'Unit_ReportDayStatistic.pas'
+  {frm_ReportDayStatistic},
+  Unit_ReportMonthStatistic in 'Unit_ReportMonthStatistic.pas'
+  {frm_ReportMonthStatistic},
   Unit_ReportReceipt in 'Unit_ReportReceipt.pas' {frm_ReportReceipt},
   Unit_ReportSalary in 'Unit_ReportSalary.pas' {frm_ReportSalary},
   Unit_CustomerRegister in 'Unit_CustomerRegister.pas' {frm_CustomerRegister},
@@ -107,11 +113,20 @@ begin
 
   Application.Title := '理疗保健智能管理系统';
   DBFile := tinifile.Create(extractfilepath(application.ExeName) +
-    'DBConn.ini');
-  DB_Source := DBFile.ReadString('CareCure', 'DB_Source',
+    'CareCure.ini');
+  DB_Source := DBFile.ReadString('caredata', 'DB_Source',
     'data/caremdb.mdb');
-  DB_User := DBFile.ReadString('CareCure', 'DB_User', 'admin');
-  DB_Password := DBFile.ReadString('CareCure', 'DB_Password', 'carecure');
+  DB_User := DBFile.ReadString('caredata', 'DB_User', 'admin');
+  DB_Password := DBFile.ReadString('caredata', 'DB_Password', 'caredata');
+  //读取设定界面风格
+  Unit_MainFunPro.DefaultStyleSkin := DBFile.Readinteger('Style', 'DefaultSkin',
+    0);
+  Unit_MainFunPro.CustomStyleSkin := DBFile.ReadString('Style', 'CustomSkin',
+    '0');
+  //ClientHeight := DBFile.readinteger('WindowInfo', 'height', 400);
+  //ClientWidth := DBFile.readinteger('WindowInfo', 'width', 400);
+  //top := DBFile.readinteger('WindowInfo', 'top', 0);
+  //left := DBFile.readinteger('WindowInfo', 'left', 0);
   DBFile.Free;
 
   DB_CONNString :=
@@ -151,10 +166,19 @@ begin
       Frm_DBini.ShowModal;
       Frm_DBini.Free;
       DBFile := tinifile.Create(extractfilepath(application.ExeName) +
-        'DBConn.ini');
-      DB_Source := DBFile.ReadString('CareCure', 'DB_Source', 'caremdb.mdb');
-      DB_User := DBFile.ReadString('CareCure', 'DB_User', 'admin');
-      DB_Password := DBFile.ReadString('CareCure', 'DB_Password', '123456');
+        'CareCure.ini');
+      DB_Source := DBFile.ReadString('caredata', 'DB_Source', 'caremdb.mdb');
+      DB_User := DBFile.ReadString('caredata', 'DB_User', 'admin');
+      DB_Password := DBFile.ReadString('caredata', 'DB_Password', '123456');
+      //读取设定界面风格
+      Unit_MainFunPro.DefaultStyleSkin := DBFile.Readinteger('Style',
+        'DefaultSkin', 0);
+      Unit_MainFunPro.CustomStyleSkin := DBFile.ReadString('Style', 'CustomSkin',
+        '0');
+      //ClientHeight := DBFile.readinteger('WindowInfo', 'height', 400);
+      //ClientWidth := DBFile.readinteger('WindowInfo', 'width', 400);
+      //top := DBFile.readinteger('WindowInfo', 'top', 0);
+      //left := DBFile.readinteger('WindowInfo', 'left', 0);
       DBFile.Free;
       DB_CONNString :=
         'Provider=Microsoft.Jet.OLEDB.4.0;Password="";' +
@@ -201,7 +225,7 @@ begin
     Application.CreateForm(Tfrm_main, frm_main);
     frm_UserLogin := tfrm_UserLogin.Create(application);
     frm_UserLogin.ShowModal;
-      //ShowModal表示显示一个独占焦点屏蔽其它窗口的可设置返回值的窗口，其关闭后才执行下面的语句。
+    //ShowModal表示显示一个独占焦点屏蔽其它窗口的可设置返回值的窗口，其关闭后才执行下面的语句。
     frm_UserLogin.Update;
 
     Application.Run;

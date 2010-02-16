@@ -23,6 +23,7 @@ object frm_attendstat: Tfrm_attendstat
     Width = 702
     Height = 33
     Align = alTop
+    ParentBackground = False
     TabOrder = 0
     object sbtn_front: TSpeedButton
       Left = 7
@@ -148,14 +149,15 @@ object frm_attendstat: Tfrm_attendstat
     Left = 0
     Top = 33
     Width = 702
-    Height = 450
+    Height = 443
     Align = alClient
+    ParentBackground = False
     TabOrder = 1
     object PageControl1: TPageControl
       Left = 1
       Top = 1
       Width = 700
-      Height = 448
+      Height = 441
       ActivePage = sht_StatList
       Align = alClient
       TabOrder = 0
@@ -165,14 +167,14 @@ object frm_attendstat: Tfrm_attendstat
         object Splitter2: TSplitter
           Left = 557
           Top = 0
-          Height = 421
+          Height = 414
           Align = alRight
         end
         object sg_Statistic: TStringGrid
           Left = 0
           Top = 0
           Width = 557
-          Height = 421
+          Height = 414
           Align = alClient
           ColCount = 13
           DefaultRowHeight = 20
@@ -200,8 +202,9 @@ object frm_attendstat: Tfrm_attendstat
           Left = 560
           Top = 0
           Width = 132
-          Height = 421
+          Height = 414
           Align = alRight
+          ParentBackground = False
           TabOrder = 1
           object Panel3: TPanel
             Left = 1
@@ -209,6 +212,7 @@ object frm_attendstat: Tfrm_attendstat
             Width = 130
             Height = 168
             Align = alTop
+            ParentBackground = False
             TabOrder = 0
             object sbtn_attendstat: TSpeedButton
               Left = 56
@@ -259,6 +263,7 @@ object frm_attendstat: Tfrm_attendstat
               Top = 40
               Width = 97
               Height = 20
+              ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
               ItemHeight = 12
               TabOrder = 0
               Items.Strings = (
@@ -289,6 +294,7 @@ object frm_attendstat: Tfrm_attendstat
               Top = 88
               Width = 97
               Height = 20
+              ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
               ItemHeight = 12
               TabOrder = 1
               Items.Strings = (
@@ -310,7 +316,7 @@ object frm_attendstat: Tfrm_attendstat
             Left = 1
             Top = 169
             Width = 130
-            Height = 251
+            Height = 244
             Align = alClient
             Caption = #35828#26126
             TabOrder = 1
@@ -397,6 +403,7 @@ object frm_attendstat: Tfrm_attendstat
           Width = 177
           Height = 421
           Align = alRight
+          ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
           ItemHeight = 12
           TabOrder = 1
         end
@@ -405,7 +412,7 @@ object frm_attendstat: Tfrm_attendstat
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 483
+    Top = 476
     Width = 702
     Height = 30
     Panels = <>

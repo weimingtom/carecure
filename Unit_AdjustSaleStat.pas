@@ -8,6 +8,7 @@ uses
 
 type
   Tfrm_AdjustSaleStat = class(TForm)
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -20,5 +21,12 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure Tfrm_AdjustSaleStat.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  action:=cafree;
+  frm_AdjustSaleStat:=nil;
+end;
 
 end.
