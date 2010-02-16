@@ -65,7 +65,7 @@ begin
   cbbUsername.Text := 'superuser';
   btok.SetFocus;
   //btok.Click();
-  keybd_event(VK_RETURN, $a ,0,0);
+  //keybd_event(VK_RETURN, $a ,0,0);
 end;
 
 procedure Tfrm_UserLogin.btokClick(Sender: TObject);

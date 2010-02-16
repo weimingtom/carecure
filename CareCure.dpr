@@ -102,7 +102,7 @@ var
 begin
 
   Application.Initialize;
-  Application.CreateForm(TDMod, DMod);
+
   //flash := tfrm_splash.Create(application);
 
   //flash.BitBtn1.Visible := false;
@@ -112,6 +112,11 @@ begin
   //sleep(1000);
 
   Application.Title := '理疗保健智能管理系统';
+  frm_splash := Tfrm_splash.Create(Application); //创建启动画面窗口
+  frm_splash.Show; //显示启动窗口
+  frm_splash.Update; //刷新窗口
+  Application.CreateForm(TDMod, DMod); //创建工程窗口
+
   DBFile := tinifile.Create(extractfilepath(application.ExeName) +
     'CareCure.ini');
   DB_Source := DBFile.ReadString('caredata', 'DB_Source',
@@ -173,7 +178,8 @@ begin
       //读取设定界面风格
       Unit_MainFunPro.DefaultStyleSkin := DBFile.Readinteger('Style',
         'DefaultSkin', 0);
-      Unit_MainFunPro.CustomStyleSkin := DBFile.ReadString('Style', 'CustomSkin',
+      Unit_MainFunPro.CustomStyleSkin := DBFile.ReadString('Style',
+        'CustomSkin',
         '0');
       //ClientHeight := DBFile.readinteger('WindowInfo', 'height', 400);
       //ClientWidth := DBFile.readinteger('WindowInfo', 'width', 400);
@@ -223,7 +229,11 @@ begin
     //flash.Close;
     //flash.Free;
     Application.CreateForm(Tfrm_main, frm_main);
+
     frm_UserLogin := tfrm_UserLogin.Create(application);
+    //Sleep(3000); //启动窗口延时3000=3秒钟
+    frm_splash.Hide; //隐藏启动窗口
+    frm_splash.Free; //释放启动窗口
     frm_UserLogin.ShowModal;
     //ShowModal表示显示一个独占焦点屏蔽其它窗口的可设置返回值的窗口，其关闭后才执行下面的语句。
     frm_UserLogin.Update;
