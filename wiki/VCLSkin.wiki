@@ -58,3 +58,12 @@ http://www.2ccc.com/article.asp?articleid=5429|VclSkin V5.4 for D7-D2010 FullSou
       //...另外的过程   
       ShowProcTime(True,'...');  
 }}}
+
+===参见===
+
+  * [http://www.cnblogs.com/edrp/archive/2007/12/08/987776.html |delphi开发日志——换肤，给程序穿上美丽的外衣|]
+
+  * [http://blog.csdn.net/iiprogram/archive/2007/08/06/1728767.aspx |VclSkin使用教程|]
+
+  * [http://hi.baidu.com/hjylinyi/blog/item/6eb829f74f89b827730eec18.html |delphi vclskin实现动态换肤|]
+  * []
