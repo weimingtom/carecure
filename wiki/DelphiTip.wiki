@@ -10,5 +10,5 @@ Delphi小经验小窍门
 
 
   * [http://topic.csdn.net/t/20010302/17/77974.html |不能再菜的问题：在Delphi中代码如何换行：）|]:delphi中语句的结束是以分号;为标志,你可以随便换行写. 但字串比较特殊中间有'；'所以我用'+'搞定！  
-  * [http://blog.csdn.net/jiangnanandi/archive/2009/02/16/3895890.aspx |[Delphi]Packed Record和Record的区别|]:Record的数据各个字节都是对齐的，数据格式比较完整，所以这种格式相对packed占用的内存比较大， 但是因为格式比较整齐，所以电脑读取这个类型的数据的时候速度比较快。 而Packed Record对数据进行了压缩，节省了内存空间，当然他的速度也变的慢了。不过，对于现在的操作系统来，packed Record 节省的那些空间已不用考虑他了。除了做DLL（不用packed容易造成内存混乱）和做硬件 编程时（比如串口）编程时必须用到packed Record，其它情况都可以用Record
+  * [http://blog.csdn.net/jiangnanandi/archive/2009/02/16/3895890.aspx |Delphi Packed Record和Record的区别|]    [http://www.moon-soft.com/program/bbs/readelite123432.htm |关于Packed record和record的区别--Delphi的内存管理|]:Record的数据各个字节都是对齐的，数据格式比较完整，所以这种格式相对packed占用的内存比较大， 但是因为格式比较整齐，所以电脑读取这个类型的数据的时候速度比较快。 而Packed Record对数据进行了压缩，节省了内存空间，当然他的速度也变的慢了。不过，对于现在的操作系统来，packed Record 节省的那些空间已不用考虑他了。除了做DLL（不用packed容易造成内存混乱）和做硬件 编程时（比如串口）编程时必须用到packed Record，其它情况都可以用Record
   * Automatic links to other wiki pages
