@@ -101,6 +101,7 @@ object frm_editpassword: Tfrm_editpassword
     Height = 20
     CharCase = ecUpperCase
     Color = 14020849
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     MaxLength = 10
     PasswordChar = '*'
     TabOrder = 0
@@ -113,6 +114,7 @@ object frm_editpassword: Tfrm_editpassword
     Height = 20
     CharCase = ecUpperCase
     Color = 14020849
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     MaxLength = 10
     PasswordChar = '*'
     TabOrder = 1
@@ -125,6 +127,7 @@ object frm_editpassword: Tfrm_editpassword
     Height = 20
     CharCase = ecUpperCase
     Color = 14020849
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     MaxLength = 10
     PasswordChar = '*'
     TabOrder = 2

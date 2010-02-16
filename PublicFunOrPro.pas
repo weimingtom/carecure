@@ -570,7 +570,7 @@ begin
   begin
     Close;
     SQL.Clear;
-    SQL.Add('select Date() as MyDate');  //GetDate()
+    SQL.Add('select date() as MyDate');   //GetDate()
     Open;
   end;
   Result := DateToString(Tempqry.FieldByName('MyDate').AsDateTime);
@@ -589,7 +589,7 @@ begin
   begin
     close;
     SQL.Clear ;
-    SQL.Add('select GetDate() as MyTime');
+    SQL.Add('select Date() as MyTime'); //GetDate()
     Open;
   end;
   result:= DateTimeToStr(TempQry.fieldbyname('MyTime').asdatetime);

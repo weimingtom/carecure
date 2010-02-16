@@ -277,7 +277,7 @@ begin
     with dmod.ADOQuery1 do
     begin
       close;
-      SQL.Text :='update CustomerCard set password='+#39+trim(edt_NewPassword1.Text)+#39+
+      SQL.Text :='update CustomerCard set passwords='+#39+trim(edt_NewPassword1.Text)+#39+
                  ' where card_no='+#39+trim(edt_CardNo2.Text)+#39;
       ExecSQL;
       MessageBox(self.handle,'密码更新成功!','提示',mb_ok+mb_iconinformation);
@@ -378,10 +378,10 @@ begin
   with dmod.ADOQuery1 do
   begin
     close;
-    SQL.Text :='select password from customercard where card_no='+#39+trim(edt_CardNo2.Text)+#39;
+    SQL.Text :='select passwords from customercard where card_no='+#39+trim(edt_CardNo2.Text)+#39;
     Open;
     if not eof then
-       temp_password:=FieldByname('password').AsString ;
+       temp_password:=FieldByname('passwords').AsString ;
   end;
   if temp_password<>trim(edt_OldPassword.Text) then
   begin

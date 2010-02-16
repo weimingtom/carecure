@@ -240,6 +240,7 @@ object frm_operator: Tfrm_operator
     Width = 112
     Height = 20
     Color = 14020849
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     MaxLength = 10
     TabOrder = 1
     OnKeyPress = edt_UserIDKeyPress
@@ -250,6 +251,7 @@ object frm_operator: Tfrm_operator
     Width = 111
     Height = 20
     Color = 14020849
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     MaxLength = 10
     TabOrder = 2
     OnKeyPress = edt_UserNameKeyPress

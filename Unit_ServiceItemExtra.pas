@@ -151,7 +151,7 @@ begin
   with dmod.ADOQuery1 do
   begin
     Close;
-    SQL.Text :='select count(*) as count from serviceitemextra';
+    SQL.Text :='select count(*) as [count] from serviceitemextra';
     Open;
     if FieldByName('count').AsInteger =0 then //如果没有设置服务提成
     begin
@@ -335,7 +335,7 @@ begin
     with dmod.ADOQuery1 do
     begin
       Close;
-      SQL.Text :='select count(*) as count from serviceitemextra where emp_no='+#39+temp+#39;
+      SQL.Text :='select count(*) as [count] from serviceitemextra where emp_no='+#39+temp+#39;
       Open;
       if FieldByName('count').AsInteger >0 then
       begin

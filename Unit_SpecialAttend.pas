@@ -193,7 +193,7 @@ begin
   with dmod.ADOQuery1 do
   begin
     Close;
-    SQL.Text :='select count(*) as count from SpecialAttend where emp_no='+#39+trim(edt_Empno.Text)+#39+
+    SQL.Text :='select count(*) as [count] from SpecialAttend where emp_no='+#39+trim(edt_Empno.Text)+#39+
                ' and att_date='+#39+GetDateString('DBMeirong')+#39+
                ' and reason_id='+#39+reason_id+#39;
     Open;

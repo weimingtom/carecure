@@ -48,7 +48,7 @@ begin
   with dmod.ADOQuery1 do
   begin
     close;
-    sql.Text := 'select UserId,UserName,password from OperatorTable where UserId=:UserId';
+    sql.Text := 'select UserId,UserName,passwords from OperatorTable where UserId=:UserId';
 //    ParamByName('UserId').asstring:=trim(edt_UserId.Text);
     Parameters.ParamValues['UserId']:=trim(edt_UserId.Text);
     open;
@@ -58,13 +58,13 @@ begin
       exit;
     end;
 //    close;
-//    sql.Text :='select UserName,password from OperatorTable where UserId=:UserId';
+//    sql.Text :='select UserName,passwords from OperatorTable where UserId=:UserId';
 //    ParamByName('UserId').asstring := trim(edt_UserId.Text);
 //    open;
 
 
-//    if fieldbyname('password').asstring<>medt_password.text then
-    if fieldbyname('password').asstring<>medt_password.text then
+//    if fieldbyname('passwords').asstring<>medt_password.text then
+    if fieldbyname('passwords').asstring<>medt_password.text then
     begin
       messagebox(self.handle,'√‹¬Î¥ÌŒÛ!','–≈œ¢',mb_ok+mb_iconinformation);
       medt_password.SetFocus;

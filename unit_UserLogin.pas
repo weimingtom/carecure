@@ -60,6 +60,10 @@ begin
   check := false;
   yh.SetFocus;
   edit2.text := '8888';
+  yh.Text := 'superuser';
+  btok.SetFocus;
+  //btok.Click();
+  keybd_event(VK_RETURN, $a ,0,0);
 end;
 
 procedure Tfrm_UserLogin.btokClick(Sender: TObject);
@@ -132,11 +136,11 @@ begin
       case i of
         0:
           begin
-            frm_main.mnuCustomerRegister.Enabled := true;
+            //frm_main.mnuCustomerRegister.Enabled := true;
             frm_main.mnuFrontCheck.Enabled := true;
             frm_main.mnuGoodsRetail.Enabled := true;
             frm_main.mnuGoodsWholeSale.Enabled := true;
-            frm_main.mnuCustomerRegister.Visible := true;
+            //frm_main.mnuCustomerRegister.Visible := true;
             frm_main.mnuFrontCheck.Visible := true;
             frm_main.mnuGoodsRetail.Visible := true;
             frm_main.mnuGoodsWholeSale.Visible := true;

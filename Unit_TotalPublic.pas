@@ -75,67 +75,6 @@ uses
 
 procedure InitializePrj;
 begin
-  if frm_main=nil then exit;
-
-  frm_main.mnuPassword.Enabled    := true;
-  frm_main.mnuUserManager.Enabled := true;
-  frm_main.mnuUserDictionary.Enabled := true;
-  frm_main.mnuSysInitial.Enabled :=true;
-
-  frm_main.mnuCustomerRegister.Enabled :=true;
-  frm_main.mnuFrontCheck.Enabled := true;
-  frm_main.mnuDayStatistic.Enabled :=true;
-  frm_main.mnuMonthStatistic.Enabled :=true;
-
-  frm_main.mnuSalaryManager.Enabled :=true;
-  frm_main.mnuBasicSalary.Enabled :=true;
-  frm_main.mnuSalaryItem.Enabled :=true;
-  frm_main.mnuServiceItem.Enabled :=true;
-  frm_main.mnuServiceMeal.Enabled :=true;
-
-  frm_main.mnuBasicCustomer.Enabled := true;
-  frm_main.mnuCustomerCard.Enabled := true;
-  frm_main.mnuCardManager.Enabled := true;
-  frm_main.mnuCardTrack.Enabled := true;
-  frm_main.mnuServiceBooking.Enabled := true;
-
-  frm_main.mnuNormalAttend.Enabled := true;
-  frm_main.mnuSpecialAttend.Enabled := true;
-  frm_main.mnuAttendManager.Enabled := true;
-  frm_main.mnuAttendStat.Enabled := true;
-  frm_main.mnuAttendConfig.Enabled := true;
-
-  frm_main.mnuBasicEmployee.Enabled := true;
-
-  frm_main.mnuPassword.Enabled    := GetPower(SysUserId,'修改密码','浏览权');
-  frm_main.mnuUserManager.Enabled := GetPower(SysUserId,'用户管理','浏览权');
-  frm_main.mnuUserDictionary.Enabled := GetPower(SysUserId,'用户字典','浏览权');
-  frm_main.mnuSysInitial.Enabled := GetPower(SysUserId,'系统初始化','浏览权');
-
-  frm_main.mnuCustomerRegister.Enabled  := GetPower(SysUserId,'顾客登记','浏览权');
-  frm_main.mnuFrontCheck.Enabled := GetPower(SysUserId,'前台收营','浏览权');
-  frm_main.mnuDayStatistic.Enabled := GetPower(SysUserId,'日营业额统计','浏览权');
-  frm_main.mnuMonthStatistic.Enabled := GetPower(SysUserId,'月营业额统计','浏览权');
-
-  frm_main.mnuSalaryManager.Enabled := GetPower(SysUserId,'工资管理','浏览权');
-  frm_main.mnuBasicSalary.Enabled := GetPower(SysUserId,'基本工资','浏览权');
-  frm_main.mnuSalaryItem.Enabled := GetPower(SysUserId,'工资项目','浏览权');
-  frm_main.mnuServiceItem.Enabled := GetPower(SysUserId,'服务提成','浏览权');
-  frm_main.mnuServiceMeal.Enabled := GetPower(SysUserId,'套餐提成','浏览权');
-
-  frm_main.mnuBasicCustomer.Enabled := GetPower(SysUserId,'客户信息','浏览权');
-  frm_main.mnuCustomerCard.Enabled  := GetPower(SysUserId,'顾客办卡','浏览权');
-  frm_main.mnuCardManager.Enabled   := GetPower(SysUserId,'顾客卡管理','浏览权');
-  frm_main.mnuCardTrack.Enabled     := GetPower(SysUserId,'顾客卡追踪','浏览权');
-  frm_main.mnuServiceBooking.Enabled:= GetPower(SysUserId,'顾客预约服务','浏览权');
-
-  frm_main.mnuNormalAttend.Enabled  := GetPower(SysUserId,'正常考勤','浏览权');
-  frm_main.mnuSpecialAttend.Enabled := GetPower(SysUserId,'特殊考勤','浏览权');
-  frm_main.mnuAttendManager.Enabled := GetPower(SysUserId,'考勤管理','浏览权');
-  frm_main.mnuAttendStat.Enabled    := GetPower(SysUserId,'考勤统计','浏览权');
-  frm_main.mnuAttendConfig.Enabled  := GetPower(SysUserId,'考勤设置','浏览权');
-  
-  frm_main.mnuBasicEmployee.Enabled := GetPower(SysUserId,'员工信息','浏览权');
 end;
 
 function GetPower(UserId,PowerName,OperationName:string):boolean;

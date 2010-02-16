@@ -1,10 +1,11 @@
 object frm_frontcheck: Tfrm_frontcheck
-  Left = 185
-  Top = 102
-  Width = 812
-  Height = 562
-  BorderIcons = [biSystemMenu]
+  Left = 205
+  Top = 130
+  BorderIcons = [biSystemMenu, biMaximize]
+  BorderStyle = bsNone
   Caption = #21069#21488#25910#38134
+  ClientHeight = 529
+  ClientWidth = 804
   Color = clBtnFace
   Font.Charset = GB2312_CHARSET
   Font.Color = clWindowText
@@ -28,7 +29,7 @@ object frm_frontcheck: Tfrm_frontcheck
     Left = 0
     Top = 0
     Width = 485
-    Height = 528
+    Height = 529
     Align = alClient
     BevelOuter = bvNone
     ParentBackground = False
@@ -37,7 +38,7 @@ object frm_frontcheck: Tfrm_frontcheck
       Left = 0
       Top = 33
       Width = 485
-      Height = 246
+      Height = 247
       Align = alClient
       ColCount = 8
       DefaultRowHeight = 20
@@ -57,7 +58,7 @@ object frm_frontcheck: Tfrm_frontcheck
     end
     object StatusBar1: TStatusBar
       Left = 0
-      Top = 501
+      Top = 502
       Width = 485
       Height = 27
       Panels = <
@@ -126,7 +127,7 @@ object frm_frontcheck: Tfrm_frontcheck
     end
     object PageControl1: TPageControl
       Left = 0
-      Top = 279
+      Top = 280
       Width = 485
       Height = 222
       ActivePage = sht_Item
@@ -311,7 +312,7 @@ object frm_frontcheck: Tfrm_frontcheck
     Left = 485
     Top = 0
     Width = 319
-    Height = 528
+    Height = 529
     Align = alRight
     ParentBackground = False
     TabOrder = 1

@@ -24,6 +24,7 @@ object frm_createcard: Tfrm_createcard
     Width = 627
     Height = 41
     Align = alTop
+    ParentBackground = False
     TabOrder = 0
     object sbtn_front: TSpeedButton
       Left = 8
@@ -219,7 +220,7 @@ object frm_createcard: Tfrm_createcard
     Left = 0
     Top = 41
     Width = 627
-    Height = 386
+    Height = 379
     ActivePage = sht_Card
     Align = alClient
     TabOrder = 1
@@ -231,7 +232,7 @@ object frm_createcard: Tfrm_createcard
         Left = 0
         Top = 0
         Width = 619
-        Height = 359
+        Height = 352
         Align = alClient
         ColCount = 7
         DefaultRowHeight = 20
@@ -380,6 +381,7 @@ object frm_createcard: Tfrm_createcard
         Height = 20
         Color = 14020849
         Enabled = False
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         TabOrder = 0
       end
       object edt_CusNo: TEdit
@@ -389,6 +391,7 @@ object frm_createcard: Tfrm_createcard
         Height = 20
         Color = 14020849
         Enabled = False
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         TabOrder = 1
         OnExit = edt_CusNoExit
       end
@@ -399,6 +402,7 @@ object frm_createcard: Tfrm_createcard
         Height = 20
         Color = 14020849
         Enabled = False
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         ReadOnly = True
         TabOrder = 4
       end
@@ -409,6 +413,7 @@ object frm_createcard: Tfrm_createcard
         Height = 20
         Color = 14020849
         Enabled = False
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         ReadOnly = True
         TabOrder = 8
       end
@@ -419,6 +424,7 @@ object frm_createcard: Tfrm_createcard
         Height = 20
         Color = 14020849
         Enabled = False
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         ReadOnly = True
         TabOrder = 9
       end
@@ -429,6 +435,7 @@ object frm_createcard: Tfrm_createcard
         Height = 20
         Color = 14020849
         Enabled = False
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         TabOrder = 10
         Text = '1.00'
       end
@@ -439,6 +446,7 @@ object frm_createcard: Tfrm_createcard
         Height = 20
         Color = 14020849
         Enabled = False
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         TabOrder = 11
       end
       object edt_Warningcurrency: TEdit
@@ -448,6 +456,7 @@ object frm_createcard: Tfrm_createcard
         Height = 20
         Color = 14020849
         Enabled = False
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         TabOrder = 12
       end
       object edt_Costscore: TEdit
@@ -457,6 +466,7 @@ object frm_createcard: Tfrm_createcard
         Height = 20
         Color = 14020849
         Enabled = False
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         TabOrder = 13
       end
       object edt_Password1: TEdit
@@ -466,6 +476,7 @@ object frm_createcard: Tfrm_createcard
         Height = 20
         Color = 14020849
         Enabled = False
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         PasswordChar = '*'
         TabOrder = 2
       end
@@ -476,6 +487,7 @@ object frm_createcard: Tfrm_createcard
         Height = 20
         Color = 14020849
         Enabled = False
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         PasswordChar = '*'
         TabOrder = 3
         OnExit = edt_Password2Exit
@@ -487,6 +499,7 @@ object frm_createcard: Tfrm_createcard
         Height = 129
         Color = 14020849
         Enabled = False
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         TabOrder = 14
       end
       object dtp_CreateDate: TDateTimePicker
@@ -497,6 +510,7 @@ object frm_createcard: Tfrm_createcard
         Date = 37915.404300416670000000
         Time = 37915.404300416670000000
         Enabled = False
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         TabOrder = 6
       end
       object edt_Empno: TEdit
@@ -506,6 +520,7 @@ object frm_createcard: Tfrm_createcard
         Height = 20
         Color = 14020849
         Enabled = False
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         TabOrder = 7
       end
       object cbb_CardType: TComboBox
@@ -515,6 +530,7 @@ object frm_createcard: Tfrm_createcard
         Height = 20
         Color = 14020849
         Enabled = False
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         ItemHeight = 12
         TabOrder = 5
         OnEnter = cbb_CardTypeEnter
@@ -524,7 +540,7 @@ object frm_createcard: Tfrm_createcard
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 427
+    Top = 420
     Width = 627
     Height = 29
     Panels = <

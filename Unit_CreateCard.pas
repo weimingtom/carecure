@@ -252,21 +252,21 @@ begin
       ExecSQL;
 
       close;
-//      SQL.Text := 'insert into CustomerCard(Card_no,Cus_no,password,card_type,create_date' +
+//      SQL.Text := 'insert into CustomerCard(Card_no,Cus_no,passwords,card_type,create_date' +
 //                  ',emp_no,cur_currency,store_currency,warning_currency,cost_score,card_remark,last_time,last_currency)'+
-//                  ' values (:cardno,:cusno,:password,:cardtype,:createdate,:empno' +
+//                  ' values (:cardno,:cusno,:passwords,:cardtype,:createdate,:empno' +
 //                  ',:curcurrency,:storecurrency,:warningcurrency,:costscore,:cardremark,:lasttime,:lastcurrency)';
       SQL.Clear ;
-      SQL.Add('insert into CustomerCard(Card_no,Cus_no,password,card_type,create_date') ;
+      SQL.Add('insert into CustomerCard(Card_no,Cus_no,passwords,card_type,create_date') ;
       SQL.Add(',emp_no,cur_currency,store_currency,warning_currency,cost_score,card_remark,last_time,last_currency)') ;
-      SQL.Add(' values (:cardno,:cusno,:password,:cardtype,') ;
+      SQL.Add(' values (:cardno,:cusno,:passwords,:cardtype,') ;
       SQL.Add( '''' + datetostr(dtp_createDate.Date) + ''',' ) ;
       SQL.Add(':empno,:curcurrency,:storecurrency,:warningcurrency,:costscore,:cardremark,') ;
       SQL.Add( '''' + datetostr(dtp_createdate.Date) + ''',' ) ;
       SQL.Add(':lastcurrency)') ;
       Parameters.ParamValues['cardno']   := trim(edt_Cardno.Text);
       Parameters.ParamValues['cusno']    := trim(edt_Cusno.Text );
-      Parameters.ParamValues['password'] := trim(edt_Password1.Text) ;
+      Parameters.ParamValues['passwords'] := trim(edt_Password1.Text) ;
       Parameters.ParamValues['cardtype'] := StringGetChar(temp_cardtype,'-');
 //      Parameters.ParamValues['createdate']:= dtp_createDate.Date ;
       Parameters.ParamValues['empno']    := trim(edt_Empno.Text );
@@ -312,15 +312,15 @@ begin
   with dmod.ADOQuery1 do
   begin
     close;
-    SQL.Text := 'select CustomerCard.cus_no,cus_name,password,card_type,type_name,create_date,emp_no,cur_currency,store_currency,warning_currency,cost_score,card_remark'+
+    SQL.Text := 'select CustomerCard.cus_no,cus_name,passwords,card_type,type_name,create_date,emp_no,cur_currency,store_currency,warning_currency,cost_score,card_remark'+
                 ' from CustomerCard,MemberCardType,Customer where CustomerCard.card_type=MemberCardType.type_id and CustomerCard.cus_no=Customer.cus_no and card_no='+#39+cardno+#39;
     open;
 
     edt_CardNo.Text   := Cardno;
     edt_cusno.Text    := fieldByname('cus_no').AsString ;
     edt_cusname.Text  := FieldByName('cus_name').AsString ;
-    edt_password1.Text:= FieldByName('password').AsString ;
-    edt_password2.Text:= FieldByName('password').AsString ;
+    edt_password1.Text:= FieldByName('passwords').AsString ;
+    edt_password2.Text:= FieldByName('passwords').AsString ;
     cbb_cardtype.Text := FieldByName('card_type').AsString+'-'+FieldByName('type_name').AsString  ;
     dtp_createdate.Date  :=FieldByName('create_Date').AsDateTime ;
     edt_empno.text       := FieldByName('Emp_no').Asstring ;

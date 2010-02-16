@@ -196,11 +196,11 @@ begin
     begin
       close;
       sql.clear;
-      sql.add('insert into OperatorTable (UserId,UserName,password) '+
-              'values (:UserId,:UserName,:password)');
+      sql.add('insert into OperatorTable (UserId,UserName,passwords) '+
+              'values (:UserId,:UserName,:passwords)');
       Parameters.ParamValues['UserId']:=Trim(edt_UserId.text);
       Parameters.ParamValues['UserName']:=Trim(edt_UserName.text);
-      Parameters.ParamValues['password']:='';
+      Parameters.ParamValues['passwords']:='';
       execsql;
     end;
     edt_UserId.Text :='';

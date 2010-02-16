@@ -23,6 +23,7 @@ object frm_daystatistic: Tfrm_daystatistic
     Width = 610
     Height = 33
     Align = alTop
+    ParentBackground = False
     TabOrder = 0
     object sbtn_close: TSpeedButton
       Left = 544
@@ -158,6 +159,7 @@ object frm_daystatistic: Tfrm_daystatistic
       Height = 20
       Date = 37923.928458449080000000
       Time = 37923.928458449080000000
+      ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
       TabOrder = 0
     end
   end
@@ -165,7 +167,7 @@ object frm_daystatistic: Tfrm_daystatistic
     Left = 0
     Top = 33
     Width = 610
-    Height = 369
+    Height = 362
     Align = alClient
     ColCount = 8
     DefaultRowHeight = 20
@@ -186,7 +188,7 @@ object frm_daystatistic: Tfrm_daystatistic
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 402
+    Top = 395
     Width = 610
     Height = 32
     Panels = <

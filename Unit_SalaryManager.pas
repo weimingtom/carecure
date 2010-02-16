@@ -64,7 +64,7 @@ begin
   begin
     //查找增加工资的项目
     Close;
-    SQL.Text :='select count(*) as count from salaryitem where add_or_reduced=''0''';
+    SQL.Text :='select count(*) as [count] from salaryitem where add_or_reduced=''0''';
     Open;
     SetLength(SalaryAddItems,FieldByName('count').AsInteger);
 
@@ -82,7 +82,7 @@ begin
     addcount:=i;
     //查找扣除工资的项目
     Close;
-    SQL.Text :='select count(*) as count from salaryitem where add_or_reduced=''1''';
+    SQL.Text :='select count(*) as [count] from salaryitem where add_or_reduced=''1''';
     Open;
     SetLength(SalaryReducedItems,FieldByName('count').AsInteger);
 
@@ -255,7 +255,7 @@ begin
   {with dmod.adoquery1 do
   begin
     Close;
-    SQL.Text :='select count(*) as count from salarybasic where year_month='+#39+search_year_month+#39;
+    SQL.Text :='select count(*) as [count] from salarybasic where year_month='+#39+search_year_month+#39;
     Open;
     if FieldByName('count').AsInteger >0 then
     begin
@@ -402,7 +402,7 @@ begin
     with dmod.ADOQuery1 do
     begin
       Close;
-      SQL.Text :='select count(*) as count from salarybasic where year_month='+#39+Search_Year_Month+#39;
+      SQL.Text :='select count(*) as [count] from salarybasic where year_month='+#39+Search_Year_Month+#39;
       Open;
       if FieldByName('count').AsInteger >0 then
       begin

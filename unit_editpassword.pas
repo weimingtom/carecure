@@ -69,12 +69,12 @@ begin
   begin
     close;
     sql.clear;
-    sql.add('select password from OperatorTable where UserId=:UserId');
+    sql.add('select passwords from OperatorTable where UserId=:UserId');
     Parameters.ParamValues['UserId']:=SysUserId;
 //    parambyname('UserId').asstring:=SysUserId;
     open;
   end;
-  if uppercase(dmod.ADOQuery1.fieldbyname('password').asstring)<>uppercase(trim(medt1.text)) then
+  if uppercase(dmod.ADOQuery1.fieldbyname('passwords').asstring)<>uppercase(trim(medt1.text)) then
   begin
     messagebox(handle,'旧密码输入有误！','信息',mb_ok+mb_iconinformation);
     medt1.setfocus;
@@ -90,11 +90,11 @@ begin
   begin
     close;
     sql.clear;
-    sql.add('update OperatorTable set password=:password where UserId=:UserId');
+    sql.add('update OperatorTable set passwords=:passwords where UserId=:UserId');
 //    parambyname('UserId').asstring:=SysUserId;
-//    parambyname('password').asstring:=trim(medt2.text);
+//    parambyname('passwords').asstring:=trim(medt2.text);
     Parameters.ParamValues['UserId']:=SysUserId;
-    Parameters.ParamValues['password']:=trim(medt2.text);
+    Parameters.ParamValues['passwords']:=trim(medt2.text);
     execsql;
   end;
   messagebox(handle,'密码已经成功修改！','提示',mb_ok+mb_iconinformation);
