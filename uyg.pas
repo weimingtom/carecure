@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Mask, DBCtrls, ComCtrls, DBCtrlsEh, DBLookupEh,
-  DBGridEh, Buttons, Grids, XPMenu, PrnDbgeh;
+  DBGridEh, Buttons, Grids, XPMenu, PrnDbgeh, GridsEh;
 
 type
   Tfyg = class(TForm)

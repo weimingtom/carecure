@@ -23,7 +23,7 @@ object fyg: Tfyg
     Top = 0
     Width = 536
     Height = 297
-    ActivePage = TabSheet2
+    ActivePage = TabSheet3
     Align = alTop
     HotTrack = True
     Images = adodm.ImageList1
@@ -31,7 +31,6 @@ object fyg: Tfyg
     RaggedRight = True
     Style = tsFlatButtons
     TabHeight = 50
-    TabIndex = 1
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = #21592#24037#20449#24687
@@ -55,6 +54,7 @@ object fyg: Tfyg
         FooterFont.Style = []
         FooterRowCount = 1
         FrozenCols = 2
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         ParentCtl3D = False
         RowHeight = 20
         RowSizingAllowed = True
@@ -221,6 +221,7 @@ object fyg: Tfyg
         FooterFont.Name = 'MS Sans Serif'
         FooterFont.Style = []
         FooterRowCount = 1
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         SumList.Active = True
         TabOrder = 0
         TitleFont.Charset = DEFAULT_CHARSET
@@ -278,6 +279,7 @@ object fyg: Tfyg
         FooterFont.Style = []
         FooterRowCount = 1
         FrozenCols = 4
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         SumList.Active = True
         TabOrder = 0
         TitleFont.Charset = DEFAULT_CHARSET
@@ -469,10 +471,6 @@ object fyg: Tfyg
   end
   object PrintDBGridEh1: TPrintDBGridEh
     Options = []
-    Page.BottomMargin = 2
-    Page.LeftMargin = 2
-    Page.RightMargin = 2
-    Page.TopMargin = 2
     PageFooter.Font.Charset = DEFAULT_CHARSET
     PageFooter.Font.Color = clWindowText
     PageFooter.Font.Height = -11
