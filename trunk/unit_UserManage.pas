@@ -8,7 +8,7 @@ uses
 type
   intptr = record
     id: string; //integer; --> String
-    qx: int64;
+    UserPower: int64;
   end;
 
 type
@@ -18,7 +18,7 @@ type
     BitBtn2: TBitBtn;
     BitBtn3: TBitBtn;
     BitBtn4: TBitBtn;
-    qx: TCheckListBox;
+    UserPower: TCheckListBox;
     ImageList1: TImageList;
     chkAll: TCheckBox;
     lblUserListTitle: TLabel;
@@ -65,7 +65,7 @@ begin
     newnode := ttreenode.Create(man.Items);
     new(ptr);
     ptr.id := DMod.tuser.fieldbyname('userid').AsString; //.AsInteger;
-    ptr.qx := DMod.tuser.fieldbyname('able').asinteger;
+    ptr.UserPower := DMod.tuser.fieldbyname('able').asinteger;
     man.Items.AddObject(newnode, DMod.tuser.fieldbyname('userid').asstring,
       ptr);
     newnode.Free;
@@ -89,7 +89,7 @@ begin
   begin
     new(ptr);
     ptr.id := DMod.tuser.fieldbyname('userid').AsString; //.AsInteger;
-    ptr.qx := DMod.tuser.fieldbyname('able').asinteger;
+    ptr.UserPower := DMod.tuser.fieldbyname('able').asinteger;
     man.Items.AddObject(newnode, DMod.tuser.fieldbyname('userid').asstring,
       ptr);
     DMod.tuser.Next;
@@ -108,15 +108,15 @@ var
   a: int64;
   i: integer;
 begin
-  a := intptr(node.Data^).qx;
+  a := intptr(node.Data^).UserPower;
   //showmessage(inttostr(a)); //调试权限运算时使用,发布时屏蔽
   a := a xor 1234567890;
   a := a shr 10;
-  for i := 0 to qx.Items.Count - 1 do //最高支持64种权限
+  for i := 0 to UserPower.Items.Count - 1 do //最高支持64种权限
     if ((1 shl i) and a) <> 0 then
-      qx.Checked[i] := true
+      UserPower.Checked[i] := true
     else
-      qx.Checked[i] := false;
+      UserPower.Checked[i] := false;
 
 end;
 
@@ -127,8 +127,8 @@ var
 begin
   a := 0;
   //a为int64位,可以表示64种权限能否,不过在32位intel-pc机上要避免多用户同时操作该值而意外.
-  for i := 0 to qx.Items.Count - 1 do
-    if qx.Checked[i] then
+  for i := 0 to UserPower.Items.Count - 1 do
+    if UserPower.Checked[i] then
       a := a or (1 shl i); //把第i项的权限能否写入a的第n位
 
   a := a shl 10; //用左移10位来混淆加密一下a
@@ -145,7 +145,7 @@ begin
     //DMod.tuser.Refresh;
     showmessage('您对' + DMod.tuser.FieldByName('userid').Asstring +
       '授权成功!');
-    intptr(man.Selected.Data^).qx := a;
+    intptr(man.Selected.Data^).UserPower := a;
   end
   else
     showmessage('在数据库中没有找到该用户的信息,请重新录入信息!');
@@ -176,11 +176,11 @@ var
   i: integer;
 begin
 
-  for I := 0 to qx.Items.Count - 1 do
+  for I := 0 to UserPower.Items.Count - 1 do
     if chkAll.Checked then
-      qx.Checked[I] := True
+      UserPower.Checked[I] := True
     else
-      qx.Checked[I] := False;
+      UserPower.Checked[I] := False;
 end;
 
 procedure Tfrm_UserManage.btnUserEditClick(Sender: TObject);
@@ -197,4 +197,3 @@ begin
 end;
 
 end.
-

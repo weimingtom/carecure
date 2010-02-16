@@ -3,7 +3,7 @@ object frm_UserManage: Tfrm_UserManage
   Top = 158
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
-  Caption = #29992#25143#31649#29702
+  Caption = '用户管理'
   ClientHeight = 277
   ClientWidth = 495
   Color = clScrollBar
@@ -26,11 +26,11 @@ object frm_UserManage: Tfrm_UserManage
     Top = 16
     Width = 63
     Height = 14
-    Caption = #29992#25143#21015#34920':'
+    Caption = '用户列表:'
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -14
-    Font.Name = #23435#20307
+    Font.Name = '宋体'
     Font.Style = []
     ParentFont = False
   end
@@ -39,11 +39,11 @@ object frm_UserManage: Tfrm_UserManage
     Top = 24
     Width = 150
     Height = 12
-    Caption = #24403#21069#29992#25143#25152#23545#24212#30340#26435#38480#21015#34920':'
+    Caption = '当前用户所对应的权限列表:'
     Font.Charset = GB2312_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
-    Font.Name = #23435#20307
+    Font.Name = '宋体'
     Font.Style = []
     ParentFont = False
   end
@@ -65,7 +65,7 @@ object frm_UserManage: Tfrm_UserManage
     Top = 240
     Width = 65
     Height = 25
-    Caption = #26032#22686#29992#25143
+    Caption = '新增用户'
     TabOrder = 1
     OnClick = BitBtn1Click
   end
@@ -74,7 +74,7 @@ object frm_UserManage: Tfrm_UserManage
     Top = 240
     Width = 69
     Height = 25
-    Caption = #21024#38500#29992#25143
+    Caption = '删除用户'
     TabOrder = 2
     OnClick = BitBtn2Click
   end
@@ -83,7 +83,7 @@ object frm_UserManage: Tfrm_UserManage
     Top = 240
     Width = 65
     Height = 25
-    Caption = #25480#26435
+    Caption = '授权'
     TabOrder = 3
     OnClick = BitBtn3Click
   end
@@ -92,38 +92,38 @@ object frm_UserManage: Tfrm_UserManage
     Top = 240
     Width = 65
     Height = 25
-    Caption = #20851#38381
+    Caption = '关闭'
     TabOrder = 4
     OnClick = BitBtn4Click
   end
-  object qx: TCheckListBox
+  object UserPower: TCheckListBox
     Left = 264
     Top = 40
     Width = 209
     Height = 185
     Columns = 2
-    ImeName = #20013#25991' ('#31616#20307') - '#20840#25340
+    ImeName = '中文 (简体) - 全拼'
     ItemHeight = 16
     Items.Strings = (
-      #21069#21488#25910#38134
-      #38144#21806#32479#35745
-      #21333#25454#26597#35810
-      #20250#21592#28040#36153#26597#35810
-      #21830#21697#23383#20856#32500#25252
-      #21830#21697#20837#24211
-      #21830#21697#36864#36135'('#21830#23478')'
-      #21830#21697#36864#36135'('#39038#23458')'
-      #24211#23384#30424#28857
-      #21830#21697#20859#25252
-      #24211#23384#26597#35810
-      #36807#26399#26597#35810
-      #20837#24211#26597#35810
-      #39038#23458#31649#29702
-      #21592#24037#31649#29702
-      #22522#30784#25968#25454#32500#25252
-      #29992#25143#31649#29702
-      #31995#32479#32500#25252
-      #32769#26495#26597#35810)
+      '前台收银'
+      '销售统计'
+      '单据查询'
+      '会员消费查询'
+      '商品字典维护'
+      '商品入库'
+      '商品退货(商家)'
+      '商品退货(顾客)'
+      '库存盘点'
+      '商品养护'
+      '库存查询'
+      '过期查询'
+      '入库查询'
+      '顾客管理'
+      '员工管理'
+      '基础数据维护'
+      '用户管理'
+      '系统维护'
+      '老板查询')
     TabOrder = 5
   end
   object chkAll: TCheckBox
@@ -131,12 +131,12 @@ object frm_UserManage: Tfrm_UserManage
     Top = 240
     Width = 49
     Height = 17
-    Caption = #20840#36873
+    Caption = '全选'
     Color = clWindow
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
-    Font.Name = #23435#20307
+    Font.Name = '宋体'
     Font.Style = []
     ParentColor = False
     ParentFont = False
@@ -148,7 +148,7 @@ object frm_UserManage: Tfrm_UserManage
     Top = 240
     Width = 73
     Height = 25
-    Caption = #20462#25913#29992#25143
+    Caption = '修改用户'
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
