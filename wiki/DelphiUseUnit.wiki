@@ -1,0 +1,13 @@
+#summary delphi的单元定义
+
+= Introduction =
+
+delphi的单元定义
+
+
+= Details =
+
+
+  * [http://topic.csdn.net/t/20021206/14/1237565.html |delphi中哪个单元定义了SC_HANDLE|]
+  * []
+  * []
