@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, Menus, ExtCtrls, ComCtrls, ToolWin, ImgList,
   Unit_DataModule, uypzdk, uxl, udj, Uypzdk2, uyg, urk, uxstj, ukctj,
-    Unit_UserLogin, StdCtrls, uty, ubs, upd, ukl, ukc, upf, uls, uac, ucr, uback,
+    Unit_UserLogin, StdCtrls, uty, ubs, upd, ukl, ukc, Unit_GoodsWholeSale, Unit_GoodsRetail, uac, Unit_SalesStatistic,Unit_AdjustSaleStat, uback,
     unit_UserManage,
   WinSkinData;
 type
@@ -181,6 +181,10 @@ type
     procedure mnuSalaryManagerClick(Sender: TObject);
     procedure mnuServiceMealClick(Sender: TObject);
     procedure mnuCustomerRegisterClick(Sender: TObject);
+    procedure mnuGoodsRetailClick(Sender: TObject);
+    procedure mnuGoodsWholeSaleClick(Sender: TObject);
+    procedure mnuSalesStatisticClick(Sender: TObject);
+    procedure mnuAdjustSaleStatClick(Sender: TObject);
   private
     { Private declarations }
     FClientInstance, FPrevClientProc: TfarProc;
@@ -201,10 +205,11 @@ var
   bs: tfbs;
   pd: tfpd;
   kc: tfkc;
-  pf: tfpf;
-  ls: tfls;
+  pf: tfrm_GoodsWholeSale;
+  ls: tfrm_GoodsRetail;
   ac: tfac;
-  cr: tfcr;
+  cr: tfrm_SalesStatistic;
+  AdjustSaleStat: tfrm_AdjustSaleStat;
   back: tfback;
   UserManage: tFrm_UserManage;
   xl: tfxl;
@@ -407,5 +412,54 @@ begin
   DoCustomerRegister;
 end;
 
-end.
+procedure Tfrm_main.mnuGoodsRetailClick(Sender: TObject);
+begin
+if application.FindComponent('frm_GoodsRetail')=nil then
+begin
+ls:=tfrm_GoodsRetail.create(application) ;
+ls.Show;
+end
+else
+if not ls.Showing then
+ls.Show;
+ls.Edit1.Text:=auser.name;
+end;
 
+procedure Tfrm_main.mnuGoodsWholeSaleClick(Sender: TObject);
+begin
+if application.FindComponent('frm_GoodsWholeSale')=nil then
+begin
+pf:=tfrm_GoodsWholeSale.create(application) ;
+pf.Show;
+end
+else
+if not pf.Showing then
+pf.Show;
+pf.Edit1.Text:=auser.name;
+end;
+
+procedure Tfrm_main.mnuSalesStatisticClick(Sender: TObject);
+begin
+if application.FindComponent('frm_SalesStatistic')=nil then
+begin
+cr:=tfrm_SalesStatistic.create(application) ;
+cr.Show;
+end
+else
+if not cr.Showing then
+cr.Show;
+end;
+
+procedure Tfrm_main.mnuAdjustSaleStatClick(Sender: TObject);
+begin
+if application.FindComponent('frm_AdjustSaleStat')=nil then
+begin
+AdjustSaleStat:=tfrm_AdjustSaleStat.create(application) ;
+AdjustSaleStat.Show;
+end
+else
+if not AdjustSaleStat.Showing then
+AdjustSaleStat.Show;
+end;
+
+end.

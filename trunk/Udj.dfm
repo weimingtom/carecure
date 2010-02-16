@@ -59,6 +59,7 @@ object fdj: Tfdj
     FooterFont.Name = 'MS Sans Serif'
     FooterFont.Style = []
     FooterRowCount = 1
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     ParentFont = False
     ReadOnly = True
     SumList.Active = True
@@ -243,6 +244,7 @@ object fdj: Tfdj
       Width = 118
       Height = 22
       EditMask = 'aa0000000000000;1; '
+      ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
       MaxLength = 15
       TabOrder = 0
       Text = '               '
@@ -256,6 +258,7 @@ object fdj: Tfdj
       TabStop = False
       DataField = #21333#20301#21517#31216
       DataSource = adodm.dsdjsearch
+      ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
       ReadOnly = True
       TabOrder = 1
     end
@@ -409,6 +412,7 @@ object fdj: Tfdj
       TabStop = False
       DataField = #25805#20316#20154
       DataSource = adodm.dsdjsearch
+      ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
       ReadOnly = True
       TabOrder = 2
     end
@@ -420,6 +424,7 @@ object fdj: Tfdj
       TabStop = False
       DataField = #24320#31080
       DataSource = adodm.dsdjsearch
+      ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
       ReadOnly = True
       TabOrder = 3
     end

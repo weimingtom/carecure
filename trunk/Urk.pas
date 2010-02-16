@@ -95,7 +95,7 @@ begin
     end;
  if DMod.tcr.RecordCount<=0 then
    begin
-    showmessage('请录入购入的药品信息！');
+    showmessage('请录入购入的商品信息！');
     result:=false;
     exit;
    end;

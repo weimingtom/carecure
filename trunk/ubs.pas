@@ -75,9 +75,9 @@ begin
         end
   else
    begin
-    showmessage('该药品没有库存');
+    showmessage('该商品没有库存');
     DMod.tcr.Edit;
-    DMod.tcr.FieldByName('药品简码').AsString:='';
+    DMod.tcr.FieldByName('商品简码').AsString:='';
     dbgrideh1.col:=1;
    end;
 
@@ -100,7 +100,7 @@ begin
 
  if DMod.tcr.RecordCount<=0 then
    begin
-    showmessage('请录入退出的药品信息！');
+    showmessage('请录入退出的商品信息！');
     result:=false;
     exit;
    end;

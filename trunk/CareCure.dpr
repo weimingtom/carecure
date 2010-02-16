@@ -1,5 +1,7 @@
 program CareCure;
 
+{$R 'Unit_AdjustSaleStat.dfm' :TForm(Unit_AdjustSaleStat.dfm)}
+
 uses
   Forms,
   windows,
@@ -22,7 +24,7 @@ uses
   Unit_ChooseEmployee in 'Unit_ChooseEmployee.pas' {frm_chooseemployee},
   Unit_CreateCard in 'Unit_CreateCard.pas' {frm_createcard},
   Unit_Customer in 'Unit_Customer.pas' {frm_customer},
-  Udm in 'Udm.pas' {adodm: TDataModule}, //测试用
+  Udm in 'Udm.pas' {adodm: TDataModule},
   Unit_Dictionary in 'Unit_Dictionary.pas' {frm_dictionary},
   Unit_Empattendance in 'Unit_Empattendance.pas' {frm_empattend},
   Unit_FrontCheck in 'Unit_FrontCheck.pas' {frm_frontcheck},
@@ -65,17 +67,17 @@ uses
   Uac in 'Uac.pas' {fac},
   Uback in 'Uback.pas' {fback},
   ubs in 'ubs.pas' {fbs},
-  ucr in 'ucr.pas' {fcr},
+  Unit_SalesStatistic in 'Unit_SalesStatistic.pas' {frm_SalesStatistic},
   Udj in 'Udj.pas' {fdj},
   Unit_DataModule in 'Unit_DataModule.pas' {DMod: TDataModule},
   ukc in 'ukc.pas' {fkc},
   Ukctj in 'Ukctj.pas' {fkctj},
   ukl in 'ukl.pas' {Fkl},
   unit_UserLogin in 'unit_UserLogin.pas' {frm_UserLogin},
-  Uls in 'Uls.pas' {fls},
+  Unit_GoodsRetail in 'Unit_GoodsRetail.pas' {frm_GoodsRetail},
   Umain in 'Umain.pas' {fmain},
   Upd in 'upd.pas' {fpd},
-  Upf in 'Upf.pas' {fpf},
+  Unit_GoodsWholeSale in 'Unit_GoodsWholeSale.pas' {frm_GoodsWholeSale},
   upreview in 'upreview.pas' {fpreview},
   Urk in 'Urk.pas' {frk},
   uty in 'uty.pas' {fty},
@@ -85,7 +87,8 @@ uses
   Uxstj in 'Uxstj.pas' {fxstj},
   uyg in 'uyg.pas' {fyg},
   Uypzdk in 'Uypzdk.pas' {fypzdk},
-  Uypzdk2 in 'Uypzdk2.pas' {fypzdk2};
+  Uypzdk2 in 'Uypzdk2.pas' {fypzdk2},
+  Unit_AdjustSaleStat in 'Unit_AdjustSaleStat.pas' {frm_AdjustSaleStat};
 
 {$R *.res}
 var
@@ -107,6 +110,7 @@ begin
 
   Application.Title := '理疗保健智能管理系统';
   Application.CreateForm(TDMod, DMod);
+  Application.CreateForm(Tfrm_AdjustSaleStat, frm_AdjustSaleStat);
   DBFile := tinifile.Create(extractfilepath(application.ExeName) +
     'DBConn.ini');
   DB_Source := DBFile.ReadString('CareCure', 'DB_Source',
