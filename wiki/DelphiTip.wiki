@@ -1,0 +1,14 @@
+#summary Delphi小经验小窍门
+
+= Introduction =
+
+Delphi小经验小窍门
+
+
+
+= Details =
+
+
+  * [http://topic.csdn.net/t/20010302/17/77974.html |不能再菜的问题：在Delphi中代码如何换行：）|]:delphi中语句的结束是以分号;为标志,你可以随便换行写. 但字串比较特殊中间有'；'所以我用'+'搞定！  
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
