@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils,Classes, Graphics, Controls, Forms,
   Dialogs, ComCtrls, StdCtrls, Buttons,  DBCtrlsEh, Grids, DBGridEh,
-  ExtCtrls, PrnDbgeh,udm, Mask;
+  ExtCtrls, PrnDbgeh,Unit_DataModule, Mask;
 
 type
   Tfkctj = class(TForm)
@@ -83,36 +83,36 @@ begin
   wherestr:='  ';
   sqlstr:=sqlstr+wherestr+'  ';
  //showmessage(sqlstr);
- adodm.tcrlist.Close;
- adodm.tcrlist.CommandText:= sqlstr;
- adodm.tcrlist.Open;
+ DMod.tcrlist.Close;
+ DMod.tcrlist.CommandText:= sqlstr;
+ DMod.tcrlist.Open;
 
- adodm.ttemp.Close;
+ DMod.ttemp.Close;
  sqlstr:='select   金额=case when (类型=''批发'') or (类型=''零售'' ) then SUM(成本金额)'
               +'else  SUM(金额) end   ,类型 from cr ' ;
  sqlstr:=sqlstr+' where 1<2 '+wherestr+'  group by 类型 ';
- adodm.ttemp.commandtext:=sqlstr;
- adodm.ttemp.Open;
- if adodm.ttemp.Locate('类型','批发',[]) then
-    pf.Text:=floattostr(adodm.ttemp.fieldbyname('金额').AsFloat)
+ DMod.ttemp.commandtext:=sqlstr;
+ DMod.ttemp.Open;
+ if DMod.ttemp.Locate('类型','批发',[]) then
+    pf.Text:=floattostr(DMod.ttemp.fieldbyname('金额').AsFloat)
     else pf.Text:='0';
-  if adodm.ttemp.Locate('类型','零售',[]) then
-    ls.Text:=floattostr(adodm.ttemp.fieldbyname('金额').AsFloat)
+  if DMod.ttemp.Locate('类型','零售',[]) then
+    ls.Text:=floattostr(DMod.ttemp.fieldbyname('金额').AsFloat)
     else ls.Text:='0';
- if adodm.ttemp.Locate('类型','盘盈',[]) then
-    py.Text:=floattostr(adodm.ttemp.fieldbyname('金额').AsFloat)
+ if DMod.ttemp.Locate('类型','盘盈',[]) then
+    py.Text:=floattostr(DMod.ttemp.fieldbyname('金额').AsFloat)
     else py.Text:='0';
- if adodm.ttemp.Locate('类型','盘亏',[]) then
-    pk.Text:=floattostr(adodm.ttemp.fieldbyname('金额').AsFloat)
+ if DMod.ttemp.Locate('类型','盘亏',[]) then
+    pk.Text:=floattostr(DMod.ttemp.fieldbyname('金额').AsFloat)
     else pk.Text:='0';
- if adodm.ttemp.Locate('类型','入库',[]) then
-    rk.Text:=floattostr(adodm.ttemp.fieldbyname('金额').AsFloat)
+ if DMod.ttemp.Locate('类型','入库',[]) then
+    rk.Text:=floattostr(DMod.ttemp.fieldbyname('金额').AsFloat)
     else rk.Text:='0';
- if adodm.ttemp.Locate('类型','退药',[]) then
-    ty.Text:=floattostr(adodm.ttemp.fieldbyname('金额').AsFloat)
+ if DMod.ttemp.Locate('类型','退药',[]) then
+    ty.Text:=floattostr(DMod.ttemp.fieldbyname('金额').AsFloat)
     else ty.Text:='0';
- if adodm.ttemp.Locate('类型','报损',[]) then
-    bs.Text:=floattostr(adodm.ttemp.fieldbyname('金额').AsFloat)
+ if DMod.ttemp.Locate('类型','报损',[]) then
+    bs.Text:=floattostr(DMod.ttemp.fieldbyname('金额').AsFloat)
     else bs.Text:='0';
   xs.Text:=floattostr(strtofloat(pf.Text)+strtofloat(ls.Text))   ;
   zj.Text:=floattostr(strtofloat(rk.Text)+strtofloat(py.Text)) ;
@@ -127,15 +127,15 @@ end;
 
 procedure Tfkctj.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  adodm.ttemp.Close;
-  adodm.tcrlist.Close;
+  DMod.ttemp.Close;
+  DMod.tcrlist.Close;
   action:=cafree;
 end;
 
 procedure Tfkctj.FormShow(Sender: TObject);
 begin
-adodm.ttemp.Close;
-  adodm.tcrlist.Close;
+DMod.ttemp.Close;
+  DMod.tcrlist.Close;
 end;
 
 procedure Tfkctj.BitBtn1Click(Sender: TObject);

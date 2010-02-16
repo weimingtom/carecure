@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Buttons,udm;
+  Dialogs, StdCtrls, Buttons,Unit_DataModule;
 
 type
   TFkl = class(TForm)
@@ -67,19 +67,19 @@ new2.SetFocus;
 exit;
 end;
 
-if adodm.tuser.Locate('userid',fmain.auser.id,[]) then
+if DMod.tuser.Locate('userid',fmain.auser.id,[]) then
   begin
-   if adodm.tuser.FieldByName('password').Asstring<>trim(old.Text) then
+   if DMod.tuser.FieldByName('password').Asstring<>trim(old.Text) then
       begin
       showmessage('原密码不对！请重新录入');
       old.SetFocus;
       end
     else
       begin
-      adodm.tuser.Open;
-      adodm.tuser.Edit;
-      adodm.tuser.FieldByName('password').Asstring:=new.Text;
-      adodm.tuser.Post;
+      DMod.tuser.Open;
+      DMod.tuser.Edit;
+      DMod.tuser.FieldByName('password').Asstring:=new.Text;
+      DMod.tuser.Post;
       end;
   end
   else showmessage('当前用户信息被破坏，请重新录入后再进行修改');

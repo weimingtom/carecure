@@ -19,6 +19,7 @@ type
     BitBtn4: TBitBtn;
     qx: TCheckListBox;
     ImageList1: TImageList;
+    chkAll: TCheckBox;
     procedure BitBtn1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure BitBtn4Click(Sender: TObject);

@@ -5,8 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, Menus, XPMenu, ComCtrls, ToolWin, ExtCtrls,   ImgList,  Buttons,
-  jpeg,udm,uypzdk,uxl,udj, Uypzdk2,uyg,urk,uxstj, ukctj,ulogin, StdCtrls,uty,ubs,upd,ukl,ukc,upf,uls,uac,ucr,uback,uuser;
-
+  jpeg,Unit_DataModule,uypzdk,uxl,udj, Uypzdk2,uyg,urk,uxstj, ukctj,Unit_UserLogin, StdCtrls,uty,ubs,upd,ukl,ukc,upf,uls,uac,ucr,uback,
+  unit_UserManage;
 
 type userinfo=record
        name:string;
@@ -146,7 +146,7 @@ var
   ac:tfac;
   cr:tfcr;
   back:tfback;
-  user:tfuser;
+  UserManage:Tfrm_UserManage;
   xl:tfxl;
   kl:tfkl;
   xstj1:tfxstj ;
@@ -195,13 +195,13 @@ canclose:=application.MessageBox('你真的要退出吗？','退出',mb_yesno)=idyes ;
 if canclose then
 begin
   try
-  adodm.tcr.close;
-  adodm.tdw.close;
-  adodm.tbm.close;
-  adodm.tyg.close;
-  adodm.tuser.Close;
-  adodm.tkc.Close;
-  adodm.ydconn.Close;
+  DMod.tcr.close;
+  DMod.tdw.close;
+  DMod.tbm.close;
+  DMod.tyg.close;
+  DMod.tuser.Close;
+  DMod.tkc.Close;
+  DMod.ADOCON.Close;
   except
   end;
 end;
@@ -441,21 +441,21 @@ end;
 
 procedure Tfmain.user1Click(Sender: TObject);
 begin
-if application.FindComponent('fuser')=nil then
+if application.FindComponent('frm_UserManager')=nil then
 begin
-user:=tfuser.create(application) ;
-user.Show;
+frm_UserManage:=tfrm_UserManage.create(application) ;
+frm_UserManage.Show;
 end
 else
-if not user.Showing then
-user.Show;
+if not frm_UserManage.Showing then
+frm_UserManage.Show;
 end;
 
 procedure Tfmain.FormShow(Sender: TObject);
 begin
-//flogin.Edit2.Text:='';
+//frm_UserLogin.Edit2.Text:='';
 
-//flogin.Show;
+//frm_UserLogin.Show;
 end;
 
 procedure Tfmain.Timer1Timer(Sender: TObject);
@@ -478,14 +478,14 @@ end;
 
 procedure Tfmain.reloginClick(Sender: TObject);
 begin
-adodm.toper.Open;
-if adodm.toper.Locate('operid',operid,[]) then
+DMod.toper.Open;
+if DMod.toper.Locate('operid',operid,[]) then
     begin
-          adodm.toper.edit;
-          adodm.toper.FieldByName('退出时间').AsDateTime:=now;
-          adodm.toper.Post;
+          DMod.toper.edit;
+          DMod.toper.FieldByName('退出时间').AsDateTime:=now;
+          DMod.toper.Post;
     end;
-flogin.ShowModal;
+frm_UserLogin.ShowModal;
 end;
 
 procedure Tfmain.mmClick(Sender: TObject);

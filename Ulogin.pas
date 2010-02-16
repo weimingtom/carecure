@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs,udm, StdCtrls, DBCtrls, Buttons, ExtCtrls, Menus, Mask, DBCtrlsEh,
   DBLookupEh, DBGridEh,
-  Unit_DataModule;
+  Unit_DataModule, WinSkinData, ComCtrls;
 
 type
   TFlogin = class(TForm)
@@ -16,6 +16,14 @@ type
     btok: TBitBtn;
     btno: TBitBtn;
     yh: TDBLookupComboboxEh;
+    mmoLoginPrompt: TMemo;
+    lblLoginTitle: TLabel;
+    lblLoginSlogan: TLabel;
+    lblTimeNow: TLabel;
+    lblTimeTitle: TLabel;
+    tmrSysTime: TTimer;
+    btnTimeSet: TButton;
+    skindata2: TSkinData;
     procedure FormShow(Sender: TObject);
     procedure btokClick(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
@@ -24,6 +32,8 @@ type
       Shift: TShiftState);
     procedure Edit2KeyPress(Sender: TObject; var Key: Char);
     procedure FormCreate(Sender: TObject);
+    procedure tmrSysTimeTimer(Sender: TObject);
+    procedure btnTimeSetClick(Sender: TObject);
   private
     check:boolean;
     Ftimes:integer;{ Private declarations }
@@ -191,8 +201,26 @@ btok.Click;
 end;
 
 procedure TFlogin.FormCreate(Sender: TObject);
+var
+  s: string;
 begin
-   apppath:=extractfilepath(application.ExeName);
+  apppath:=extractfilepath(application.ExeName);
+  DateTimeToString(s,'yyyy-mm-dd hh:mm:ss',now);
+  lblTimeNow.Caption:= s;
+end;
+
+procedure TFlogin.tmrSysTimeTimer(Sender: TObject);
+var
+  s: string;
+begin
+  DateTimeToString(s,'yyyy-mm-dd hh:mm:ss',now);
+  lblTimeNow.Caption:= s;
+
+end;
+
+procedure TFlogin.btnTimeSetClick(Sender: TObject);
+begin
+WinExec('RunDLL32.exe Shell32.dll,Control_RunDLL timedate.cpl,,0', SW_SHOWNORMAL);
 end;
 
 end.

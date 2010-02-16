@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils,  Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Grids, DBGridEh, ComCtrls, Buttons, 
-  DBLookupEh,upreview,udm, DBSumLst, Mask, DBCtrlsEh,  DBCtrls;
+  DBLookupEh,upreview,Unit_DataModule, DBSumLst, Mask, DBCtrlsEh,  DBCtrls;
 
 type
   Tfdj = class(TForm)
@@ -52,13 +52,13 @@ end;
 procedure Tfdj.searchClick(Sender: TObject);
 
 begin
-adodm.tdjsearch.Close;
-adodm.tdjsearch.Parameters.ParamByName('bh').Value:=bh.Text;
+DMod.tdjsearch.Close;
+DMod.tdjsearch.Parameters.ParamByName('bh').Value:=bh.Text;
 try
-adodm.tdjsearch.Open;
+DMod.tdjsearch.Open;
 except
 end;
-if adodm.tdjsearch.RecordCount<=0 then
+if DMod.tdjsearch.RecordCount<=0 then
 showmessage('没有找到相应的单据');
 
 
@@ -66,10 +66,10 @@ end;
 
 procedure Tfdj.BitBtn6Click(Sender: TObject);
 begin
-if adodm.tdjsearch.active   then
-if adodm.tdjsearch.RecordCount>0 then
+if DMod.tdjsearch.active   then
+if DMod.tdjsearch.RecordCount>0 then
 begin
-fpreview.frdj.FindObject('memo1').Memo.Text:='药品'+adodm.tdjsearch.FieldValues['类型']+'单' ;
+fpreview.frdj.FindObject('memo1').Memo.Text:='药品'+DMod.tdjsearch.FieldValues['类型']+'单' ;
  fpreview.frdj.ShowReport;
  fpreview.ShowModal;
 end;

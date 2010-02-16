@@ -1,7 +1,7 @@
 object DMod: TDMod
   OldCreateOrder = False
-  Left = 288
-  Top = 154
+  Left = 252
+  Top = 168
   Height = 510
   Width = 724
   object ADOConn: TADOConnection
@@ -1203,5 +1203,53 @@ object DMod: TDMod
     Parameters = <>
     Left = 328
     Top = 136
+  end
+  object ttj: TADOTable
+    Connection = ADOCON
+    CursorType = ctStatic
+    TableName = 'tj'
+    Left = 16
+    Top = 360
+  end
+  object dstj: TDataSource
+    DataSet = ttj
+    Left = 56
+    Top = 360
+  end
+  object ctemp: TADOCommand
+    CommandText = 'getbh;1'
+    CommandType = cmdStoredProc
+    Prepared = True
+    Parameters = <
+      item
+        Name = '@RETURN_VALUE'
+        DataType = ftInteger
+        Direction = pdReturnValue
+        Precision = 10
+        Value = Null
+      end
+      item
+        Name = '@lx'
+        Attributes = [paNullable]
+        DataType = ftString
+        Size = 2
+        Value = 'rk'
+      end
+      item
+        Name = '@bh'
+        Attributes = [paNullable]
+        DataType = ftString
+        Direction = pdInputOutput
+        Size = 15
+        Value = '  '
+      end>
+    Left = 16
+    Top = 320
+  end
+  object cback: TADOCommand
+    Prepared = True
+    Parameters = <>
+    Left = 16
+    Top = 288
   end
 end

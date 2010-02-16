@@ -3,9 +3,15 @@ program CareCure;
 uses
   Forms,
   windows,
-  inifiles, Messages, Dialogs, Graphics, Controls,
-  StdCtrls, Mask, Buttons, SysUtils,
-
+  inifiles,
+  Messages,
+  Dialogs,
+  Graphics,
+  Controls,
+  StdCtrls,
+  Mask,
+  Buttons,
+  SysUtils,
   PublicFunOrPro in 'PublicFunOrPro.pas',
   unit_about in 'unit_about.pas' {frm_about},
   Unit_AttendConfig in 'Unit_AttendConfig.pas' {frm_attendconfig},
@@ -16,7 +22,7 @@ uses
   Unit_ChooseEmployee in 'Unit_ChooseEmployee.pas' {frm_chooseemployee},
   Unit_CreateCard in 'Unit_CreateCard.pas' {frm_createcard},
   Unit_Customer in 'Unit_Customer.pas' {frm_customer},
-  Unit_DataModule in 'Unit_DataModule.pas' {DMod: TDataModule},
+  Udm in 'Udm.pas' {adodm: TDataModule}, //测试用
   Unit_Dictionary in 'Unit_Dictionary.pas' {frm_dictionary},
   Unit_Empattendance in 'Unit_Empattendance.pas' {frm_empattend},
   Unit_FrontCheck in 'Unit_FrontCheck.pas' {frm_frontcheck},
@@ -46,18 +52,12 @@ uses
   Unit_ReportCustomer in 'Unit_ReportCustomer.pas' {frm_ReportCustomer},
   Unit_ReportEmployee in 'Unit_ReportEmployee.pas' {frm_reportemployee},
   Unit_Employee in 'Unit_Employee.pas' {frm_employee},
-  Unit_ReportBasicSalary in 'Unit_ReportBasicSalary.pas'
-  {frm_reportbasicsalary},
-  Unit_ReportAttendStatistic in 'Unit_ReportAttendStatistic.pas'
-  {frm_reportattendstatistic},
-  Unit_ReportCustomerCard in 'Unit_ReportCustomerCard.pas'
-  {frm_reportCustomerCard},
-  Unit_ReportServiceBooking in 'Unit_ReportServiceBooking.pas'
-  {frm_ReportServiceBooking},
-  Unit_ReportDayStatistic in 'Unit_ReportDayStatistic.pas'
-  {frm_ReportDayStatistic},
-  Unit_ReportMonthStatistic in 'Unit_ReportMonthStatistic.pas'
-  {frm_ReportMonthStatistic},
+  Unit_ReportBasicSalary in 'Unit_ReportBasicSalary.pas' {frm_reportbasicsalary},
+  Unit_ReportAttendStatistic in 'Unit_ReportAttendStatistic.pas' {frm_reportattendstatistic},
+  Unit_ReportCustomerCard in 'Unit_ReportCustomerCard.pas' {frm_reportCustomerCard},
+  Unit_ReportServiceBooking in 'Unit_ReportServiceBooking.pas' {frm_ReportServiceBooking},
+  Unit_ReportDayStatistic in 'Unit_ReportDayStatistic.pas' {frm_ReportDayStatistic},
+  Unit_ReportMonthStatistic in 'Unit_ReportMonthStatistic.pas' {frm_ReportMonthStatistic},
   Unit_ReportReceipt in 'Unit_ReportReceipt.pas' {frm_ReportReceipt},
   Unit_ReportSalary in 'Unit_ReportSalary.pas' {frm_ReportSalary},
   Unit_CustomerRegister in 'Unit_CustomerRegister.pas' {frm_CustomerRegister},
@@ -67,11 +67,11 @@ uses
   ubs in 'ubs.pas' {fbs},
   ucr in 'ucr.pas' {fcr},
   Udj in 'Udj.pas' {fdj},
-  Udm in 'Udm.pas' {adodm: TDataModule},
+  Unit_DataModule in 'Unit_DataModule.pas' {DMod: TDataModule},
   ukc in 'ukc.pas' {fkc},
   Ukctj in 'Ukctj.pas' {fkctj},
   ukl in 'ukl.pas' {Fkl},
-  Ulogin in 'Ulogin.pas' {Flogin},
+  unit_UserLogin in 'unit_UserLogin.pas' {frm_UserLogin},
   Uls in 'Uls.pas' {fls},
   Umain in 'Umain.pas' {fmain},
   Upd in 'upd.pas' {fpd},
@@ -79,8 +79,8 @@ uses
   upreview in 'upreview.pas' {fpreview},
   Urk in 'Urk.pas' {frk},
   uty in 'uty.pas' {fty},
-  uuser in 'uuser.pas' {Fuser},
-  Uuser2 in 'Uuser2.pas' {Fuser2},
+  unit_UserManage in 'unit_UserManage.pas' {frm_UserManage},
+  Unit_UserProfile in 'Unit_UserProfile.pas' {frm_UserProfile},
   uxl in 'uxl.pas' {fxl},
   Uxstj in 'Uxstj.pas' {fxstj},
   uyg in 'uyg.pas' {fyg},
@@ -92,18 +92,12 @@ var
   DBFile: Tinifile;
   DB_Source, DB_User, DB_Password : string;
   Frm_Dbini: Tfrm_DBini;
-  flash: tfac;
+  //flash: tfac;
   conn: boolean;
 begin
-  //  try
-    //Application.Initialize;
-   // Application.Title :='美容院管理系统1.0';
-    //Application.CreateForm(TDMod, DMod);
-    //Application.CreateForm(Tfrm_main, frm_main);
-    //Application.CreateForm(Tfrm_login, frm_login);
 
   Application.Initialize;
-  flash := tfac.Create(application);
+  //flash := tfac.Create(application);
 
   //flash.BitBtn1.Visible := false;
   //flash.Label4.Visible := true;
@@ -113,7 +107,6 @@ begin
 
   Application.Title := '理疗保健智能管理系统';
   Application.CreateForm(TDMod, DMod);
-
   DBFile := tinifile.Create(extractfilepath(application.ExeName) +
     'DBConn.ini');
   DB_Source := DBFile.ReadString('CareCure', 'DB_Source',
@@ -187,9 +180,9 @@ begin
         DMod.Adocon.Connected := true;
       except
         conn := false;
-        flash.Label4.Caption := '联接失败，请检验后台数据库状态！';
-        flash.Update;
-        sleep(500);
+        //flash.Label4.Caption := '联接失败，请检验后台数据库状态！';
+        //flash.Update;
+        //sleep(500);
       end;
     end;
   end;
@@ -203,17 +196,16 @@ begin
     //DMod.tyg.Open;
     DMod.tbm.Open;
     DMod.tdw.Open;
-    flash.Label4.Caption := '联接成功！请继续操作';
-    flash.Close;
-    flash.Free;
+    //flash.Label4.Caption := '联接成功！请继续操作';
+    //flash.Close;
+    //flash.Free;
     Application.CreateForm(Tfrm_main, frm_main);
-    flogin := tflogin.Create(application);
-    flogin.ShowModal;
-    flogin.Update;
+    frm_UserLogin := tfrm_UserLogin.Create(application);
+    frm_UserLogin.ShowModal; //ShowModal表示显示一个独占焦点屏蔽其它窗口的可设置返回值的窗口，其关闭后才执行下面的语句。
+    frm_UserLogin.Update;
 
     Application.Run;
   end
   else
     application.Terminate;
 end.
-

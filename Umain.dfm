@@ -1,9 +1,9 @@
 object fmain: Tfmain
-  Left = 123
-  Top = 250
+  Left = 50
+  Top = -13
   BorderStyle = bsSingle
   Caption = #20250#36798#21307#33647#31649#29702#31995#32479
-  ClientHeight = 302
+  ClientHeight = 233
   ClientWidth = 891
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -2124,7 +2124,7 @@ object fmain: Tfmain
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 277
+    Top = 208
     Width = 891
     Height = 25
     Panels = <

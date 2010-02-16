@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Buttons, Grids, DBGridEh, ComCtrls, ExtCtrls,udm,PrnDbgeh,
+  Dialogs, StdCtrls, Buttons, Grids, DBGridEh, ComCtrls, ExtCtrls,Unit_DataModule,PrnDbgeh,
   Mask, DBCtrlsEh;
 
 type
@@ -43,7 +43,7 @@ implementation
 procedure Tfcr.FormShow(Sender: TObject);
 begin
   label3.Caption:=datetimetostr(date);
-  adodm.ttemp.Close;
+  DMod.ttemp.Close;
 end;
 
 procedure Tfcr.BitBtn5Click(Sender: TObject);
@@ -61,9 +61,9 @@ begin
   wherestr:='  ';
   sqlstr:=sqlstr+wherestr;
  //showmessage(sqlstr);
- adodm.tcrlist.Close;
- adodm.tcrlist.CommandText:= sqlstr;
- adodm.tcrlist.Open;
+ DMod.tcrlist.Close;
+ DMod.tcrlist.CommandText:= sqlstr;
+ DMod.tcrlist.Open;
  
 end;
 
@@ -81,7 +81,7 @@ end;
 
 procedure Tfcr.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-adodm.tcrlist.Close;
+DMod.tcrlist.Close;
 action:=cafree;
 end;
 

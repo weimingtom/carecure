@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs,udm, StdCtrls, Buttons, Grids, DBGridEh,uypzdk2, PrnDbgeh, Mask,
+  Dialogs,Unit_DataModule, StdCtrls, Buttons, Grids, DBGridEh,uypzdk2, PrnDbgeh, Mask,
   DBCtrlsEh, DBLookupEh, ComCtrls, GridsEh;
 
 type
@@ -85,26 +85,26 @@ procedure Tfypzdk.searchChange(Sender: TObject);
 begin
 if trim(search.Text)<>'' then
  begin
-  adodm.typzdk.DisableControls;
-  adodm.typzdk.filtered:=false;
-  adodm.typzdk.Filter:=' ±àºÅ like '''+trim(search.text)+'%'' or '+'¼òÂë like '''+trim(search.text)+'%'' or '+'Ãû³Æ like '''+trim(search.text)+'%''' ;
-  //showmessage(adodm.typzdk.Filter);
-  adodm.typzdk.Filtered:=true;
-  adodm.typzdk.EnableControls;
+  DMod.typzdk.DisableControls;
+  DMod.typzdk.filtered:=false;
+  DMod.typzdk.Filter:=' ±àºÅ like '''+trim(search.text)+'%'' or '+'¼òÂë like '''+trim(search.text)+'%'' or '+'Ãû³Æ like '''+trim(search.text)+'%''' ;
+  //showmessage(DMod.typzdk.Filter);
+  DMod.typzdk.Filtered:=true;
+  DMod.typzdk.EnableControls;
  end
 else
-  adodm.typzdk.Filtered:=false;
+  DMod.typzdk.Filtered:=false;
 end;
 
 procedure Tfypzdk.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-adodm.typzdk.Filtered:=false;
+DMod.typzdk.Filtered:=false;
 action:=cafree;
 end;
 
 procedure Tfypzdk.searchExit(Sender: TObject);
 begin
-  if adodm.typzdk.Filtered then
+  if DMod.typzdk.Filtered then
   postmessage(search.Handle,wm_keydown,vk_down,0);
 end;
 

@@ -5,8 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Grids, DBGridEh, ComCtrls, Buttons, 
-  DBLookupEh,upreview,udm, DBSumLst, Mask, DBCtrlsEh, sncCurrency, Menus,
-  DBCtrls;
+  DBLookupEh,upreview,Unit_DataModule, DBSumLst, Mask, DBCtrlsEh, sncCurrency, Menus,
+  DBCtrls, GridsEh;
 
 type
   Tfls = class(TForm)
@@ -61,22 +61,22 @@ type
 
 implementation
 
-uses Umain, Ulogin;
+uses Umain, unit_UserLogin;
 
 {$R *.dfm}
 
 procedure Tfls.FormShow(Sender: TObject);
 begin
   try
-  adodm.tcr.Close;
-  adodm.tcr.Open;
+  DMod.tcr.Close;
+  DMod.tcr.Open;
   except
   showmessage('mistake;');
   end;
   dwfilter:=' 出入<>1 and clientid>=0';
   label3.caption:=datetimetostr(date());
-  adodm.tdw.Filter:=' 出入<>1 and clientid>=0' ;
-  adodm.tdw.Filtered:=true;
+  DMod.tdw.Filter:=' 出入<>1 and clientid>=0' ;
+  DMod.tdw.Filtered:=true;
   dw.Text:='顾客';
   dbgrideh1.SetFocus;
   
@@ -84,23 +84,23 @@ end;
 
 procedure Tfls.DBGridEh1ColExit(Sender: TObject);
 begin
- if (trim(adodm.tcr.FieldByName('ypid').AsString)<>'') and (trim(adodm.tcr.FieldByName('数量').AsString)<>'')  then
+ if (trim(DMod.tcr.FieldByName('ypid').AsString)<>'') and (trim(DMod.tcr.FieldByName('数量').AsString)<>'')  then
 
-   if  adodm.tkc.Locate('ypid',adodm.tcr.Fieldvalues['ypid'],[])  then
+   if  DMod.tkc.Locate('ypid',DMod.tcr.Fieldvalues['ypid'],[])  then
       begin
-       if adodm.tkc.FieldByName('数量').AsInteger<adodm.tcr.FieldByName('数量').AsInteger then
+       if DMod.tkc.FieldByName('数量').AsInteger<DMod.tcr.FieldByName('数量').AsInteger then
         begin
-          showmessage('库存数量:'+adodm.tkc.FieldByName('数量').Asstring+'    不足以支付');
-          adodm.tcr.Edit;
-          adodm.tcr.FieldByName('数量').AsString:='';
+          showmessage('库存数量:'+DMod.tkc.FieldByName('数量').Asstring+'    不足以支付');
+          DMod.tcr.Edit;
+          DMod.tcr.FieldByName('数量').AsString:='';
           dbgrideh1.col:=2;
         end
         else
         begin
-        if  adodm.typzdk.Locate('id',adodm.tcr.Fieldvalues['ypid'],[]) then
+        if  DMod.typzdk.Locate('id',DMod.tcr.Fieldvalues['ypid'],[]) then
         begin
-        adodm.tcr.edit;
-        adodm.tcr.FieldByName('单价').Asfloat:=adodm.typzdk.fieldbyname('零售价').asfloat
+        DMod.tcr.edit;
+        DMod.tcr.FieldByName('单价').Asfloat:=DMod.typzdk.fieldbyname('零售价').asfloat
         end
         else showmessage('发生错误，请手工录入该商品的单价');
         end
@@ -108,16 +108,16 @@ begin
    else
     begin
     showmessage('该药品没有库存');
-    adodm.tcr.Edit;
-    adodm.tcr.FieldByName('药品简码').AsString:='';
+    DMod.tcr.Edit;
+    DMod.tcr.FieldByName('药品简码').AsString:='';
     dbgrideh1.col:=1;
    end;
 
 
-  if (adodm.tcr.FieldByName('单价').AsString<>'') and  (adodm.tcr.FieldByName('数量').Asstring<>'') then
+  if (DMod.tcr.FieldByName('单价').AsString<>'') and  (DMod.tcr.FieldByName('数量').Asstring<>'') then
     begin
-    adodm.tcr.edit;
-    adodm.tcr.FieldByName('金额').AsFloat:=adodm.tcr.FieldByName('数量').Asinteger*adodm.tcr.FieldByName('单价').Asfloat ;
+    DMod.tcr.edit;
+    DMod.tcr.FieldByName('金额').AsFloat:=DMod.tcr.FieldByName('数量').Asinteger*DMod.tcr.FieldByName('单价').Asfloat ;
     end  ;
    
 
@@ -143,7 +143,7 @@ begin
     exit;
     end;
 
- if adodm.tcr.RecordCount<=0 then
+ if DMod.tcr.RecordCount<=0 then
    begin
     showmessage('请录入售出的药品信息！');
     result:=false;
@@ -156,40 +156,40 @@ begin
 
   if not check then
   exit;
-  adodm.ctemp.Parameters.ParamValues['@lx']:='ls';
-  adodm.ctemp.Execute;
-  edit2.Text:=adodm.ctemp.Parameters.ParamValues['@bh'];
+  DMod.ctemp.Parameters.ParamValues['@lx']:='ls';
+  DMod.ctemp.Execute;
+  edit2.Text:=DMod.ctemp.Parameters.ParamValues['@bh'];
     {GETbh}
-  adodm.tcr.First;
-  while not adodm.tcr.Eof do
+  DMod.tcr.First;
+  while not DMod.tcr.Eof do
   begin
-    adodm.tcr.Edit;
-    adodm.tcr.FieldByName('编号').AsString:=trim(edit2.Text);
+    DMod.tcr.Edit;
+    DMod.tcr.FieldByName('编号').AsString:=trim(edit2.Text);
     if trim(dw.Text)<>'' then
-    adodm.tcr.FieldByName('入库单位').AsInteger:=adodm.tdw.fieldbyname('clientid').AsInteger;
+    DMod.tcr.FieldByName('入库单位').AsInteger:=DMod.tdw.fieldbyname('clientid').AsInteger;
     
-    adodm.tcr.FieldByName('开票人').Asinteger:=adodm.tyg.fieldbyname('ygid').Asinteger;
-    adodm.tcr.FieldByName('操作人').Asstring:=trim(edit1.Text);
-    adodm.tcr.FieldByName('类型').Asstring:='零售';
-    adodm.tcr.fieldbyname('出入').asboolean:=false;
-    adodm.tcr.FieldByName('日期').Asdatetime:=date;
+    DMod.tcr.FieldByName('开票人').Asinteger:=DMod.tyg.fieldbyname('ygid').Asinteger;
+    DMod.tcr.FieldByName('操作人').Asstring:=trim(edit1.Text);
+    DMod.tcr.FieldByName('类型').Asstring:='零售';
+    DMod.tcr.fieldbyname('出入').asboolean:=false;
+    DMod.tcr.FieldByName('日期').Asdatetime:=date;
     
-    if adodm.tkc.Locate('ypid',adodm.tcr.FieldValues['ypid'],[]) then
+    if DMod.tkc.Locate('ypid',DMod.tcr.FieldValues['ypid'],[]) then
     begin
-      adodm.tkc.Edit;
-      adodm.tkc.FieldByName('数量').AsInteger:=adodm.tkc.FieldByName('数量').AsInteger-adodm.tcr.FieldByName('数量').AsInteger;
-      adodm.tkc.FieldByName('购进金额').Asfloat:=adodm.tkc.FieldByName('购进单价').Asfloat*adodm.tkc.FieldByName('数量').Asfloat;
-      adodm.tcr.FieldByName('成本金额').AsFloat:=adodm.tkc.FieldByName('购进单价').Asfloat*adodm.tcr.FieldByName('数量').Asfloat;
-      adodm.tkc.Post;
+      DMod.tkc.Edit;
+      DMod.tkc.FieldByName('数量').AsInteger:=DMod.tkc.FieldByName('数量').AsInteger-DMod.tcr.FieldByName('数量').AsInteger;
+      DMod.tkc.FieldByName('购进金额').Asfloat:=DMod.tkc.FieldByName('购进单价').Asfloat*DMod.tkc.FieldByName('数量').Asfloat;
+      DMod.tcr.FieldByName('成本金额').AsFloat:=DMod.tkc.FieldByName('购进单价').Asfloat*DMod.tcr.FieldByName('数量').Asfloat;
+      DMod.tkc.Post;
     end  ;
 
-   adodm.tcr.Next;
+   DMod.tcr.Next;
    end;
-   adodm.tcr.UpdateBatch();
+   DMod.tcr.UpdateBatch();
    dbgrideh1.Enabled:=false;
    if print.Checked then
    begin
-   fpreview.frrk.LoadFromFile(Flogin.apppath+'print\ls.frf');
+   fpreview.frrk.LoadFromFile(frm_UserLogin.apppath+'print\ls.frf');
    fpreview.frrk.FindObject('memo1').Memo.Text:=label1.Caption;
    fpreview.frrk.FindObject('memo27').Memo.Text:='开票人：'+ren.text;
    fpreview.frrk.FindObject('memo27').Memo.Text:='经办人（签字）：'  ; 
@@ -205,8 +205,8 @@ end;
 procedure Tfls.retClick(Sender: TObject);
 begin
  dbgrideh1.Enabled:=true;
- adodm.tcr.close;
- adodm.tcr.Open;
+ DMod.tcr.close;
+ DMod.tcr.Open;
  edit2.Text:='';
  save.Enabled:=true;
  sf.Value:=0;
@@ -218,12 +218,12 @@ end;
 procedure Tfls.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
 try
-adodm.tcr.CancelBatch();
+DMod.tcr.CancelBatch();
 except
 
 end;
 try
-adodm.tcr.Close;
+DMod.tcr.Close;
 except
 
 end;
@@ -236,10 +236,10 @@ begin
 
 
 
-if (key=vk_down) and adodm.tcr.Eof   then
+if (key=vk_down) and DMod.tcr.Eof   then
 begin
 sendmessage(dbgrideh1.Handle,wm_keydown,vk_tab,0);
-adodm.tcr.Append;
+DMod.tcr.Append;
 dbgrideh1.Col:=1;
 
 end;
@@ -285,21 +285,21 @@ procedure Tfls.dwChange(Sender: TObject);
 begin
 if trim(dw.Text)<>'' then
  begin
-  adodm.tdw.DisableControls;
-  adodm.tdw.filtered:=false;
-  adodm.tdw.Filter:='(简码 like '''+trim(dw.text)+'%'' and '+dwfilter+') or (名称 like '''+trim(dw.text)+'%'' and '+dwfilter+')';
-  // showmessage(adodm.tdw.Filter);
-  adodm.tdw.Filtered:=true;
-  adodm.tdw.EnableControls;
+  DMod.tdw.DisableControls;
+  DMod.tdw.filtered:=false;
+  DMod.tdw.Filter:='(简码 like '''+trim(dw.text)+'%'' and '+dwfilter+') or (名称 like '''+trim(dw.text)+'%'' and '+dwfilter+')';
+  // showmessage(DMod.tdw.Filter);
+  DMod.tdw.Filtered:=true;
+  DMod.tdw.EnableControls;
  end
 else
- adodm.tdw.Filter:=dwfilter;
-  adodm.tdw.Filtered:=true;
+ DMod.tdw.Filter:=dwfilter;
+  DMod.tdw.Filtered:=true;
 end;
 
 procedure Tfls.dwExit(Sender: TObject);
 begin
-if not adodm.tdw.Locate('名称',dw.Text,[]) then
+if not DMod.tdw.Locate('名称',dw.Text,[]) then
 begin
   dw.SetFocus;
   showmessage('没有此单位，请重新录入！');
@@ -310,16 +310,16 @@ procedure Tfls.renChange(Sender: TObject);
 begin
 if trim(ren.Text)<>'' then
  begin
-  adodm.tyg.DisableControls;
-  adodm.tyg.filtered:=false;
-  adodm.tyg.Filter:=' 姓名 like '''+trim(ren.text)+'%'' or '+'员工编号 like '''+trim(ren.text)+'%''';
-  //showmessage(adodm.tdw.Filter);
-  adodm.tyg.Filtered:=true;
-  adodm.tyg.EnableControls;
+  DMod.tyg.DisableControls;
+  DMod.tyg.filtered:=false;
+  DMod.tyg.Filter:=' 姓名 like '''+trim(ren.text)+'%'' or '+'员工编号 like '''+trim(ren.text)+'%''';
+  //showmessage(DMod.tdw.Filter);
+  DMod.tyg.Filtered:=true;
+  DMod.tyg.EnableControls;
   sendmessage(ren.Handle,wm_keydown,vk_down,0);
  end
 else
-  adodm.tyg.Filtered:=false;
+  DMod.tyg.Filtered:=false;
 
 end;
 
@@ -330,7 +330,7 @@ end;
 
 procedure Tfls.renExit(Sender: TObject);
 begin
-if not adodm.tyg.Locate('姓名',ren.Text,[]) then
+if not DMod.tyg.Locate('姓名',ren.Text,[]) then
 begin
   ren.SetFocus;
   showmessage('没有此人，请重新录入！');

@@ -267,6 +267,10 @@ type
     TZwrDSDesigner9: TWideStringField;
     TZwrDSDesigner10: TDateTimeField;
     THuiyuan: TADODataSet;
+    ttj: TADOTable;
+    dstj: TDataSource;
+    ctemp: TADOCommand;
+    cback: TADOCommand;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }

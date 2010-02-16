@@ -1,8 +1,8 @@
 object Fuser2: TFuser2
   Left = 256
   Top = 151
-  Width = 344
-  Height = 208
+  Width = 403
+  Height = 273
   Caption = #22686#21152#29992#25143
   Color = clScrollBar
   Ctl3D = False

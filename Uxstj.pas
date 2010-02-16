@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ComCtrls, Grids, DBGridEh, StdCtrls, Mask, DBCtrlsEh, Buttons,
-  PrnDbgeh;
+  PrnDbgeh, GridsEh;
 
 type
   Tfxstj = class(TForm)
@@ -43,7 +43,7 @@ var
 
 implementation
 
-uses Udm;
+uses Unit_DataModule;
 
 {$R *.dfm}
 
@@ -70,9 +70,9 @@ begin
   wherestr:='  ';
   sqlstr:=sqlstr+wherestr+'  group by a.部门名称 ';
  dbgrideh1.Columns[0].FieldName:='部门名称';
- adodm.txstj.Close;
- adodm.txstj.CommandText:= sqlstr;
- adodm.txstj.Open;
+ DMod.txstj.Close;
+ DMod.txstj.CommandText:= sqlstr;
+ DMod.txstj.Open;
 
 
 
@@ -94,9 +94,9 @@ printtitle:=speedbutton4.Caption;
   wherestr:='  ';
   sqlstr:=sqlstr+wherestr+'  group by c.姓名 ';
   dbgrideh1.Columns[0].FieldName:='姓名';
-adodm.txstj.Close;
- adodm.txstj.CommandText:= sqlstr;
- adodm.txstj.Open;
+DMod.txstj.Close;
+ DMod.txstj.CommandText:= sqlstr;
+ DMod.txstj.Open;
 
 
 end;
@@ -116,9 +116,9 @@ printtitle:=speedbutton3.Caption;
   wherestr:='  ';
   sqlstr:=sqlstr+wherestr+'  group by 类型';
   dbgrideh1.Columns[0].FieldName:='类型';
- adodm.txstj.Close;
- adodm.txstj.CommandText:= sqlstr;
- adodm.txstj.Open;
+ DMod.txstj.Close;
+ DMod.txstj.CommandText:= sqlstr;
+ DMod.txstj.Open;
 
 
 end;
@@ -139,9 +139,9 @@ printtitle:=speedbutton1.Caption;
   wherestr:='  ';
   sqlstr:=sqlstr+wherestr+'  group by  c.id, c.名称';
 
-adodm.txstj.Close;
- adodm.txstj.CommandText:= sqlstr;
- adodm.txstj.Open;
+DMod.txstj.Close;
+ DMod.txstj.CommandText:= sqlstr;
+ DMod.txstj.Open;
 
  dbgrideh1.Columns[0].FieldName:='名称';
 end;
@@ -153,13 +153,13 @@ end;
 
 procedure Tfxstj.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-adodm.txstj.Close;
+DMod.txstj.Close;
 action:=cafree;
 end;
 
 procedure Tfxstj.FormShow(Sender: TObject);
 begin
-  adodm.txstj.Close;
+  DMod.txstj.Close;
   
 
 end;
