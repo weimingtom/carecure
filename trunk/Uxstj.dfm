@@ -36,7 +36,7 @@ object fxstj: Tfxstj
   end
   object TabControl2: TTabControl
     Left = 0
-    Top = 416
+    Top = 409
     Width = 792
     Height = 51
     Align = alBottom
@@ -130,8 +130,10 @@ object fxstj: Tfxstj
       Width = 121
       Height = 24
       EditButtons = <>
+      ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
       Kind = dtkDateEh
       TabOrder = 0
+      Visible = True
     end
     object todate: TDBDateTimeEditEh
       Left = 192
@@ -139,8 +141,10 @@ object fxstj: Tfxstj
       Width = 121
       Height = 24
       EditButtons = <>
+      ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
       Kind = dtkDateEh
       TabOrder = 1
+      Visible = True
     end
     object BitBtn5: TBitBtn
       Left = 641
@@ -236,7 +240,7 @@ object fxstj: Tfxstj
     Left = 0
     Top = 48
     Width = 792
-    Height = 368
+    Height = 361
     Align = alClient
     DataSource = adodm.dsxstj
     Flat = True
@@ -247,6 +251,7 @@ object fxstj: Tfxstj
     FooterFont.Name = 'MS Sans Serif'
     FooterFont.Style = []
     FooterRowCount = 1
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     ReadOnly = True
     SumList.Active = True
     TabOrder = 1
@@ -287,10 +292,6 @@ object fxstj: Tfxstj
   object PrintDBGridEh1: TPrintDBGridEh
     DBGridEh = DBGridEh1
     Options = []
-    Page.BottomMargin = 2
-    Page.LeftMargin = 2
-    Page.RightMargin = 2
-    Page.TopMargin = 2
     PageFooter.Font.Charset = DEFAULT_CHARSET
     PageFooter.Font.Color = clWindowText
     PageFooter.Font.Height = -11

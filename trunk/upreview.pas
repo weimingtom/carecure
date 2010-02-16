@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
-  FR_Ctrls, FR_View, ExtCtrls, FR_DSet, FR_DBSet, FR_Class, StdCtrls,udm,
+  FR_Ctrls, FR_View, ExtCtrls, FR_DSet, FR_DBSet, FR_Class, StdCtrls,Unit_DataModule,
   FR_Desgn;
 
 type

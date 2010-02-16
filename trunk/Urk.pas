@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Grids, DBGridEh, ComCtrls, Buttons, Mask, DBCtrlsEh,
-  DBLookupEh, Menus,upreview;
+  DBLookupEh, Menus,upreview, GridsEh;
 
 type
   Tfrk = class(TForm)
@@ -45,37 +45,37 @@ type
 
 
 implementation
-uses udm, Ulogin;
+uses Unit_DataModule, Unit_UserLogin;
 {$R *.dfm}
 
 procedure Tfrk.FormShow(Sender: TObject);
 begin
-  adodm.tcr.Close;
-  adodm.tcr.Open;
+  DMod.tcr.Close;
+  DMod.tcr.Open;
   label3.caption:=datetimetostr(date());
-  adodm.tdw.Filter:=' 出入<> 0 ' ;
-  adodm.tdw.Filtered:=true;
+  DMod.tdw.Filter:=' 出入<> 0 ' ;
+  DMod.tdw.Filtered:=true;
 end;
 
 procedure Tfrk.DBGridEh1ColExit(Sender: TObject);
 begin
 
-  adodm.tcr.Edit;
+  DMod.tcr.Edit;
   if dbgrideh1.Columns[dbgrideh1.Col-1].FieldName='数量'     then
   try
-   adodm.tcr.FieldByName('金额').AsFloat:=adodm.tcr.FieldByName('数量').Asinteger*adodm.tcr.FieldByName('单价').Asfloat ;
+   DMod.tcr.FieldByName('金额').AsFloat:=DMod.tcr.FieldByName('数量').Asinteger*DMod.tcr.FieldByName('单价').Asfloat ;
   except
   end;
 
   if dbgrideh1.Columns[dbgrideh1.Col-1].FieldName='单价'    then
   try
-   adodm.tcr.FieldByName('金额').AsFloat:=adodm.tcr.FieldByName('数量').Asinteger*adodm.tcr.FieldByName('单价').Asfloat ;
+   DMod.tcr.FieldByName('金额').AsFloat:=DMod.tcr.FieldByName('数量').Asinteger*DMod.tcr.FieldByName('单价').Asfloat ;
   except
   end;
 
   if dbgrideh1.Columns[dbgrideh1.Col-1].FieldName='金额'    then
   try
-   adodm.tcr.FieldByName('单价').AsFloat:=adodm.tcr.FieldByName('金额').Asfloat/adodm.tcr.FieldByName('数量').Asinteger ;
+   DMod.tcr.FieldByName('单价').AsFloat:=DMod.tcr.FieldByName('金额').Asfloat/DMod.tcr.FieldByName('数量').Asinteger ;
   except
   end;
 
@@ -93,7 +93,7 @@ begin
     result:=false;
     exit;
     end;
- if adodm.tcr.RecordCount<=0 then
+ if DMod.tcr.RecordCount<=0 then
    begin
     showmessage('请录入购入的药品信息！');
     result:=false;
@@ -106,47 +106,47 @@ begin
 
   if not check then
   exit;
-  adodm.ctemp.Parameters.ParamValues['@lx']:='rk';
-  adodm.ctemp.Execute;
-  edit2.Text:=adodm.ctemp.Parameters.ParamValues['@bh'];
+  DMod.ctemp.Parameters.ParamValues['@lx']:='rk';
+  DMod.ctemp.Execute;
+  edit2.Text:=DMod.ctemp.Parameters.ParamValues['@bh'];
     {GETbh}
-  adodm.tcr.First;
-  while not adodm.tcr.Eof do
+  DMod.tcr.First;
+  while not DMod.tcr.Eof do
   begin
-    adodm.tcr.Edit;
-    adodm.tcr.FieldByName('编号').AsString:=trim(edit2.Text);
+    DMod.tcr.Edit;
+    DMod.tcr.FieldByName('编号').AsString:=trim(edit2.Text);
 
-    adodm.tcr.FieldByName('出库单位').AsInteger:=adodm.tdw.fieldbyname('clientid').AsInteger;
+    DMod.tcr.FieldByName('出库单位').AsInteger:=DMod.tdw.fieldbyname('clientid').AsInteger;
     if trim(ren.Text)<>'' then
-    adodm.tcr.FieldByName('开票人').Asinteger:=adodm.tyg.fieldbyname('ygid').Asinteger;
-    adodm.tcr.FieldByName('操作人').Asstring:=trim(edit1.Text);
-    adodm.tcr.FieldByName('类型').Asstring:='入库';
-    adodm.tcr.fieldbyname('出入').asboolean:=true;
-    adodm.tcr.FieldByName('日期').Asdatetime:=date;
-    if adodm.tkc.Locate('ypid',adodm.tcr.FieldValues['ypid'],[]) then
+    DMod.tcr.FieldByName('开票人').Asinteger:=DMod.tyg.fieldbyname('ygid').Asinteger;
+    DMod.tcr.FieldByName('操作人').Asstring:=trim(edit1.Text);
+    DMod.tcr.FieldByName('类型').Asstring:='入库';
+    DMod.tcr.fieldbyname('出入').asboolean:=true;
+    DMod.tcr.FieldByName('日期').Asdatetime:=date;
+    if DMod.tkc.Locate('ypid',DMod.tcr.FieldValues['ypid'],[]) then
     begin
-      adodm.tkc.Edit;
-      adodm.tkc.FieldByName('数量').AsInteger:=adodm.tkc.FieldByName('数量').AsInteger+adodm.tcr.FieldByName('数量').AsInteger;
-      adodm.tkc.FieldByName('购进金额').Asfloat:=adodm.tkc.FieldByName('购进金额').Asfloat+adodm.tcr.FieldByName('金额').Asfloat;
-      adodm.tkc.FieldByName('购进单价').Asfloat:=adodm.tkc.FieldByName('购进金额').Asfloat/adodm.tkc.FieldByName('数量').AsInteger;
-      adodm.tkc.Post;
+      DMod.tkc.Edit;
+      DMod.tkc.FieldByName('数量').AsInteger:=DMod.tkc.FieldByName('数量').AsInteger+DMod.tcr.FieldByName('数量').AsInteger;
+      DMod.tkc.FieldByName('购进金额').Asfloat:=DMod.tkc.FieldByName('购进金额').Asfloat+DMod.tcr.FieldByName('金额').Asfloat;
+      DMod.tkc.FieldByName('购进单价').Asfloat:=DMod.tkc.FieldByName('购进金额').Asfloat/DMod.tkc.FieldByName('数量').AsInteger;
+      DMod.tkc.Post;
     end
     else
     begin
-      adodm.tkc.Append;
-      adodm.tkc.FieldByName('ypid').Asinteger:=adodm.tcr.fieldbyname('ypid').AsInteger;
-      adodm.tkc.FieldByName('数量').AsInteger:=adodm.tcr.FieldByName('数量').AsInteger;
-      adodm.tkc.FieldByName('购进金额').Asfloat:=adodm.tcr.FieldByName('购进金额').Asfloat;
-      adodm.tkc.FieldByName('购进单价').Asfloat:=adodm.tcr.FieldByName('购进金额').Asfloat;
-      adodm.tkc.Post;
+      DMod.tkc.Append;
+      DMod.tkc.FieldByName('ypid').Asinteger:=DMod.tcr.fieldbyname('ypid').AsInteger;
+      DMod.tkc.FieldByName('数量').AsInteger:=DMod.tcr.FieldByName('数量').AsInteger;
+      DMod.tkc.FieldByName('购进金额').Asfloat:=DMod.tcr.FieldByName('购进金额').Asfloat;
+      DMod.tkc.FieldByName('购进单价').Asfloat:=DMod.tcr.FieldByName('购进金额').Asfloat;
+      DMod.tkc.Post;
     end;
-    adodm.tcr.Next;
+    DMod.tcr.Next;
    end;
-   adodm.tcr.UpdateBatch();
+   DMod.tcr.UpdateBatch();
    dbgrideh1.Enabled:=false;
    if print.Checked then
    begin
-   fpreview.frrk.LoadFromFile(flogin.apppath+'\print\yprk.frf');
+   fpreview.frrk.LoadFromFile(frm_UserLogin.apppath+'\print\yprk.frf');
    fpreview.frrk.FindObject('memo1').Memo.Text:=label1.Caption;
    fpreview.frrk.ShowReport;
    end;
@@ -160,8 +160,8 @@ end;
 procedure Tfrk.retClick(Sender: TObject);
 begin
  dbgrideh1.Enabled:=true;
- adodm.tcr.close;
- adodm.tcr.Open;
+ DMod.tcr.close;
+ DMod.tcr.Open;
  edit2.Text:='';
  save.Enabled:=true;
 end;
@@ -169,8 +169,8 @@ end;
 procedure Tfrk.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
 try
-adodm.tcr.CancelUpdates;
-adodm.tcr.Close;
+DMod.tcr.CancelUpdates;
+DMod.tcr.Close;
 except
 end;
 
@@ -181,10 +181,10 @@ end;
 procedure Tfrk.DBGridEh1KeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-if (key=vk_down) and adodm.tcr.Eof   then
+if (key=vk_down) and DMod.tcr.Eof   then
 begin
  sendmessage(dbgrideh1.Handle,wm_keydown,vk_tab,0);
- adodm.tcr.Append;
+ DMod.tcr.Append;
  dbgrideh1.Col:=1;
 end;
 end;

@@ -42,7 +42,7 @@ type
 
 implementation
 
-uses Udm;
+uses Unit_DataModule;
 
 {$R *.dfm}
 
@@ -62,19 +62,19 @@ end;
 
 procedure Tfyg.TabSheet1Show(Sender: TObject);
 begin
- adodm.tyg.Filtered:=false;
+ DMod.tyg.Filtered:=false;
 end;
 
 procedure Tfyg.TabSheet2Show(Sender: TObject);
 begin
-adodm.tbm.Filtered:=false;
+DMod.tbm.Filtered:=false;
 
 end;
 
 procedure Tfyg.TabSheet3Show(Sender: TObject);
 begin
-adodm.tdw.Filter:='clientid >0';
-adodm.tdw.Filtered:=true;
+DMod.tdw.Filter:='clientid >0';
+DMod.tdw.Filtered:=true;
 end;
 
 procedure Tfyg.BitBtn6Click(Sender: TObject);
@@ -88,9 +88,9 @@ end;
 procedure Tfyg.DBGridEh1KeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-if (key=vk_down) and adodm.tyg.Eof   then
+if (key=vk_down) and DMod.tyg.Eof   then
 begin
-adodm.tyg.Append;
+DMod.tyg.Append;
 dbgrideh1.Col:=1;
 end;
 end;
@@ -98,9 +98,9 @@ end;
 procedure Tfyg.DBGridEh2KeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-if (key=vk_down) and adodm.tbm.Eof   then
+if (key=vk_down) and DMod.tbm.Eof   then
 begin
-adodm.tbm.Append;
+DMod.tbm.Append;
 dbgrideh2.Col:=1;
 end;
 end;
@@ -108,9 +108,9 @@ end;
 procedure Tfyg.DBGridEh3KeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-if (key=vk_down) and adodm.tdw.Eof   then
+if (key=vk_down) and DMod.tdw.Eof   then
 begin
-adodm.tdw.Append;
+DMod.tdw.Append;
 dbgrideh3.Col:=1;
 end;
 end;

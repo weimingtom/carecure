@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Buttons, Grids, DBGridEh, ComCtrls, ExtCtrls,udm,
+  Dialogs, StdCtrls, Buttons, Grids, DBGridEh, ComCtrls, ExtCtrls,Unit_DataModule,
   PrnDbgeh;
 
 type
@@ -50,9 +50,9 @@ case fw.ItemIndex of
 1:sqlstr:='select a.* ,b.* from ypzdk a,kc b where a.id=b.ypid and (b.数量>a.最高限量 and a.最高限量>0)';
 2:sqlstr:='select a.* ,b.* from ypzdk a,kc b where a.id=b.ypid and  b.数量<a.最低限量';
 end;
-adodm.ttemp.Close;
-adodm.ttemp.CommandText:= sqlstr;
-adodm.ttemp.Open;
+DMod.ttemp.Close;
+DMod.ttemp.CommandText:= sqlstr;
+DMod.ttemp.Open;
 
 end;
 

@@ -38,7 +38,6 @@ object fback: Tfback
     Top = 40
     Width = 272
     Height = 60
-    Active = False
     CommonAVI = aviCopyFile
     StopFrame = 26
   end

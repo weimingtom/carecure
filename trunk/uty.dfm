@@ -52,6 +52,7 @@ object fty: Tfty
     FooterFont.Name = 'MS Sans Serif'
     FooterFont.Style = []
     FooterRowCount = 1
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     SumList.Active = True
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
@@ -192,11 +193,13 @@ object fty: Tfty
       Height = 22
       DropDownBox.AutoDrop = True
       EditButtons = <>
+      ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
       KeyField = 'clientid'
       ListField = #21517#31216
       ListFieldIndex = 1
       ListSource = adodm.dsdw
       TabOrder = 0
+      Visible = True
     end
     object Edit2: TEdit
       Left = 568
@@ -204,6 +207,7 @@ object fty: Tfty
       Width = 105
       Height = 22
       Enabled = False
+      ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
       TabOrder = 1
     end
   end
@@ -237,6 +241,7 @@ object fty: Tfty
       Width = 121
       Height = 22
       Enabled = False
+      ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
       ReadOnly = True
       TabOrder = 2
     end
@@ -247,10 +252,12 @@ object fty: Tfty
       Height = 22
       DropDownBox.AutoDrop = True
       EditButtons = <>
+      ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
       KeyField = 'ygid'
       ListField = #22995#21517
       ListSource = adodm.dsyg
       TabOrder = 0
+      Visible = True
     end
     object print: TCheckBox
       Left = 224

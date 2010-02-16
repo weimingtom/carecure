@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Buttons,  DBGridEh, ComCtrls, ExtCtrls,udm,PrnDbgeh,
+  Dialogs, StdCtrls, Buttons,  DBGridEh, ComCtrls, ExtCtrls,Unit_DataModule,PrnDbgeh,
   Grids;
 
 type
@@ -46,9 +46,9 @@ procedure Tfkc.BitBtn5Click(Sender: TObject);
 var sqlstr:string;
 begin
  sqlstr:='select a.* ,b.* from ypzdk a,kc b,company where a.id=b.ypid '  ;
- adodm.ttemp.Close;
- adodm.ttemp.CommandText:= sqlstr;
- adodm.ttemp.Open;
+ DMod.ttemp.Close;
+ DMod.ttemp.CommandText:= sqlstr;
+ DMod.ttemp.Open;
 end;
 
 procedure Tfkc.printClick(Sender: TObject);
@@ -65,7 +65,7 @@ end;
 
 procedure Tfkc.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-adodm.ttemp.Close;
+DMod.ttemp.Close;
 action:=cafree;
 end;
 

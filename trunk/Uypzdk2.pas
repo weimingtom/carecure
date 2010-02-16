@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, StdCtrls, Mask, DBCtrls, Buttons, DBCtrlsEh,
-  DBLookupEh;
+  DBLookupEh, DBGridEh;
 
 type
   Tfypzdk2 = class(TForm)
@@ -85,7 +85,7 @@ var fypzdk2:tfypzdk2;
 
 implementation
 
-uses udm;
+uses Unit_DataModule;
 
 {$R *.dfm}
 
@@ -227,20 +227,20 @@ begin
   dotj
   else
   if checkdata then
-    adodm.typzdk.Post;
+    DMod.typzdk.Post;
   close;
 end;
 
 procedure Tfypzdk2.btnoClick(Sender: TObject);
 begin
-      adodm.typzdk.Cancel;
+      DMod.typzdk.Cancel;
       close;
 end;
 
 procedure Tfypzdk2.btaddClick(Sender: TObject);
 begin
    if checkdata then
-   adodm.typzdk.Append;
+   DMod.typzdk.Append;
 end;
 
 procedure Tfypzdk2.checkstr(Sender: TObject);
@@ -255,14 +255,14 @@ procedure Tfypzdk2.jxButtonDown(Sender: TObject; TopButton: Boolean;
 begin
 
   jx.Items.Clear;
-  adodm.ttemp.Close;
-  adodm.ttemp.CommandText:=' select distinct 剂型 from ypzdk'   ;
-  adodm.ttemp.Open;
-  adodm.ttemp.First;
-  while not adodm.ttemp.Eof do
+  DMod.ttemp.Close;
+  DMod.ttemp.CommandText:=' select distinct 剂型 from ypzdk'   ;
+  DMod.ttemp.Open;
+  DMod.ttemp.First;
+  while not DMod.ttemp.Eof do
   begin
-    jx.Items.Add(adodm.ttemp.Fields[0].asstring) ;
-    adodm.ttemp.Next;
+    jx.Items.Add(DMod.ttemp.Fields[0].asstring) ;
+    DMod.ttemp.Next;
   end;
 end;
 
@@ -270,20 +270,20 @@ procedure Tfypzdk2.dwButtonDown(Sender: TObject;
   TopButton: Boolean; var AutoRepeat, Handled: Boolean);
 begin
   dw.Items.Clear;
-  adodm.ttemp.Close;
-  adodm.ttemp.CommandText:=' select distinct 单位 from ypzdk'   ;
-  adodm.ttemp.Open;
-  adodm.ttemp.First;
-  while not adodm.ttemp.Eof do
+  DMod.ttemp.Close;
+  DMod.ttemp.CommandText:=' select distinct 单位 from ypzdk'   ;
+  DMod.ttemp.Open;
+  DMod.ttemp.First;
+  while not DMod.ttemp.Eof do
   begin
-    dw.Items.Add(adodm.ttemp.Fields[0].asstring) ;
-    adodm.ttemp.Next;
+    dw.Items.Add(DMod.ttemp.Fields[0].asstring) ;
+    DMod.ttemp.Next;
   end;
 end;
 
 procedure Tfypzdk2.FormShow(Sender: TObject);
 begin
-//adodm.typzdk.Append;
+//DMod.typzdk.Append;
 
 end;
 
@@ -291,14 +291,14 @@ procedure Tfypzdk2.lxButtonDown(Sender: TObject;
   TopButton: Boolean; var AutoRepeat, Handled: Boolean);
 begin
   lx.Items.Clear;
-  adodm.ttemp.Close;
-  adodm.ttemp.CommandText:=' select distinct 分类 from ypzdk'   ;
-  adodm.ttemp.Open;
-  adodm.ttemp.First;
-  while not adodm.ttemp.Eof do
+  DMod.ttemp.Close;
+  DMod.ttemp.CommandText:=' select distinct 分类 from ypzdk'   ;
+  DMod.ttemp.Open;
+  DMod.ttemp.First;
+  while not DMod.ttemp.Eof do
   begin
-    lx.Items.Add(adodm.ttemp.Fields[0].asstring) ;
-    adodm.ttemp.Next;
+    lx.Items.Add(DMod.ttemp.Fields[0].asstring) ;
+    DMod.ttemp.Next;
   end;
 end;
 
@@ -306,14 +306,14 @@ procedure Tfypzdk2.cjButtonDown(Sender: TObject; TopButton: Boolean;
   var AutoRepeat, Handled: Boolean);
 begin
   cj.Items.Clear;
-  adodm.ttemp.Close;
-  adodm.ttemp.CommandText:=' select distinct 生产厂家 from ypzdk'   ;
-  adodm.ttemp.Open;
-  adodm.ttemp.First;
-  while not adodm.ttemp.Eof do
+  DMod.ttemp.Close;
+  DMod.ttemp.CommandText:=' select distinct 生产厂家 from ypzdk'   ;
+  DMod.ttemp.Open;
+  DMod.ttemp.First;
+  while not DMod.ttemp.Eof do
   begin
-    cj.Items.Add(adodm.ttemp.Fields[0].asstring) ;
-    adodm.ttemp.Next;
+    cj.Items.Add(DMod.ttemp.Fields[0].asstring) ;
+    DMod.ttemp.Next;
   end;
 end;
 
@@ -337,15 +337,15 @@ end;
 
 function Tfypzdk2.search(fieldname: string; value: string): boolean;
 begin
-   adodm.ttemp.Close;
-   adodm.ttemp.CommandText:=' select id from ypzdk where '+trim(fieldname)+' ='''+trim(value)+'''';
+   DMod.ttemp.Close;
+   DMod.ttemp.CommandText:=' select id from ypzdk where '+trim(fieldname)+' ='''+trim(value)+'''';
 
    if look1.Visible then
-   adodm.ttemp.commandtext:=adodm.ttemp.CommandText+' and id <>'+adodm.typzdk.Fieldbyname('id').asstring;
+   DMod.ttemp.commandtext:=DMod.ttemp.CommandText+' and id <>'+DMod.typzdk.Fieldbyname('id').asstring;
 
-   showmessage(adodm.ttemp.commandtext);
-   adodm.ttemp.Open;
-   result:= not adodm.ttemp.Eof;  
+   showmessage(DMod.ttemp.commandtext);
+   DMod.ttemp.Open;
+   result:= not DMod.ttemp.Eof;  
 end;
 
 procedure Tfypzdk2.whEnter(Sender: TObject);
@@ -383,21 +383,21 @@ begin
    //showmessage(floattostr(pf.Field.OldValue));
    //showmessage(floattostr(pf.Field.value));
   begin
-  a:=adodm.typzdk.FieldValues['id'];
+  a:=DMod.typzdk.FieldValues['id'];
   //showmessage(inttostr(a));
-  adodm.ttj.Open;
-  adodm.ttj.append;
-  adodm.ttj.Edit;
-  adodm.ttj.Fieldbyname('ypid').AsInteger:=a;
-  adodm.ttj.Fieldvalues['oldpf']:=pf.Field.oldvalue;
-  adodm.ttj.Fieldvalues['oldls']:=ls.Field.oldvalue;
-  adodm.ttj.Fieldvalues['newpf']:=pf.Field.value;
-  adodm.ttj.FieldValues['newls']:=ls.Field.Value;
-  adodm.ttj.FieldValues['tjdate']:=now;
-  adodm.ttj.Post;
-  adodm.typzdk.Edit;
-  adodm.typzdk.Post;
-  adodm.ttj.Close;
+  DMod.ttj.Open;
+  DMod.ttj.append;
+  DMod.ttj.Edit;
+  DMod.ttj.Fieldbyname('ypid').AsInteger:=a;
+  DMod.ttj.Fieldvalues['oldpf']:=pf.Field.oldvalue;
+  DMod.ttj.Fieldvalues['oldls']:=ls.Field.oldvalue;
+  DMod.ttj.Fieldvalues['newpf']:=pf.Field.value;
+  DMod.ttj.FieldValues['newls']:=ls.Field.Value;
+  DMod.ttj.FieldValues['tjdate']:=now;
+  DMod.ttj.Post;
+  DMod.typzdk.Edit;
+  DMod.typzdk.Post;
+  DMod.ttj.Close;
   
   end
 
@@ -407,20 +407,20 @@ procedure Tfypzdk2.look1Change(Sender: TObject);
 begin
 if trim(look1.Text)<>'' then
  begin
-  adodm.typzdk.DisableControls;
-  adodm.typzdk.filtered:=false;
-  adodm.typzdk.Filter:=' 编号 like '''+trim(look1.text)+'%'' or '+'简码 like '''+trim(look1.text)+'%'' or '+'名称 like '''+trim(look1.text)+'%''' ;
-  //showmessage(adodm.typzdk.Filter);
-  adodm.typzdk.Filtered:=true;
-  adodm.typzdk.EnableControls;
+  DMod.typzdk.DisableControls;
+  DMod.typzdk.filtered:=false;
+  DMod.typzdk.Filter:=' 编号 like '''+trim(look1.text)+'%'' or '+'简码 like '''+trim(look1.text)+'%'' or '+'名称 like '''+trim(look1.text)+'%''' ;
+  //showmessage(DMod.typzdk.Filter);
+  DMod.typzdk.Filtered:=true;
+  DMod.typzdk.EnableControls;
  end
 else
-  adodm.typzdk.Filtered:=false;
+  DMod.typzdk.Filtered:=false;
 end;
 
 procedure Tfypzdk2.look1Exit(Sender: TObject);
 begin
-if adodm.typzdk.Filtered then
+if DMod.typzdk.Filtered then
  postmessage(look1.Handle,wm_keydown,vk_down,0);
 end;
 

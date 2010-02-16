@@ -1,8 +1,8 @@
 object fypzdk2: Tfypzdk2
-  Left = 207
-  Top = 101
+  Left = 308
+  Top = 112
   Width = 483
-  Height = 439
+  Height = 469
   Caption = #33647#21697#23383#20856#32500#25252
   Color = clScrollBar
   Ctl3D = False
@@ -149,7 +149,7 @@ object fypzdk2: Tfypzdk2
   end
   object Image1: TImage
     Left = 336
-    Top = 24
+    Top = 48
     Width = 65
     Height = 65
     Picture.Data = {
@@ -398,7 +398,7 @@ object fypzdk2: Tfypzdk2
   end
   object sp1: TSpeedButton
     Left = 311
-    Top = 0
+    Top = 8
     Width = 23
     Height = 22
     Enabled = False
@@ -490,7 +490,8 @@ object fypzdk2: Tfypzdk2
     Width = 120
     Height = 47
     DataField = #20027#27835
-    DataSource = adodm.dsypzdk
+    DataSource = DMod.dsypzdk
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     TabOrder = 9
   end
   object DBEdit8: TDBEdit
@@ -500,7 +501,7 @@ object fypzdk2: Tfypzdk2
     Height = 22
     Hint = '-1'#20195#34920#26080#26368#39640#38480#37327#38480#21046
     DataField = #26368#39640#38480#37327
-    DataSource = adodm.dsypzdk
+    DataSource = DMod.dsypzdk
     ImeName = #20013#25991' ('#31616#20307') - '#20840#25340
     ParentShowHint = False
     ShowHint = True
@@ -513,14 +514,14 @@ object fypzdk2: Tfypzdk2
     Width = 110
     Height = 22
     DataField = #26368#20302#38480#37327
-    DataSource = adodm.dsypzdk
+    DataSource = DMod.dsypzdk
     ImeName = #20013#25991' ('#31616#20307') - '#20840#25340
     TabOrder = 11
     OnExit = check
   end
   object btok: TBitBtn
     Left = 336
-    Top = 288
+    Top = 312
     Width = 75
     Height = 25
     Caption = #30830#23450'(&P)'
@@ -547,7 +548,7 @@ object fypzdk2: Tfypzdk2
   end
   object btno: TBitBtn
     Left = 336
-    Top = 324
+    Top = 348
     Width = 75
     Height = 25
     Caption = #21462#28040'(Esc)'
@@ -557,7 +558,7 @@ object fypzdk2: Tfypzdk2
   end
   object btadd: TBitBtn
     Left = 336
-    Top = 360
+    Top = 384
     Width = 75
     Height = 25
     Caption = #22686#21152'(&A)'
@@ -585,7 +586,7 @@ object fypzdk2: Tfypzdk2
   end
   object Memo1: TMemo
     Left = 328
-    Top = 96
+    Top = 120
     Width = 89
     Height = 185
     TabStop = False
@@ -613,7 +614,8 @@ object fypzdk2: Tfypzdk2
     Width = 120
     Height = 22
     DataField = #21517#31216
-    DataSource = adodm.dsypzdk
+    DataSource = DMod.dsypzdk
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     TabOrder = 2
   end
   object DBEdit1: TDBEdit
@@ -622,7 +624,8 @@ object fypzdk2: Tfypzdk2
     Width = 120
     Height = 22
     DataField = #32534#21495
-    DataSource = adodm.dsypzdk
+    DataSource = DMod.dsypzdk
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     TabOrder = 0
   end
   object DBEdit4: TDBEdit
@@ -631,7 +634,8 @@ object fypzdk2: Tfypzdk2
     Width = 120
     Height = 22
     DataField = #26465#30721
-    DataSource = adodm.dsypzdk
+    DataSource = DMod.dsypzdk
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     TabOrder = 3
   end
   object DBEdit2: TDBEdit
@@ -640,7 +644,8 @@ object fypzdk2: Tfypzdk2
     Width = 120
     Height = 22
     DataField = #31616#30721
-    DataSource = adodm.dsypzdk
+    DataSource = DMod.dsypzdk
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     TabOrder = 1
   end
   object DBEdit5: TDBEdit
@@ -649,7 +654,8 @@ object fypzdk2: Tfypzdk2
     Width = 120
     Height = 22
     DataField = #35268#26684
-    DataSource = adodm.dsypzdk
+    DataSource = DMod.dsypzdk
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     TabOrder = 6
   end
   object pf: TDBEdit
@@ -658,7 +664,8 @@ object fypzdk2: Tfypzdk2
     Width = 135
     Height = 22
     DataField = #25209#21457#20215
-    DataSource = adodm.dsypzdk
+    DataSource = DMod.dsypzdk
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     TabOrder = 12
     OnExit = pfExit
   end
@@ -668,7 +675,8 @@ object fypzdk2: Tfypzdk2
     Width = 135
     Height = 22
     DataField = #38646#21806#20215
-    DataSource = adodm.dsypzdk
+    DataSource = DMod.dsypzdk
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     TabOrder = 13
     OnExit = lsExit
   end
@@ -678,9 +686,11 @@ object fypzdk2: Tfypzdk2
     Width = 120
     Height = 22
     DataField = #21058#22411
-    DataSource = adodm.dsypzdk
+    DataSource = DMod.dsypzdk
     EditButtons = <>
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     TabOrder = 4
+    Visible = True
     OnButtonDown = jxButtonDown
   end
   object dw: TDBComboBoxEh
@@ -689,9 +699,11 @@ object fypzdk2: Tfypzdk2
     Width = 120
     Height = 22
     DataField = #21333#20301
-    DataSource = adodm.dsypzdk
+    DataSource = DMod.dsypzdk
     EditButtons = <>
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     TabOrder = 5
+    Visible = True
     OnButtonDown = dwButtonDown
   end
   object lx: TDBComboBoxEh
@@ -700,9 +712,11 @@ object fypzdk2: Tfypzdk2
     Width = 120
     Height = 22
     DataField = #20998#31867
-    DataSource = adodm.dsypzdk
+    DataSource = DMod.dsypzdk
     EditButtons = <>
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     TabOrder = 8
+    Visible = True
     OnButtonDown = lxButtonDown
   end
   object cj: TDBComboBoxEh
@@ -711,9 +725,11 @@ object fypzdk2: Tfypzdk2
     Width = 120
     Height = 22
     DataField = #29983#20135#21378#23478
-    DataSource = adodm.dsypzdk
+    DataSource = DMod.dsypzdk
     EditButtons = <>
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     TabOrder = 7
+    Visible = True
     OnButtonDown = cjButtonDown
   end
   object wh: TDBEdit
@@ -722,20 +738,22 @@ object fypzdk2: Tfypzdk2
     Width = 121
     Height = 22
     DataField = #25209#20934#25991#21495
-    DataSource = adodm.dsypzdk
+    DataSource = DMod.dsypzdk
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     TabOrder = 18
   end
   object look1: TDBLookupComboboxEh
     Left = 335
-    Top = 0
+    Top = 8
     Width = 93
     Height = 22
     DropDownBox.Width = 300
     EditButtons = <>
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     KeyField = #32534#21495
     ListField = #32534#21495';'#31616#30721';'#21517#31216
     ListFieldIndex = 2
-    ListSource = adodm.dsypzdk
+    ListSource = DMod.dsypzdk
     Style = csDropDownEh
     TabOrder = 19
     Visible = False

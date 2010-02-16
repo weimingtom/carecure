@@ -60,6 +60,7 @@ object fls: Tfls
     FooterFont.Name = 'MS Sans Serif'
     FooterFont.Style = []
     FooterRowCount = 1
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     OptionsEh = [dghFixed3D, dghHighlightFocus, dghClearSelection, dghEnterAsTab]
     ParentFont = False
     SumList.Active = True
@@ -197,12 +198,14 @@ object fls: Tfls
       DropDownBox.AutoDrop = True
       DropDownBox.Width = 200
       EditButtons = <>
+      ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
       KeyField = 'clientid'
       ListField = #31616#30721';'#21517#31216
       ListFieldIndex = 1
       ListSource = adodm.dsdw
       Style = csDropDownEh
       TabOrder = 0
+      Visible = True
       OnChange = dwChange
       OnExit = dwExit
     end
@@ -212,6 +215,7 @@ object fls: Tfls
       Width = 105
       Height = 22
       Enabled = False
+      ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
       TabOrder = 1
     end
   end
@@ -325,6 +329,7 @@ object fls: Tfls
       Width = 97
       Height = 22
       Enabled = False
+      ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
       ReadOnly = True
       TabOrder = 1
     end
@@ -337,11 +342,13 @@ object fls: Tfls
       DropDownBox.ShowTitles = True
       DropDownBox.Width = 150
       EditButtons = <>
+      ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
       KeyField = 'ygid'
       ListField = #22995#21517';'#21592#24037#32534#21495
       ListSource = adodm.dsyg
       Style = csDropDownEh
       TabOrder = 0
+      Visible = True
       OnChange = renChange
       OnExit = renExit
     end

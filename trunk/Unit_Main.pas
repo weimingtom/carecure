@@ -5,12 +5,16 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, Menus, ExtCtrls, ComCtrls, ToolWin, ImgList,
-  udm,uypzdk,uxl,udj, Uypzdk2,uyg,urk,uxstj, ukctj,ulogin, StdCtrls,uty,ubs,upd,ukl,ukc,upf,uls,uac,ucr,uback,uuser;
-type userinfo=record
-       name:string;
-       qx:int64;
-       id:int64;
-       end;
+  Unit_DataModule, uypzdk, uxl, udj, Uypzdk2, uyg, urk, uxstj, ukctj,
+    Unit_UserLogin, StdCtrls, uty, ubs, upd, ukl, ukc, upf, uls, uac, ucr, uback,
+    unit_UserManage,
+  WinSkinData;
+type
+  userinfo = record
+    name: string;
+    qx: int64;
+    id: int64;
+  end;
 type
   Tfrm_main = class(TForm)
     MainMenu1: TMainMenu;
@@ -24,12 +28,12 @@ type
     mnuUserInfo: TMenuItem;
     mnuSysExit: TMenuItem;
     mnuBasicEmployee: TMenuItem;
-    N3: TMenuItem;
+    mnuStoreManage: TMenuItem;
     mnuNormalAttend: TMenuItem;
     mnuAttendStat: TMenuItem;
-    N10: TMenuItem;
+    mnuAbout: TMenuItem;
     mnuDeveloper: TMenuItem;
-    N12: TMenuItem;
+    mnuCustomerManage: TMenuItem;
     mnuServiceBooking: TMenuItem;
     mnuBasicCustomer: TMenuItem;
     mnuUserDictionary: TMenuItem;
@@ -37,7 +41,7 @@ type
     N16: TMenuItem;
     mnuAttendConfig: TMenuItem;
     mnuSpecialAttend: TMenuItem;
-    N18: TMenuItem;
+    mnuQuit: TMenuItem;
     N19: TMenuItem;
     N20: TMenuItem;
     mnuAttendManager: TMenuItem;
@@ -49,7 +53,7 @@ type
     Image1: TImage;
     Bar1: TStatusBar;
     mnuUnit: TMenuItem;
-    N9: TMenuItem;
+    mnuEmployeemanage: TMenuItem;
     mnuBasicSalary: TMenuItem;
     mnuSalaryItem: TMenuItem;
     mnuServiceItem: TMenuItem;
@@ -93,7 +97,7 @@ type
     N23: TMenuItem;
     mnuDataRecovery: TMenuItem;
     mnuDataOptimize: TMenuItem;
-    mnuAbout: TMenuItem;
+    mnuBizInfo: TMenuItem;
     mnuStyle: TMenuItem;
     mnuTour: TMenuItem;
     N8: TMenuItem;
@@ -117,6 +121,38 @@ type
     ToolButton2: TToolButton;
     ToolButton18: TToolButton;
     ToolButton13: TToolButton;
+    mnuBossQuery: TMenuItem;
+    mnuBossMoney: TMenuItem;
+    N25: TMenuItem;
+    mnuBossSalary: TMenuItem;
+    N27: TMenuItem;
+    mnuBossIncoming: TMenuItem;
+    N29: TMenuItem;
+    mnuBossProfit: TMenuItem;
+    N31: TMenuItem;
+    mnuBossGoods: TMenuItem;
+    mnuBossItems: TMenuItem;
+    mnuBossEmployee: TMenuItem;
+    N35: TMenuItem;
+    mnuBossMember: TMenuItem;
+    mnuBossMemberLoss: TMenuItem;
+    mnuBossMemberBirth: TMenuItem;
+    N39: TMenuItem;
+    mnuBossGoodsOut: TMenuItem;
+    mnuBossGoodsExpire: TMenuItem;
+    munBossStore: TMenuItem;
+    N43: TMenuItem;
+    mnuBossMaterial: TMenuItem;
+    mnuBossGuest: TMenuItem;
+    N46: TMenuItem;
+    mnuBossWeek: TMenuItem;
+    mnuBossMonth: TMenuItem;
+    munBossReport: TMenuItem;
+    N50: TMenuItem;
+    mnuBossMemberThere: TMenuItem;
+    mnuBossMemberHere: TMenuItem;
+    skindata1: TSkinData;
+    ToolButton5: TToolButton;
     procedure mnuBasicEmployeeClick(Sender: TObject);
     procedure mnuDeveloperClick(Sender: TObject);
     procedure mnuBasicCustomerClick(Sender: TObject);
@@ -147,45 +183,45 @@ type
     procedure mnuCustomerRegisterClick(Sender: TObject);
   private
     { Private declarations }
-    FClientInstance,FPrevClientProc:TfarProc;
+    FClientInstance, FPrevClientProc: TfarProc;
     procedure ClientWndProc(var Message: TMessage);
-    procedure dorw(var MyDC : hDC);
+    procedure dorw(var MyDC: hDC);
   public
-    auser:userinfo;{ Public declarations }
-    operid:string;
+    auser: userinfo; { Public declarations }
+    operid: string;
   end;
 
 var
   frm_main: Tfrm_main;
-  ypzdk:tfypzdk;
-  ypzdk2:tfypzdk2;
-  yg:tfyg;
-  rk:tfrk;
-  ty:tfty;
-  bs:tfbs ;
-  pd:tfpd;
-  kc:tfkc;
-  pf:tfpf ;
-  ls:tfls;
-  ac:tfac;
-  cr:tfcr;
-  back:tfback;
-  user:tfuser;
-  xl:tfxl;
-  kl:tfkl;
-  xstj1:tfxstj ;
-  dj:tfdj;
-  kctj1:tfkctj;
+  ypzdk: tfypzdk;
+  ypzdk2: tfypzdk2;
+  yg: tfyg;
+  rk: tfrk;
+  ty: tfty;
+  bs: tfbs;
+  pd: tfpd;
+  kc: tfkc;
+  pf: tfpf;
+  ls: tfls;
+  ac: tfac;
+  cr: tfcr;
+  back: tfback;
+  UserManage: tFrm_UserManage;
+  xl: tfxl;
+  kl: tfkl;
+  xstj1: tfxstj;
+  dj: tfdj;
+  kctj1: tfkctj;
 implementation
 
-uses Unit_PublicFunction, Unit_TotalPublic,upreview;
+uses Unit_PublicFunction, Unit_TotalPublic, upreview;
 
 {$R *.dfm}
 
 procedure Tfrm_main.ClientWndProc(var Message: TMessage);
-VAR
-  MyDC : hDC;
-  Ro, Co : Word;
+var
+  MyDC: hDC;
+  Ro, Co: Word;
 begin
   with Message do
     case Msg of
@@ -196,21 +232,22 @@ begin
           Result := 1;
         end;
     else
-      Result := CallWindowProc(FPrevClientProc, ClientHandle, Msg, wParam, lParam);
+      Result := CallWindowProc(FPrevClientProc, ClientHandle, Msg, wParam,
+        lParam);
     end;
 end;
 
-procedure Tfrm_main.dorw(var MyDC : hDC);
+procedure Tfrm_main.dorw(var MyDC: hDC);
 var
-  ro,co:word;
+  ro, co: word;
 begin
-  FOR Ro := 0 TO ClientHeight DIV Image1.Picture.Height DO
-  FOR Co := 0 TO ClientWIDTH DIV Image1.Picture.Width DO
-  begin
-    BitBlt(MyDC, co*Image1.Picture.Width, ro*Image1.Picture.Height,
-      Image1.Picture.Width, Image1.Picture.Height,
-      Image1.Picture.bitmap.canvas.Handle,0,0, SRCCOPY);
-  end;
+  for Ro := 0 to ClientHeight div Image1.Picture.Height do
+    for Co := 0 to ClientWIDTH div Image1.Picture.Width do
+    begin
+      BitBlt(MyDC, co * Image1.Picture.Width, ro * Image1.Picture.Height,
+        Image1.Picture.Width, Image1.Picture.Height,
+        Image1.Picture.bitmap.canvas.Handle, 0, 0, SRCCOPY);
+    end;
 end;
 
 procedure Tfrm_main.mnuBasicEmployeeClick(Sender: TObject);
@@ -285,7 +322,8 @@ end;
 
 procedure Tfrm_main.mnuSysExitClick(Sender: TObject);
 begin
-   if messagebox(handle,'您确实要退出系统吗?','信息',mb_okcancel+mb_iconquestion)=IDOK then
+  if messagebox(handle, '您确实要退出系统吗?', '信息', mb_okcancel +
+    mb_iconquestion) = IDOK then
     application.Terminate;
 end;
 
@@ -296,12 +334,27 @@ end;
 
 procedure Tfrm_main.mnuUserManagerClick(Sender: TObject);
 begin
-  DoOperator;
+  if application.FindComponent('frm_UserManage') = nil then
+  begin
+    UserManage := Tfrm_UserManage.create(application);
+    UserManage.Show;
+  end
+  else if not UserManage.Showing then
+    UserManage.Show;
 end;
 
 procedure Tfrm_main.mnuReLoginClick(Sender: TObject);
 begin
-  DoReLogin;
+  DMod.toper.Open;
+  if DMod.toper.Locate('operid', operid, []) then
+  begin
+    DMod.toper.edit;
+    DMod.toper.FieldByName('退出时间').AsDateTime := now;
+    DMod.toper.Post;
+  end;
+  frm_UserLogin := tfrm_UserLogin.Create(application);
+  frm_UserLogin.ShowModal;
+  frm_UserLogin.Update;
 end;
 
 procedure Tfrm_main.mnuPasswordClick(Sender: TObject);
@@ -355,3 +408,4 @@ begin
 end;
 
 end.
+
