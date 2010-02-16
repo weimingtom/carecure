@@ -7,7 +7,7 @@ Delphi小经验小窍门
 
 
 = Details =
-
+  * [http://topic.csdn.net/u/20071126/11/55c5b4c0-adc4-40c1-9b43-1a5d10e20cf8.html |很希望大家把自己做项目中的小技巧共享出来|]
 
   * [http://topic.csdn.net/t/20010302/17/77974.html |不能再菜的问题：在Delphi中代码如何换行：）|]:delphi中语句的结束是以分号;为标志,你可以随便换行写. 但字串比较特殊中间有'；'所以我用'+'搞定！  
   * [http://blog.csdn.net/jiangnanandi/archive/2009/02/16/3895890.aspx |Delphi Packed Record和Record的区别|]    [http://www.moon-soft.com/program/bbs/readelite123432.htm |关于Packed record和record的区别--Delphi的内存管理|]:Record的数据各个字节都是对齐的，数据格式比较完整，所以这种格式相对packed占用的内存比较大， 但是因为格式比较整齐，所以电脑读取这个类型的数据的时候速度比较快。 而Packed Record对数据进行了压缩，节省了内存空间，当然他的速度也变的慢了。不过，对于现在的操作系统来，packed Record 节省的那些空间已不用考虑他了。除了做DLL（不用packed容易造成内存混乱）和做硬件 编程时（比如串口）编程时必须用到packed Record，其它情况都可以用Record
@@ -23,8 +23,8 @@ Delphi小经验小窍门
   * [http://sharedderrick.blogspot.com/2008/02/currenttimestamp-fn-now-getdate.html |系統日期時間函數： CURRENT_TIMESTAMP , {fn NOW()} , GETDATE()|]  [http://topic.csdn.net/t/20030515/12/1787285.html |怎么从sql server中取系统日期?|]  [http://social.msdn.microsoft.com/forums/zh-TW/240/thread/e6fec02f-7c35-40ca-8009-cac9e1da4e0b/ |小弟有個笨問題~~ "{fn NOW()}|]
   * [http://www.codesky.net/article/doc/200308/2003080963295785.htm |string TStrings pchar的相互转换|]
   * [http://topic.csdn.net/t/20030425/15/1707659.html |如何屏蔽双击放大窗体？？？？|]
-  * []
-  * []
+  * [http://topic.csdn.net/u/20090310/16/51de7aa2-ee03-428a-92d3-be19acd8ebd8.html | Delphi中如何判断Edit.text为合法的日期？|]
+  * [http://topic.csdn.net/t/20030529/15/1850877.html |关于复制form|]  [http://topic.csdn.net/t/20030724/16/2067636.html |给个提示: 在DELPHI中如何复制FORM, 即在我的工程中, 把FORM!的一个复制加入工程中|]  [http://delphi.about.com/od/adptips2006/qt/formclone.htm |How to Clone a Delphi Form|]
   * []
   * []
   * []
