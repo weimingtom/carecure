@@ -4,15 +4,13 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls, StdCtrls, Buttons, jpeg;
+  Dialogs, ExtCtrls, StdCtrls, Buttons, jpeg, WinSkinData;
 
 type
   Tfrm_splash = class(TForm)
     Image1: TImage;
     Button1: TButton;
-    Label1: TLabel;
     Label2: TLabel;
-    Label3: TLabel;
     BitBtn1: TBitBtn;
     Label4: TLabel;
     procedure Button1Click(Sender: TObject);
@@ -62,7 +60,7 @@ begin
 
 end;
 canvas.draw(2,10,newbmp);
-i:=i+2;
+i:=i+1;
 ;
 end;
 newbmp.free;
@@ -87,13 +85,13 @@ end;
 
 procedure Tfrm_splash.FormActivate(Sender: TObject);
 begin
-BUTTON1.Click;
+//BUTTON1.Click;
 end;
 
 procedure Tfrm_splash.FormCreate(Sender: TObject);
 var hr :thandle;
 begin
-hr:=createroundrectrgn(0,0,width,height,30,30);
+hr:=createroundrectrgn(0,0,width,height,10,10);
 setwindowrgn(handle,hr,true);
 
 end;
