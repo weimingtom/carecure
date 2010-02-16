@@ -22,9 +22,9 @@ type
     lblLoginSlogan: TLabel;
     lblTimeNow: TLabel;
     tmrSysTime: TTimer;
-    skindata2: TSkinData;
     lblSetTime: TLabel;
     imgLogo: TImage;
+    skindata2: TSkinData;
     procedure FormShow(Sender: TObject);
     procedure btokClick(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
@@ -54,8 +54,11 @@ uses Unit_Main, PublicFunOrPro, unit_TotalPublic;
 {$R *.dfm}
 
 procedure Tfrm_UserLogin.FormShow(Sender: TObject);
+var
+  s: string;
 begin
-
+  DateTimeToString(s, 'yyyy-mm-dd hh:mm:ss', now);
+  lblTimeNow.Caption := s;
   Ftimes := 0;
   check := false;
   yh.SetFocus;
@@ -92,7 +95,7 @@ begin
       DMod.toper.Last;
       frm_main.operid := DMod.toper.FieldByName('userid').AsVariant;
       iniapp(qx);
-      // showmessage(inttostr(frm_main.operid));
+      //showmessage(inttostr(frm_main.operid));
 
       frm_UserLogin.Close;
     end
@@ -122,11 +125,18 @@ procedure Tfrm_UserLogin.iniapp(qx: int64);
 var
   i, j: integer;
 begin
+
+  //if frm_main.skindata1.Active then
+  //frm_main.skindata1.Active := false;
+
   for i := 0 to frm_main.MainMenu1.items.Count - 1 do
     for j := 0 to frm_main.MainMenu1.Items[i].Count - 1 do
     begin
-      frm_main.MainMenu1.items[i].Items[j].Enabled := false;
-      frm_main.MainMenu1.items[i].Items[j].Visible := false;
+      if (frm_main.MainMenu1.items[i].Items[j].Caption <> '-') then
+      begin
+        frm_main.MainMenu1.items[i].Items[j].Enabled := false;
+        frm_main.MainMenu1.items[i].Items[j].Visible := false;
+      end;
     end;
 
   qx := qx xor 1234567890;
@@ -281,7 +291,7 @@ begin
             frm_main.mnuDataBackUp.Enabled := true;
             frm_main.mnuDataRecovery.Enabled := true;
             frm_main.mnuDataOptimize.Enabled := true;
-            frm_main.mnuSysInitial.Enabled := true;
+            frm_main.mnuDataInitial.Enabled := true;
             frm_main.mnuUnit.Enabled := true;
             frm_main.mnuBizInfo.Enabled := true;
             frm_main.mnuUserInfo.Enabled := true;
@@ -290,7 +300,7 @@ begin
             frm_main.mnuDataBackUp.Visible := true;
             frm_main.mnuDataRecovery.Visible := true;
             frm_main.mnuDataOptimize.Visible := true;
-            frm_main.mnuSysInitial.Visible := true;
+            frm_main.mnuDataInitial.Visible := true;
             frm_main.mnuUnit.Visible := true;
             frm_main.mnuBizInfo.Visible := true;
             frm_main.mnuUserInfo.Visible := true;
@@ -359,6 +369,9 @@ begin
   frm_main.mnuPassword.Visible := true;
   frm_main.mnuSysExit.Visible := true;
 
+  if not frm_main.skindata1.Active then
+    frm_main.skindata1.Active := True;
+
   check := true;
   SysUserId := frm_main.auser.id;
   SysUserName := frm_main.auser.name;
@@ -395,12 +408,8 @@ begin
 end;
 
 procedure Tfrm_UserLogin.FormCreate(Sender: TObject);
-var
-  s: string;
 begin
   apppath := extractfilepath(application.ExeName);
-  DateTimeToString(s, 'yyyy-mm-dd hh:mm:ss', now);
-  lblTimeNow.Caption := s;
 end;
 
 procedure Tfrm_UserLogin.tmrSysTimeTimer(Sender: TObject);

@@ -83,7 +83,11 @@ uses
   Unit_GoodsDetail in 'Unit_GoodsDetail.pas' {frm_GoodsDetail},
   Unit_AdjustSaleStat in 'Unit_AdjustSaleStat.pas' {frm_AdjustSaleStat},
   Unit_WholeSaleSummary in 'Unit_WholeSaleSummary.pas' {frm_WholeSaleSummary},
-  Unit_MemberBuyQuery in 'Unit_MemberBuyQuery.pas' {frm_MemberBuyQuery};
+  Unit_MemberBuyQuery in 'Unit_MemberBuyQuery.pas' {frm_MemberBuyQuery},
+  Unit_MdbManager in 'Unit_MdbManager.pas' {frm_MdbManager},
+  Unit_DataInitial in 'Unit_DataInitial.pas' {frm_DataInitial},
+  Unit_StyleSet in 'Unit_StyleSet.pas' {frm_StyleSet},
+  Unit_BizInfo in 'Unit_BizInfo.pas' {frm_BizInfo};
 
 {$R *.res}
 var
@@ -95,6 +99,7 @@ var
 begin
 
   Application.Initialize;
+  Application.CreateForm(TDMod, DMod);
   //flash := tfrm_splash.Create(application);
 
   //flash.BitBtn1.Visible := false;
@@ -104,7 +109,6 @@ begin
   //sleep(1000);
 
   Application.Title := '理疗保健智能管理系统';
-  Application.CreateForm(TDMod, DMod);
   DBFile := tinifile.Create(extractfilepath(application.ExeName) +
     'DBConn.ini');
   DB_Source := DBFile.ReadString('CareCure', 'DB_Source',
@@ -198,7 +202,7 @@ begin
     //flash.Close;
     //flash.Free;
     Application.CreateForm(Tfrm_main, frm_main);
-    frm_UserLogin := tfrm_UserLogin.Create(application);
+  frm_UserLogin := tfrm_UserLogin.Create(application);
     frm_UserLogin.ShowModal; //ShowModal表示显示一个独占焦点屏蔽其它窗口的可设置返回值的窗口，其关闭后才执行下面的语句。
     frm_UserLogin.Update;
 
