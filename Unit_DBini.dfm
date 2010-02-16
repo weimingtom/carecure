@@ -4,8 +4,8 @@ object frm_DBini: Tfrm_DBini
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = #37197#32622#25968#24211#24211#36830#25509
-  ClientHeight = 96
-  ClientWidth = 280
+  ClientHeight = 144
+  ClientWidth = 302
   Color = clBtnFace
   Font.Charset = GB2312_CHARSET
   Font.Color = clWindowText
