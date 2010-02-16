@@ -13,7 +13,7 @@ type
   userinfo = record
     name: string;
     qx: int64;
-    id: int64;
+    id: string;//int64;-->String
   end;
 type
   Tfrm_main = class(TForm)
@@ -38,7 +38,7 @@ type
     mnuBasicCustomer: TMenuItem;
     mnuUserDictionary: TMenuItem;
     mnuCustomerCard: TMenuItem;
-    N16: TMenuItem;
+    N808: TMenuItem;
     mnuAttendConfig: TMenuItem;
     mnuSpecialAttend: TMenuItem;
     mnuQuit: TMenuItem;
@@ -57,39 +57,39 @@ type
     mnuBasicSalary: TMenuItem;
     mnuSalaryItem: TMenuItem;
     mnuServiceItem: TMenuItem;
-    N15: TMenuItem;
+    N801: TMenuItem;
     mnuDayStatistic: TMenuItem;
     mnuMonthStatistic: TMenuItem;
     mnuSalaryManager: TMenuItem;
     N24: TMenuItem;
     mnuServiceMeal: TMenuItem;
     mnuCustomerRegister: TMenuItem;
-    N1: TMenuItem;
+    N802: TMenuItem;
     mnuGoodsRetail: TMenuItem;
     mnuGoodsWholeSale: TMenuItem;
     mnuSalesStatistic: TMenuItem;
     mnuAdjustSaleStat: TMenuItem;
-    N2: TMenuItem;
+    N803: TMenuItem;
     mnuReceiptQuery: TMenuItem;
     mnuWholeSaleSummary: TMenuItem;
-    N5: TMenuItem;
+    N804: TMenuItem;
     mnuMemberBuyQuery: TMenuItem;
     N7: TMenuItem;
     N11: TMenuItem;
     mnuGoodsDictionary: TMenuItem;
-    N13: TMenuItem;
+    N805: TMenuItem;
     mnuGoodsCheckIn: TMenuItem;
     mnuGoodsBizReturn: TMenuItem;
     mnuGoodsManReturn: TMenuItem;
     mnuStoreCheck: TMenuItem;
     mnuGoodsMaintain: TMenuItem;
     mnuGoodsLoss: TMenuItem;
-    N14: TMenuItem;
+    N806: TMenuItem;
     mnuStoreLimite: TMenuItem;
     mnuStoreList: TMenuItem;
     mnuExpireQuery: TMenuItem;
     mnuStoreInQuery: TMenuItem;
-    N17: TMenuItem;
+    N807: TMenuItem;
     mnuStoreInStat: TMenuItem;
     mnuStoreCostStat: TMenuItem;
     mnuBizDictionary: TMenuItem;
@@ -140,19 +140,20 @@ type
     N39: TMenuItem;
     mnuBossGoodsOut: TMenuItem;
     mnuBossGoodsExpire: TMenuItem;
-    munBossStore: TMenuItem;
+    mnuBossStore: TMenuItem;
     N43: TMenuItem;
     mnuBossMaterial: TMenuItem;
     mnuBossGuest: TMenuItem;
     N46: TMenuItem;
     mnuBossWeek: TMenuItem;
     mnuBossMonth: TMenuItem;
-    munBossReport: TMenuItem;
+    mnuBossReport: TMenuItem;
     N50: TMenuItem;
     mnuBossMemberThere: TMenuItem;
     mnuBossMemberHere: TMenuItem;
     skindata1: TSkinData;
     ToolButton5: TToolButton;
+    ImageList2: TImageList;
     procedure mnuBasicEmployeeClick(Sender: TObject);
     procedure mnuDeveloperClick(Sender: TObject);
     procedure mnuBasicCustomerClick(Sender: TObject);

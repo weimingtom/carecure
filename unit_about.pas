@@ -14,6 +14,7 @@ type
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
+    lblSlogan: TLabel;
     procedure sbtn_closeClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private

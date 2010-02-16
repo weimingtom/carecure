@@ -14,9 +14,6 @@ type
     Panel2: TPanel;
     GroupBox1: TGroupBox;
     s: TGroupBox;
-    PageControl1: TPageControl;
-    sht_Item: TTabSheet;
-    TabSheet2: TTabSheet;
     Label5: TLabel;
     edt_CusNo: TEdit;
     sbtn_Sure: TSpeedButton;
@@ -32,14 +29,6 @@ type
     edt_TotalCost: TEdit;
     Label10: TLabel;
     edt_CostScore: TEdit;
-    sg_Item: TStringGrid;
-    Panel4: TPanel;
-    SpeedButton4: TSpeedButton;
-    SpeedButton5: TSpeedButton;
-    sg_Meal: TStringGrid;
-    Panel5: TPanel;
-    SpeedButton6: TSpeedButton;
-    SpeedButton7: TSpeedButton;
     Label11: TLabel;
     edt_Discount: TEdit;
     Label12: TLabel;
@@ -48,14 +37,10 @@ type
     StatusBar1: TStatusBar;
     Panel3: TPanel;
     sbtn_Card: TSpeedButton;
-    SpeedButton9: TSpeedButton;
     sbtn_Attend: TSpeedButton;
     Label1: TLabel;
     lbl_today: TLabel;
     lbl_dayofweek: TLabel;
-    sbtn_print: TSpeedButton;
-    sbtn_addEmp1: TSpeedButton;
-    sbtn_addEmp2: TSpeedButton;
     GroupBox4: TGroupBox;
     Label13: TLabel;
     Label15: TLabel;
@@ -80,18 +65,33 @@ type
     Label19: TLabel;
     edt_EmpNo: TEdit;
     edt_CardNo: TEdit;
+    PageControl1: TPageControl;
+    sht_Item: TTabSheet;
+    sg_Item: TStringGrid;
+    Panel4: TPanel;
+    SpeedButton1: TSpeedButton;
+    SpeedButton3: TSpeedButton;
+    sbtn_addEmp1: TSpeedButton;
+    TabSheet1: TTabSheet;
+    sg_Meal: TStringGrid;
+    Panel5: TPanel;
+    SpeedButton4: TSpeedButton;
+    SpeedButton5: TSpeedButton;
+    sbtn_addEmp2: TSpeedButton;
+    SpeedButton6: TSpeedButton;
+    sbtn_print: TSpeedButton;
     procedure sbtn_SureClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure edt_CusNoKeyPress(Sender: TObject; var Key: Char);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
     procedure SpeedButton4Click(Sender: TObject);
     procedure SpeedButton5Click(Sender: TObject);
-    procedure SpeedButton6Click(Sender: TObject);
-    procedure SpeedButton7Click(Sender: TObject);
     procedure sbtn_saveClick(Sender: TObject);
     procedure edt_PaymentExit(Sender: TObject);
     procedure edt_PaymentKeyPress(Sender: TObject; var Key: Char);
     procedure edt_changeKeyPress(Sender: TObject; var Key: Char);
-    procedure SpeedButton9Click(Sender: TObject);
+    procedure SpeedButton6Click(Sender: TObject);
     procedure sbtn_addEmp1Click(Sender: TObject);
     procedure sbtn_addEmp2Click(Sender: TObject);
     procedure sbtn_OtherClick(Sender: TObject);
@@ -166,10 +166,10 @@ begin
   SearchCustomerCost;
   RefreshCustomerCost;
 
-  sbtn_save.Enabled := GetPower(SysUserId,'前台收营','修改权');
-  sbtn_print.Enabled := GetPower(SysUserId,'前台收营','打印权');
-  sbtn_card.Enabled  := GetPower(SysUserId,'顾客卡管理','浏览权');
-  sbtn_Attend.Enabled:= GetPower(SysUserId,'正常考勤','浏览权');
+  //sbtn_save.Enabled := GetPower(SysUserId,'前台收营','修改权');
+  //sbtn_print.Enabled := GetPower(SysUserId,'前台收营','打印权');
+  //sbtn_card.Enabled  := GetPower(SysUserId,'顾客卡管理','浏览权');
+  //sbtn_Attend.Enabled:= GetPower(SysUserId,'正常考勤','浏览权');
 
 end;
 
@@ -262,8 +262,8 @@ begin
     SQL.Add('cc.change, cc.check_type, cc.cost_date');
     SQL.Add('FROM CustomerCost cc INNER JOIN');
     SQL.Add('Customer c ON cc.cus_no = c.Cus_no');
-    SQL.Add('WHERE (cc.cost_date = { fn CURDATE() })');
-    Open;
+    SQL.Add('WHERE (cc.cost_date = Date())');
+     Open;
     i:=1;
     while not eof do
     begin
@@ -346,13 +346,13 @@ begin
     sbtn_SureClick(nil);
 end;
 
-procedure Tfrm_frontcheck.SpeedButton4Click(Sender: TObject);
+procedure Tfrm_frontcheck.SpeedButton1Click(Sender: TObject);
 begin
   DoServiceItem;
   if sg_Item.RowCount >=2 then sbtn_addEmp1.Enabled :=true;
 end;
 
-procedure Tfrm_frontcheck.SpeedButton5Click(Sender: TObject);
+procedure Tfrm_frontcheck.SpeedButton3Click(Sender: TObject);
 begin
   if sg_Item.Cells[0,sg_Item.Row ]='' then exit;
 
@@ -365,13 +365,13 @@ begin
   ComputeCostsum;
 end;
 
-procedure Tfrm_frontcheck.SpeedButton6Click(Sender: TObject);
+procedure Tfrm_frontcheck.SpeedButton4Click(Sender: TObject);
 begin
   DoServiceMeal;
   if sg_Meal.RowCount >=2 then sbtn_addEmp2.Enabled :=true;
 end;
 
-procedure Tfrm_frontcheck.SpeedButton7Click(Sender: TObject);
+procedure Tfrm_frontcheck.SpeedButton5Click(Sender: TObject);
 begin
   if sg_Meal.cells[0,sg_Meal.row]='' then exit;
 
@@ -649,7 +649,7 @@ begin
   if key=#13 then sbtn_saveClick(nil);
 end;
 
-procedure Tfrm_frontcheck.SpeedButton9Click(Sender: TObject);
+procedure Tfrm_frontcheck.SpeedButton6Click(Sender: TObject);
 begin
   close;
 end;

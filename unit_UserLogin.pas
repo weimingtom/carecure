@@ -7,7 +7,8 @@ uses
   Dialogs, Unit_DataModule, StdCtrls, DBCtrls, Buttons, ExtCtrls, Menus, Mask,
   DBCtrlsEh,
   DBLookupEh, DBGridEh,
-  WinSkinData, ComCtrls;
+  WinSkinData, ComCtrls,
+  shellapi;
 
 type
   Tfrm_UserLogin = class(TForm)
@@ -17,14 +18,13 @@ type
     btok: TBitBtn;
     btno: TBitBtn;
     yh: TDBLookupComboboxEh;
-    mmoLoginPrompt: TMemo;
     lblLoginTitle: TLabel;
     lblLoginSlogan: TLabel;
     lblTimeNow: TLabel;
-    lblTimeTitle: TLabel;
     tmrSysTime: TTimer;
-    btnTimeSet: TButton;
     skindata2: TSkinData;
+    lblSetTime: TLabel;
+    imgLogo: TImage;
     procedure FormShow(Sender: TObject);
     procedure btokClick(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
@@ -34,14 +34,15 @@ type
     procedure Edit2KeyPress(Sender: TObject; var Key: Char);
     procedure FormCreate(Sender: TObject);
     procedure tmrSysTimeTimer(Sender: TObject);
-    procedure btnTimeSetClick(Sender: TObject);
+    procedure lblSetTimeClick(Sender: TObject);
+    procedure imgLogoClick(Sender: TObject);
   private
     check: boolean;
     Ftimes: integer; { Private declarations }
   public
     apppath: string;
+    logined, relogin: boolean;
     procedure iniapp(qx: int64);
-
     { Public declarations }
   end;
 
@@ -49,7 +50,7 @@ var
   frm_UserLogin: Tfrm_UserLogin;
 
 implementation
-uses umain, Unit_Main;
+uses umain, Unit_Main, PublicFunOrPro, unit_TotalPublic;
 {$R *.dfm}
 
 procedure Tfrm_UserLogin.FormShow(Sender: TObject);
@@ -74,9 +75,9 @@ begin
     if (mm = trim(edit2.text)) and (qx > 1000000000) then
     begin
 
-      frm_main.auser.name := DMod.tuser.FieldValues['userid'];
+      frm_main.auser.name := DMod.tuser.FieldValues['username'];
       frm_main.auser.qx := qx;
-      //frm_main.auser.id:=DMod.tuser.fieldvalues['userid'];
+      frm_main.auser.id := DMod.tuser.fieldvalues['userid'];
 
       DMod.toper.Open;
       DMod.toper.append;
@@ -306,12 +307,12 @@ begin
             frm_main.mnuBossMemberBirth.Enabled := true;
             frm_main.mnuBossGoodsOut.Enabled := true;
             frm_main.mnuBossGoodsExpire.Enabled := true;
-            frm_main.munBossStore.Enabled := true;
+            frm_main.mnuBossStore.Enabled := true;
             frm_main.mnuBossMaterial.Enabled := true;
             frm_main.mnuBossGuest.Enabled := true;
             frm_main.mnuBossWeek.Enabled := true;
             frm_main.mnuBossMonth.Enabled := true;
-            frm_main.munBossReport.Enabled := true;
+            frm_main.mnuBossReport.Enabled := true;
             frm_main.mnuBossMemberThere.Enabled := true;
             frm_main.mnuBossMemberHere.Enabled := true;
             frm_main.mnuBossQuery.Visible := true;
@@ -327,12 +328,12 @@ begin
             frm_main.mnuBossMemberBirth.Visible := true;
             frm_main.mnuBossGoodsOut.Visible := true;
             frm_main.mnuBossGoodsExpire.Visible := true;
-            frm_main.munBossStore.Visible := true;
+            frm_main.mnuBossStore.Visible := true;
             frm_main.mnuBossMaterial.Visible := true;
             frm_main.mnuBossGuest.Visible := true;
             frm_main.mnuBossWeek.Visible := true;
             frm_main.mnuBossMonth.Visible := true;
-            frm_main.munBossReport.Visible := true;
+            frm_main.mnuBossReport.Visible := true;
             frm_main.mnuBossMemberThere.Visible := true;
             frm_main.mnuBossMemberHere.Visible := true;
           end;
@@ -355,6 +356,9 @@ begin
   frm_main.mnuSysExit.Visible := true;
 
   check := true;
+  SysUserId := frm_main.auser.id;
+  SysUserName := frm_main.auser.name;
+  logined := true;
   frm_main.Bar1.Panels[1].Text := '操作员:' + frm_main.auser.name;
   frm_main.Bar1.Panels[2].Text := '深度工作室 邮箱:server@deepcast.net';
 end;
@@ -404,10 +408,16 @@ begin
 
 end;
 
-procedure Tfrm_UserLogin.btnTimeSetClick(Sender: TObject);
+procedure Tfrm_UserLogin.lblSetTimeClick(Sender: TObject);
 begin
   WinExec('RunDLL32.exe Shell32.dll,Control_RunDLL timedate.cpl,,0',
     SW_SHOWNORMAL);
+end;
+
+procedure Tfrm_UserLogin.imgLogoClick(Sender: TObject);
+begin
+  shellexecute(handle, 'open', pchar('http://www.deepcast.net/?fromcarecure'),
+    nil, nil, sw_show)
 end;
 
 end.
