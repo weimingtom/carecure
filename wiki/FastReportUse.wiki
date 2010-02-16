@@ -1,0 +1,11 @@
+#summary One-sentence FastReport控件使用汇总
+
+= Introduction =
+
+FastReport控件使用汇总
+
+
+= Details =
+
+
+  * [http://www.2ccc.com/article.asp?articleid=128 |FastReport 2.5 简体中文注册版 (报表控件)|]
