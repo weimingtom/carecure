@@ -1,6 +1,6 @@
 object frm_editpassword: Tfrm_editpassword
-  Left = 332
-  Top = 178
+  Left = 351
+  Top = 292
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = #29992#25143#20462#25913#23494#30721

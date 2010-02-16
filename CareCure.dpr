@@ -1,6 +1,6 @@
 program CareCure;
 
-{$R 'Unit_AdjustSaleStat.dfm' :TForm(Unit_AdjustSaleStat.dfm)}
+
 
 uses
   Forms,
@@ -15,7 +15,7 @@ uses
   Buttons,
   SysUtils,
   PublicFunOrPro in 'PublicFunOrPro.pas',
-  unit_about in 'unit_about.pas' {frm_about},
+  Unit_About in 'Unit_About.pas' {frm_about},
   Unit_AttendConfig in 'Unit_AttendConfig.pas' {frm_attendconfig},
   Unit_AttendManager in 'Unit_AttendManager.pas' {frm_attendmanager},
   Unit_Attenstat in 'Unit_Attenstat.pas' {frm_attendstat},
@@ -24,14 +24,10 @@ uses
   Unit_ChooseEmployee in 'Unit_ChooseEmployee.pas' {frm_chooseemployee},
   Unit_CreateCard in 'Unit_CreateCard.pas' {frm_createcard},
   Unit_Customer in 'Unit_Customer.pas' {frm_customer},
-  Udm in 'Udm.pas' {adodm: TDataModule},
   Unit_Dictionary in 'Unit_Dictionary.pas' {frm_dictionary},
   Unit_Empattendance in 'Unit_Empattendance.pas' {frm_empattend},
   Unit_FrontCheck in 'Unit_FrontCheck.pas' {frm_frontcheck},
-  unit_login in 'Unit_Login.pas' {frm_login},
   Unit_Main in 'Unit_Main.pas' {frm_main},
-  unit_operator in 'unit_operator.pas' {frm_operator},
-  unit_power in 'unit_power.pas' {frm_power},
   Unit_PublicFunction in 'Unit_PublicFunction.pas',
   Unit_SelectReason in 'Unit_SelectReason.pas' {frm_selectreason},
   Unit_ServiceBooking in 'Unit_ServiceBooking.pas' {frm_servicebooking},
@@ -39,8 +35,8 @@ uses
   Unit_ServiceMeal in 'Unit_ServiceMeal.pas' {frm_servicemeal},
   Unit_SpecialAttend in 'Unit_SpecialAttend.pas' {frm_specialattend},
   Unit_TotalPublic in 'Unit_TotalPublic.pas',
-  unit_unit in 'unit_unit.pas' {frm_unit},
-  unit_editpassword in 'unit_editpassword.pas' {frm_editpassword},
+  Unit_Unit in 'Unit_Unit.pas' {frm_unit},
+  Unit_Editpassword in 'Unit_Editpassword.pas' {frm_editpassword},
   Unit_BasicSalary in 'Unit_BasicSalary.pas' {frm_basicsalary},
   Unit_SalaryItem in 'Unit_SalaryItem.pas' {frm_salaryitem},
   Unit_ServiceItemExtra in 'Unit_ServiceItemExtra.pas' {frm_serviceitemextra},
@@ -64,43 +60,42 @@ uses
   Unit_ReportSalary in 'Unit_ReportSalary.pas' {frm_ReportSalary},
   Unit_CustomerRegister in 'Unit_CustomerRegister.pas' {frm_CustomerRegister},
   Unit_DBini in 'Unit_DBini.pas' {frm_DBini},
-  Uac in 'Uac.pas' {fac},
-  Uback in 'Uback.pas' {fback},
-  ubs in 'ubs.pas' {fbs},
+  Unit_Splash in 'Unit_Splash.pas' {frm_splash},
+  Unit_GoodsLoss in 'Unit_GoodsLoss.pas' {frm_GoodsLoss},
   Unit_SalesStatistic in 'Unit_SalesStatistic.pas' {frm_SalesStatistic},
-  Udj in 'Udj.pas' {fdj},
+  Unit_ReceiptQuery in 'Unit_ReceiptQuery.pas' {frm_ReceiptQuery},
   Unit_DataModule in 'Unit_DataModule.pas' {DMod: TDataModule},
-  ukc in 'ukc.pas' {fkc},
-  Ukctj in 'Ukctj.pas' {fkctj},
-  ukl in 'ukl.pas' {Fkl},
-  unit_UserLogin in 'unit_UserLogin.pas' {frm_UserLogin},
+  Unit_StoreList in 'Unit_StoreList.pas' {frm_StoreList},
+  Unit_StoreChanges in 'Unit_StoreChanges.pas' {frm_StoreChanges},
+  Unit_UserLogin in 'Unit_UserLogin.pas' {frm_UserLogin},
   Unit_GoodsRetail in 'Unit_GoodsRetail.pas' {frm_GoodsRetail},
-  Umain in 'Umain.pas' {fmain},
-  Upd in 'upd.pas' {fpd},
+  Unit_StoreCheck in 'Unit_StoreCheck.pas' {frm_StoreCheck},
   Unit_GoodsWholeSale in 'Unit_GoodsWholeSale.pas' {frm_GoodsWholeSale},
-  upreview in 'upreview.pas' {fpreview},
-  Urk in 'Urk.pas' {frk},
-  uty in 'uty.pas' {fty},
-  unit_UserManage in 'unit_UserManage.pas' {frm_UserManage},
+  Upreview in 'Upreview.pas' {fpreview},
+  Unit_GoodsCheckIn in 'Unit_GoodsCheckIn.pas' {frm_GoodsCheckIn},
+  Unit_GoodsBizReturn in 'Unit_GoodsBizReturn.pas' {frm_GoodsBizReturn},
+  Unit_UserManage in 'Unit_UserManage.pas' {frm_UserManage},
   Unit_UserProfile in 'Unit_UserProfile.pas' {frm_UserProfile},
-  uxl in 'uxl.pas' {fxl},
-  Uxstj in 'Uxstj.pas' {fxstj},
-  uyg in 'uyg.pas' {fyg},
-  Uypzdk in 'Uypzdk.pas' {fypzdk},
-  Uypzdk2 in 'Uypzdk2.pas' {fypzdk2},
-  Unit_AdjustSaleStat in 'Unit_AdjustSaleStat.pas' {frm_AdjustSaleStat};
+  Unit_StoreLimite in 'Unit_StoreLimite.pas' {frm_StoreLimite},
+  Unit_SalesProfit in 'Unit_SalesProfit.pas' {frm_SalesProfit},
+  Unit_BizDictionary in 'Unit_BizDictionary.pas' {frm_BizDictionary},
+  Unit_GoodsDictionary in 'Unit_GoodsDictionary.pas' {frm_GoodsDictionary},
+  Unit_GoodsDetail in 'Unit_GoodsDetail.pas' {frm_GoodsDetail},
+  Unit_AdjustSaleStat in 'Unit_AdjustSaleStat.pas' {frm_AdjustSaleStat},
+  Unit_WholeSaleSummary in 'Unit_WholeSaleSummary.pas' {frm_WholeSaleSummary},
+  Unit_MemberBuyQuery in 'Unit_MemberBuyQuery.pas' {frm_MemberBuyQuery};
 
 {$R *.res}
 var
   DBFile: Tinifile;
   DB_Source, DB_User, DB_Password : string;
   Frm_Dbini: Tfrm_DBini;
-  //flash: tfac;
+  //flash: tfrm_splash;
   conn: boolean;
 begin
 
   Application.Initialize;
-  //flash := tfac.Create(application);
+  //flash := tfrm_splash.Create(application);
 
   //flash.BitBtn1.Visible := false;
   //flash.Label4.Visible := true;
@@ -110,7 +105,6 @@ begin
 
   Application.Title := '理疗保健智能管理系统';
   Application.CreateForm(TDMod, DMod);
-  Application.CreateForm(Tfrm_AdjustSaleStat, frm_AdjustSaleStat);
   DBFile := tinifile.Create(extractfilepath(application.ExeName) +
     'DBConn.ini');
   DB_Source := DBFile.ReadString('CareCure', 'DB_Source',

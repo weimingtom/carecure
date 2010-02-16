@@ -50,7 +50,7 @@ var
   frm_UserLogin: Tfrm_UserLogin;
 
 implementation
-uses umain, Unit_Main, PublicFunOrPro, unit_TotalPublic;
+uses Unit_Main, PublicFunOrPro, unit_TotalPublic;
 {$R *.dfm}
 
 procedure Tfrm_UserLogin.FormShow(Sender: TObject);

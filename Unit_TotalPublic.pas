@@ -65,7 +65,7 @@ uses
    unit_dictionary,Unit_AttendConfig,unit_Empattendance,unit_specialAttend,unit_attenstat,
    unit_attendmanager,unit_selectreason,unit_createcard,unit_cardmanager,unit_cardtrack,
    unit_servicebooking,unit_frontcheck,unit_ServiceItem,unit_ServiceMeal,unit_ChooseEmployee,
-   unit_power,unit_unit,unit_operator,unit_editpassword,unit_basicSalary,unit_Salaryitem,
+   unit_unit,unit_editpassword,unit_basicSalary,unit_Salaryitem,
    unit_serviceitemextra,unit_DayStatistic,unit_MonthStatistic,unit_SysInitial,unit_salarymanager,
    unit_ServiceMealExtra,unit_ChooseCustomer,unit_reportcustomer,unit_reportEmployee,
    unit_ReportBasicSalary,unit_reportAttendStatistic,unit_reportCustomerCard,unit_ReportServiceBooking,
@@ -106,15 +106,6 @@ end;
 
 procedure DoPower(MyGrid:TStringGrid);
 begin
-  try
-    frm_Power := Tfrm_Power.Create(nil);
-    frm_Power.TempString := MyGrid;
-    frm_Power.ref;
-    frm_Power.ShowModal;
-  finally
-    frm_Power.free;
-    frm_Power:=nil;
-  end;    
 end;
 
 procedure DoAbout;
@@ -360,13 +351,6 @@ end;
 
 procedure DoOperator;
 begin
-  if frm_operator=nil then
-  begin
-    frm_operator:=Tfrm_operator.create(nil);
-    frm_operator.Left:= frm_main.Width div 2 - frm_operator.Width div 2 ;
-    frm_operator.Top:= frm_main.Height div 2 - frm_operator.Height div 2 ;
-    frm_operator.show;
-  end else frm_operator.BringToFront;
 end;
 
 procedure DoRelogin;

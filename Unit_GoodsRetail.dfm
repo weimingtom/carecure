@@ -46,7 +46,7 @@ object frm_GoodsRetail: Tfrm_GoodsRetail
     TabStop = False
     Align = alClient
     AllowedOperations = [alopInsertEh, alopUpdateEh, alopDeleteEh]
-    DataSource = adodm.dscr
+    DataSource = DMod.dscr
     Flat = True
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -202,7 +202,7 @@ object frm_GoodsRetail: Tfrm_GoodsRetail
       KeyField = 'clientid'
       ListField = #31616#30721';'#21517#31216
       ListFieldIndex = 1
-      ListSource = adodm.dsdw
+      ListSource = DMod.dsdw
       Style = csDropDownEh
       TabOrder = 0
       Visible = True
@@ -345,7 +345,7 @@ object frm_GoodsRetail: Tfrm_GoodsRetail
       ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
       KeyField = 'ygid'
       ListField = #22995#21517';'#21592#24037#32534#21495
-      ListSource = adodm.dsyg
+      ListSource = DMod.dsyg
       Style = csDropDownEh
       TabOrder = 0
       Visible = True
@@ -556,7 +556,7 @@ object frm_GoodsRetail: Tfrm_GoodsRetail
   end
   object sum1: TDBSumList
     Active = False
-    DataSet = adodm.tcr
+    DataSet = DMod.tcr
     ExternalRecalc = False
     SumCollection = <
       item

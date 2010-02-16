@@ -30,7 +30,7 @@ var
   frm_login: Tfrm_login;
 
 implementation
-  uses unit_data,unit_main ,PublicFunOrPro, unit_TotalPublic,
+  uses unit_main ,PublicFunOrPro, unit_TotalPublic,
   Unit_DataModule;
 {$R *.DFM}
 
