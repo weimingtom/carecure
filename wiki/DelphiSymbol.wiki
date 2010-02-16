@@ -13,6 +13,6 @@ Delpih中使用ASCII码
 
   * [http://www.codesky.net/article/doc/200308/2003080963295785.htm|string TStrings pchar的相互转换|]
 
-  * []
+  * [http://www.7788sky.cn/post/Delphi_enter_daima.html |Delphi 模拟按键盘回车键|]  [http://topic.csdn.net/t/20020219/12/532466.html |怎么用sendmessage发送按回车键的消息?|]
   * []
   * []
