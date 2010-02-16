@@ -1,0 +1,18 @@
+#summary Delpih中使用ASCII码,字符及字符串
+
+= Introduction =
+
+Delpih中使用ASCII码
+
+
+= Details =
+
+  * [http://www.asciitable.com/ |Ascii Table - ASCII character codes|]
+
+  * [http://hi.baidu.com/hack0573/blog/item/c556323d96b805e93d6d9780.html |Delphi 的字符及字符串 - Char、AnsiChar、WideChar、PChar、PAnsiChar、PWideChar|]
+
+  * [http://www.codesky.net/article/doc/200308/2003080963295785.htm|string TStrings pchar的相互转换|]
+
+  * []
+  * []
+  * []
