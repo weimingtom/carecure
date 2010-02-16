@@ -78,7 +78,7 @@ var
   frm_attendmanager: Tfrm_attendmanager;
 
 implementation
-  uses unit_DataModule,unit_TotalPublic,PublicFunOrPro,unit_selectreason,Unit_PublicFunction;
+  uses unit_DataModule,unit_TotalPublic,PublicFunOrPro,unit_selectreason,Unit_MainFunPro;
 {$R *.dfm}
 {*************************用户自定义过程***********************}
 procedure Tfrm_attendmanager.MakeInputEnabled(temp:boolean);
