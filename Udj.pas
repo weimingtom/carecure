@@ -5,7 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils,  Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Grids, DBGridEh, ComCtrls, Buttons, 
-  DBLookupEh,upreview,Unit_DataModule, DBSumLst, Mask, DBCtrlsEh,  DBCtrls;
+  DBLookupEh,upreview,Unit_DataModule, DBSumLst, Mask, DBCtrlsEh,  DBCtrls,
+  GridsEh;
 
 type
   Tfdj = class(TForm)
@@ -69,7 +70,7 @@ begin
 if DMod.tdjsearch.active   then
 if DMod.tdjsearch.RecordCount>0 then
 begin
-fpreview.frdj.FindObject('memo1').Memo.Text:='药品'+DMod.tdjsearch.FieldValues['类型']+'单' ;
+fpreview.frdj.FindObject('memo1').Memo.Text:='商品'+DMod.tdjsearch.FieldValues['类型']+'单' ;
  fpreview.frdj.ShowReport;
  fpreview.ShowModal;
 end;

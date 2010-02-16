@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, Menus, XPMenu, ComCtrls, ToolWin, ExtCtrls,   ImgList,  Buttons,
-  jpeg,Unit_DataModule,uypzdk,uxl,udj, Uypzdk2,uyg,urk,uxstj, ukctj,Unit_UserLogin, StdCtrls,uty,ubs,upd,ukl,ukc,upf,uls,uac,ucr,uback,
+  jpeg,Unit_DataModule,uypzdk,uxl,udj, Uypzdk2,uyg,urk,uxstj, ukctj,Unit_UserLogin, StdCtrls,uty,ubs,upd,ukl,ukc,Unit_GoodsWholeSale,Unit_GoodsRetail,uac,Unit_SalesStatistic,uback,
   unit_UserManage;
 
 type userinfo=record
@@ -141,10 +141,10 @@ var
   bs:tfbs ;
   pd:tfpd;
   kc:tfkc;
-  pf:tfpf ;
-  ls:tfls;
+  pf:tfrm_GoodsWholeSale ;
+  ls:tfrm_GoodsRetail;
   ac:tfac;
-  cr:tfcr;
+  cr:tfrm_SalesStatistic;
   back:tfback;
   UserManage:Tfrm_UserManage;
   xl:tfxl;
@@ -355,9 +355,9 @@ end;
 
 procedure Tfmain.pf1Click(Sender: TObject);
 begin
-if application.FindComponent('fpf')=nil then
+if application.FindComponent('frm_GoodsWholeSale')=nil then
 begin
-pf:=tfpf.create(application) ;
+pf:=tfrm_GoodsWholeSale.create(application) ;
 pf.Show;
 end
 else
@@ -399,9 +399,9 @@ end;
 
 procedure Tfmain.ls1Click(Sender: TObject);
 begin
-if application.FindComponent('fls')=nil then
+if application.FindComponent('frm_GoodsRetail')=nil then
 begin
-ls:=tfls.create(application) ;
+ls:=tfrm_GoodsRetail.create(application) ;
 ls.Show;
 
 end
@@ -416,9 +416,9 @@ end;
 
 procedure Tfmain.crlist1Click(Sender: TObject);
 begin
-if application.FindComponent('fcr')=nil then
+if application.FindComponent('frm_SalesStatistic')=nil then
 begin
-cr:=tfcr.create(application) ;
+cr:=tfrm_SalesStatistic.create(application) ;
 cr.Show;
 end
 else

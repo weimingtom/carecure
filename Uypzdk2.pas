@@ -102,14 +102,14 @@ begin
    result:=true;
    if trim(dbedit1.Text)='' then
    begin
-   showmessage('药品编号不能为空!');
+   showmessage('商品编号不能为空!');
    result:=false;
    dbedit1.SetFocus;
    exit;
    end ;
     if search(dbedit1.DataField,dbedit1.Text) then
       begin
-      showmessage('药品编号重复,请重新录入!');
+      showmessage('商品编号重复,请重新录入!');
       result:=false;
       dbedit1.SetFocus;
       exit;
@@ -118,7 +118,7 @@ begin
 
    if trim(dbedit2.Text)='' then
    begin
-   showmessage('药品代码不能为空!');
+   showmessage('商品代码不能为空!');
    result:=false;
    dbedit2.SetFocus;
    exit;
@@ -126,7 +126,7 @@ begin
 
     if search(dbedit2.datafield,dbedit2.Text) then
     begin
-      showmessage('药品代码重复,请重新录入!');
+      showmessage('商品代码重复,请重新录入!');
       result:=false;
       dbedit2.SetFocus;
       exit;
@@ -134,35 +134,35 @@ begin
 
    if trim(dbedit3.Text)='' then
    begin
-   showmessage('药品名称不能为空!');
+   showmessage('商品名称不能为空!');
    result:=false;
    dbedit3.SetFocus;
    exit;
    end;
    if trim(jx.Text)='' then
    begin
-   showmessage('药品剂型不能为空!');
+   showmessage('商品剂型不能为空!');
    result:=false;
    jx.SetFocus;
    exit;
    end;
    if trim(dw.Text)='' then
    begin
-   showmessage('药品单位不能为空!');
+   showmessage('商品单位不能为空!');
    result:=false;
    dw.SetFocus;
    exit;
    end;
    if trim(pf.Text)='' then
    begin
-   showmessage('药品批发价格不能为空!');
+   showmessage('商品批发价格不能为空!');
    result:=false;
    pf.SetFocus;
    exit;
    end;
      if trim(ls.Text)='' then
    begin
-   showmessage('药品零售价不能为空!');
+   showmessage('商品零售价不能为空!');
    result:=false;
    ls.SetFocus;
    exit;
@@ -179,14 +179,14 @@ begin
 
    if trim(dbedit5.Text)='' then
    begin
-   showmessage('药品规格不能为空!');
+   showmessage('商品规格不能为空!');
    result:=false;
    dbedit5.SetFocus;
    exit;
    end;
      if trim(lx.Text)='' then
    begin
-   showmessage('药品类型不能为空!');
+   showmessage('商品类型不能为空!');
    result:=false;
    lx.SetFocus;
    exit;

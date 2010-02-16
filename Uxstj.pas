@@ -128,7 +128,7 @@ var sqlstr,wherestr:string;
 begin
 
 printtitle:=speedbutton1.Caption;
- sqlstr:='select c.名称,sum(b.金额) as 销售金额 , sum(b.金额-b.成本金额) as 利润, c.id as 药品标识号  from cr b ,ypzdk c where (b.类型=''零售'' or b.类型=''批发'' ) and b.ypid=c.id ' ;
+ sqlstr:='select c.名称,sum(b.金额) as 销售金额 , sum(b.金额-b.成本金额) as 利润, c.id as 商品标识号  from cr b ,ypzdk c where (b.类型=''零售'' or b.类型=''批发'' ) and b.ypid=c.id ' ;
  if (fromdate.Text='    -  -  ') and (todate.Text<>'    -  -  ') then
    wherestr:=' and 日期<='''+trim(todate.Text)+'''' ;
   if (fromdate.Text<>'    -  -  ') and (todate.Text<>'    -  -  ') then
