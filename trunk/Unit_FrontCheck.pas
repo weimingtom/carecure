@@ -438,9 +438,9 @@ begin
       with dmod.ADOQuery1 do
       begin
         close;
-        SQL.Text :='select password from CustomerCard where card_no='+#39+trim(edt_CardNo.Text)+#39;
+        SQL.Text :='select passwords from CustomerCard where card_no='+#39+trim(edt_CardNo.Text)+#39;
         Open;
-        if trim(edt_password.Text)<>trim(FieldByName('password').AsString) then
+        if trim(edt_password.Text)<>trim(FieldByName('passwords').AsString) then
         begin
           MessageBox(self.handle,'用户密码验证失败，请重试!','提示',mb_ok+mb_iconinformation);
           edt_password.SetFocus ;

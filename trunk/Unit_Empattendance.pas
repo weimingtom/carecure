@@ -76,8 +76,8 @@ begin
       InsertInitialEmpInfo(GetDateString('DBMeirong'));
       SearchAttendInfo(GetDateString('DBMeirong'),'Emp_no');
    end;
-   sbtn_save.Enabled := GetPower(SysUserId,'正常考勤','修改权');
-   sbtn_special.Enabled := GetPower(SysUserId,'特殊考勤','浏览权');
+   //sbtn_save.Enabled := GetPower(SysUserId,'正常考勤','修改权');
+   //sbtn_special.Enabled := GetPower(SysUserId,'特殊考勤','浏览权');
    
 end;
 function Tfrm_empattend.SearchAttendInfo(current_date,order_by:string):boolean ;
@@ -90,7 +90,7 @@ begin
   begin
     Close;
     SQL.Text :='select Emp_no,Emp_name,att_date,pre_morning,aft_morning,pre_afternoon,aft_afternoon,pre_evening,aft_evening ' +
-               'from NormalAttend where att_date='+#39+current_date+#39+' order by '+#39+order_by+#39;
+               'from NormalAttend where att_date='+#35+current_date+#35+' order by '+#39+order_by+#39;
     Open;
     if not eof then
     begin
@@ -172,7 +172,7 @@ begin
   begin
     close;
     SQL.Text :='select '+field+' from NormalAttend where emp_no='+#39+emp_no+#39+
-               ' and att_date='+#39+GetDateString('DBMeirong')+#39;
+               ' and att_date='+#35+GetDateString('DBMeirong')+#35;
     Open;
     if not eof then
     begin
@@ -242,7 +242,7 @@ begin
     begin
       Close;
       temp:='update NormalAttend set is_attend=''1'','+GetFieldSetByItemIndex(cbb_TimeSet.ItemIndex)+'='+#39+GetDateTimeString('DBMeirong')+#39+
-               ' where emp_no='+#39+trim(edt_Empno.Text)+#39+' and att_date='+#39+GetDateString('DBMeirong')+#39;
+               ' where emp_no='+#39+trim(edt_Empno.Text)+#39+' and att_date='+#35+GetDateString('DBMeirong')+#35;
       SQL.Text := temp;
       ExecSQL;
       SearchAttendInfo(GetDateString('DBMeirong'),'emp_no');

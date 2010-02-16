@@ -99,6 +99,7 @@ object frm_login: Tfrm_login
     Height = 20
     CharCase = ecUpperCase
     Color = 14020849
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     PasswordChar = '#'
     TabOrder = 1
     OnKeyPress = medt_passwordKeyPress
@@ -109,6 +110,7 @@ object frm_login: Tfrm_login
     Width = 121
     Height = 20
     Color = 14020849
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     TabOrder = 0
     OnKeyPress = edt_UserIdKeyPress
   end

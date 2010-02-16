@@ -179,7 +179,7 @@ begin
   with dmod.ADOQuery1 do
   begin
     Close;
-    SQL.Text :='select count(*) as count from attendtime';
+    SQL.Text :='select count(*) as [count] from attendtime';
     Open;
     array_length:=FieldByName('count').AsInteger ;
   end;
@@ -219,7 +219,7 @@ begin
     with dmod.ADOQuery1 do
     begin
       Close;
-      SQL.Text :='select count(*) as count from EmployeeAttendStatistic where year_month='+#39+temp_yearmonth+#39;
+      SQL.Text :='select count(*) as [count] from EmployeeAttendStatistic where year_month='+#39+temp_yearmonth+#39;
       Open;
       if FieldByName('count').AsInteger >0 then
       begin
@@ -312,13 +312,13 @@ begin
       with dmod.ADOQuery2 do
       begin
         Close; //得到总的工作天数
-        SQL.Text :='select count(*) as count from normalattend where emp_no='+#39+temp_Empno+#39+
+        SQL.Text :='select count(*) as [count] from normalattend where emp_no='+#39+temp_Empno+#39+
                    ' and att_date between '+#39+temp_MinDate+#39+' and '+#39+temp_MaxDate+#39;
         Open;
         temp_TotalWorkDay:=FieldByName('count').AsInteger ;
         //showmessage(inttostr(temp_TotalWorkDay));
         Close; //得到总的考勤天数
-        SQL.Text :='select count(*) as count from normalattend where emp_no='+#39+temp_Empno+#39+
+        SQL.Text :='select count(*) as [count] from normalattend where emp_no='+#39+temp_Empno+#39+
                    ' and is_attend=''1'' and att_date between '+#39+temp_MinDate+#39+' and '+#39+temp_MaxDate+#39;
         Open;
         temp_TotalAttendDay:=FieldByName('count').AsInteger ;
@@ -371,7 +371,7 @@ begin
         end;
 
         Close;//得到总的特殊考勤次数
-        SQL.Text :='select count(*) as count from SpecialAttend where emp_no='+#39+temp_Empno+#39+
+        SQL.Text :='select count(*) as [count] from SpecialAttend where emp_no='+#39+temp_Empno+#39+
                    ' and att_date between '+#39+temp_MinDate+#39+' and '+#39+temp_MaxDate+#39;
         Open;
         temp_SpecialAttendDay:=FieldByName('count').AsInteger ;

@@ -69,7 +69,7 @@ end;
 
 if DMod.tuser.Locate('userid',fmain.auser.id,[]) then
   begin
-   if DMod.tuser.FieldByName('password').Asstring<>trim(old.Text) then
+   if DMod.tuser.FieldByName('passwords').Asstring<>trim(old.Text) then
       begin
       showmessage('原密码不对！请重新录入');
       old.SetFocus;
@@ -78,7 +78,7 @@ if DMod.tuser.Locate('userid',fmain.auser.id,[]) then
       begin
       DMod.tuser.Open;
       DMod.tuser.Edit;
-      DMod.tuser.FieldByName('password').Asstring:=new.Text;
+      DMod.tuser.FieldByName('passwords').Asstring:=new.Text;
       DMod.tuser.Post;
       end;
   end

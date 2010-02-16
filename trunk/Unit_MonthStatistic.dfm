@@ -1,6 +1,6 @@
 object frm_monthstatistic: Tfrm_monthstatistic
-  Left = 282
-  Top = 246
+  Left = 342
+  Top = 186
   Width = 630
   Height = 492
   Caption = #26376#33829#19994#39069#32479#35745
@@ -21,7 +21,7 @@ object frm_monthstatistic: Tfrm_monthstatistic
     Left = 0
     Top = 33
     Width = 622
-    Height = 400
+    Height = 393
     ActivePage = sht_List
     Align = alClient
     TabOrder = 0
@@ -32,7 +32,7 @@ object frm_monthstatistic: Tfrm_monthstatistic
         Left = 0
         Top = 0
         Width = 614
-        Height = 373
+        Height = 366
         Hint = #21452#20987#35760#24405#26597#30475#35814#32454#20449#24687
         Align = alClient
         ColCount = 7
@@ -90,6 +90,7 @@ object frm_monthstatistic: Tfrm_monthstatistic
     Width = 622
     Height = 33
     Align = alTop
+    ParentBackground = False
     TabOrder = 1
     object sbtn_front: TSpeedButton
       Left = 8
@@ -223,15 +224,16 @@ object frm_monthstatistic: Tfrm_monthstatistic
       Top = 6
       Width = 107
       Height = 20
+      ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
       MaxLength = 7
       TabOrder = 0
-      Text = 'YYYY-MM'
+      Text = '2010-01'
       OnEnter = edt_monthstatisticEnter
     end
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 433
+    Top = 426
     Width = 622
     Height = 32
     Panels = <

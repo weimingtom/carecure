@@ -37,6 +37,7 @@ type
     procedure sht_DetailShow(Sender: TObject);
     procedure sg_ListDblClick(Sender: TObject);
     procedure sbtn_printClick(Sender: TObject);
+
   private
     { Private declarations }
 
@@ -102,9 +103,9 @@ begin
   with dmod.ADOQuery1 do
   begin
     Close;
-    SQL.Text :='select count(*) as count ,sum(discount_sum) as sum,cost_date from customercost '+
-               'where cost_date between '+#39+temp_mindate+#39+' and '+#39+temp_maxdate+#39+
-               ' group by cost_date order by cost_date';
+    SQL.Text :='select count(*) as [count] ,sum(discount_sum) as [sum],cost_date from customercost '+
+               'where cost_date between '+#35+temp_mindate+#35+' and '+#35+temp_maxdate+#35+
+               ' group by cost_date order by cost_date'; //#39-->35
     Open;
     i:=1;
     while not eof do
@@ -114,14 +115,14 @@ begin
       sg_List.Cells[6,i]:=FloatToStr(FieldByName('sum').AsFloat);
       dmod.ADOQuery2.Close ;
       dmod.ADOQuery2.SQL.Text :='select count(*) as member from customercost where cost_date='+
-                               #39+FieldByName('cost_date').AsString+#39+' and cus_no<>''0000000001''';
+                               #35+FieldByName('cost_date').AsString+#35+' and cus_no<>''0000000001''';
       dmod.ADOQuery2.Open ;
       sg_List.Cells[2,i]:=IntToStr(dmod.ADOQuery2.fieldbyname('member').asinteger);
       sg_List.Cells[3,i]:=IntToStr(FieldByName('count').AsInteger-dmod.ADOQuery2.fieldbyname('member').asinteger);
 
       dmod.ADOQuery2.Close ;
       dmod.ADOQuery2.SQL.Text :='select count(*) as cash from customercost where cost_date='+
-                               #39+FieldByName('cost_date').AsString+#39+' and check_type<>''1''';
+                               #35+FieldByName('cost_date').AsString+#35+' and check_type<>''1''';
       dmod.ADOQuery2.Open ;
       sg_List.Cells[4,i]:=IntToStr(dmod.ADOQuery2.fieldbyname('cash').asinteger);
       sg_List.Cells[5,i]:=IntToStr(FieldByName('count').AsInteger-dmod.ADOQuery2.fieldbyname('cash').asinteger);
@@ -141,7 +142,7 @@ begin
   begin
     Close;
     SQL.Text :='select cost_no,cc.cus_no,cus_name,cost_sum,discount_sum,payment,change,check_type from CustomerCost cc,Customer c '+
-               'where cc.cus_no=c.cus_no and cc.cost_date='+#39+temp+#39;
+               'where cc.cus_no=c.cus_no and cc.cost_date='+#35+temp+#35;
     Open;
     i:=1;
     while not eof do
@@ -187,12 +188,12 @@ begin
     with dmod.ADOQuery1 do
     begin
       Close;
-      SQL.Text :='select count(*) as count from CostMonthStatistic where year_month='+#39+trim(edt_monthstatistic.Text)+#39;
+      SQL.Text :='select count(*) as [count] from CostMonthStatistic where year_month='+#35+trim(edt_monthstatistic.Text)+#35;
       Open;
       if fieldByName('count').AsInteger >0 then
       begin
         Close;
-        SQL.Text :='delete from CostMonthStatistic where year_month='+#39+trim(edt_monthstatistic.Text)+#39;
+        SQL.Text :='delete from CostMonthStatistic where year_month='+#35+trim(edt_monthstatistic.Text)+#35;
         ExecSQL;
       end;
 
@@ -319,6 +320,11 @@ procedure Tfrm_monthstatistic.sbtn_monthstatisticClick(Sender: TObject);
 var
   i:integer;
 begin
+  if strtodatedef(((edt_monthstatistic.text)+ '-01'),0)=0 then
+  begin
+  showmessage('所输入年月日期格式不对,请按 YYYY-MM 格式即 年-月 格式输入.');
+  Exit;
+  end;
   SearchMonthStatisticList(trim(edt_monthstatistic.Text));
   SaveMonthStatistic;
   for i:=0 to 6 do
@@ -354,5 +360,6 @@ procedure Tfrm_monthstatistic.sbtn_printClick(Sender: TObject);
 begin
   DoReportMonthStatistic;
 end;
+
 
 end.

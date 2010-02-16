@@ -1,6 +1,6 @@
 object frm_empattend: Tfrm_empattend
-  Left = 97
-  Top = 124
+  Left = 184
+  Top = 122
   Width = 807
   Height = 569
   Caption = #21592#24037#32771#21220
@@ -21,21 +21,22 @@ object frm_empattend: Tfrm_empattend
     Left = 589
     Top = 0
     Width = 2
-    Height = 542
+    Height = 535
     Align = alRight
   end
   object pnlContent: TPanel
     Left = 0
     Top = 0
     Width = 589
-    Height = 542
+    Height = 535
     Align = alClient
+    ParentBackground = False
     TabOrder = 0
     object sg_attend: TStringGrid
       Left = 1
       Top = 1
       Width = 587
-      Height = 512
+      Height = 505
       Align = alClient
       ColCount = 9
       DefaultRowHeight = 20
@@ -46,7 +47,7 @@ object frm_empattend: Tfrm_empattend
     end
     object StatusBar1: TStatusBar
       Left = 1
-      Top = 513
+      Top = 506
       Width = 587
       Height = 28
       Panels = <
@@ -59,8 +60,9 @@ object frm_empattend: Tfrm_empattend
     Left = 591
     Top = 0
     Width = 208
-    Height = 542
+    Height = 535
     Align = alRight
+    ParentBackground = False
     TabOrder = 1
     object GroupBox1: TGroupBox
       Left = 8
@@ -137,6 +139,7 @@ object frm_empattend: Tfrm_empattend
         Width = 87
         Height = 20
         Color = 14020849
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         TabOrder = 0
       end
       object cbb_TimeSet: TComboBox
@@ -145,6 +148,7 @@ object frm_empattend: Tfrm_empattend
         Width = 89
         Height = 20
         Style = csDropDownList
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         ItemHeight = 12
         TabOrder = 1
         Items.Strings = (
@@ -178,6 +182,7 @@ object frm_empattend: Tfrm_empattend
         Height = 20
         Date = 37155.964779085640000000
         Time = 37155.964779085640000000
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         TabOrder = 0
       end
       object cbb_OrderBy: TComboBox
@@ -185,6 +190,7 @@ object frm_empattend: Tfrm_empattend
         Top = 57
         Width = 121
         Height = 20
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         ItemHeight = 12
         TabOrder = 1
         Text = #21592#24037#32534#21495

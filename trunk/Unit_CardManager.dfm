@@ -21,7 +21,7 @@ object frm_cardmanager: Tfrm_cardmanager
     Left = 0
     Top = 0
     Width = 424
-    Height = 336
+    Height = 329
     ActivePage = sht_password
     Align = alClient
     TabOrder = 0
@@ -98,6 +98,7 @@ object frm_cardmanager: Tfrm_cardmanager
         Top = 13
         Width = 121
         Height = 20
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         TabOrder = 0
       end
       object edt_CardNo1: TEdit
@@ -106,6 +107,7 @@ object frm_cardmanager: Tfrm_cardmanager
         Width = 121
         Height = 20
         Color = 14020849
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         ReadOnly = True
         TabOrder = 1
       end
@@ -172,6 +174,7 @@ object frm_cardmanager: Tfrm_cardmanager
           Width = 121
           Height = 20
           Color = 14020849
+          ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
           ReadOnly = True
           TabOrder = 0
         end
@@ -181,6 +184,7 @@ object frm_cardmanager: Tfrm_cardmanager
           Width = 121
           Height = 20
           Color = 14020849
+          ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
           ReadOnly = True
           TabOrder = 6
         end
@@ -191,6 +195,7 @@ object frm_cardmanager: Tfrm_cardmanager
           Height = 20
           Date = 37915.582335775460000000
           Time = 37915.582335775460000000
+          ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
           TabOrder = 4
         end
         object edt_LastCurrency1: TEdit
@@ -199,6 +204,7 @@ object frm_cardmanager: Tfrm_cardmanager
           Width = 121
           Height = 20
           Color = 14020849
+          ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
           ReadOnly = True
           TabOrder = 5
         end
@@ -208,6 +214,7 @@ object frm_cardmanager: Tfrm_cardmanager
           Width = 121
           Height = 20
           Color = 14020849
+          ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
           ReadOnly = True
           TabOrder = 1
         end
@@ -217,6 +224,7 @@ object frm_cardmanager: Tfrm_cardmanager
           Width = 121
           Height = 20
           Color = 14020849
+          ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
           ReadOnly = True
           TabOrder = 3
         end
@@ -226,6 +234,7 @@ object frm_cardmanager: Tfrm_cardmanager
           Width = 121
           Height = 20
           Color = 14020849
+          ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
           ReadOnly = True
           TabOrder = 2
         end
@@ -236,6 +245,7 @@ object frm_cardmanager: Tfrm_cardmanager
         Width = 121
         Height = 20
         Color = 14020849
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         TabOrder = 2
         OnExit = edt_CurrencyAddedExit
       end
@@ -247,6 +257,7 @@ object frm_cardmanager: Tfrm_cardmanager
         Date = 37915.583350196760000000
         Time = 37915.583350196760000000
         Color = 14020849
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         TabOrder = 3
       end
       object RadioGroup1: TRadioGroup
@@ -268,16 +279,18 @@ object frm_cardmanager: Tfrm_cardmanager
         Width = 121
         Height = 20
         Color = 14020849
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         ReadOnly = True
         TabOrder = 4
       end
       object Panel1: TPanel
         Left = 0
-        Top = 278
+        Top = 271
         Width = 416
         Height = 31
         Align = alBottom
         BevelOuter = bvNone
+        ParentBackground = False
         TabOrder = 7
         object sbtn_save1: TSpeedButton
           Left = 272
@@ -336,6 +349,7 @@ object frm_cardmanager: Tfrm_cardmanager
         Width = 121
         Height = 20
         Color = 14020849
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         TabOrder = 8
       end
     end
@@ -456,6 +470,7 @@ object frm_cardmanager: Tfrm_cardmanager
         Width = 121
         Height = 20
         Color = 14020849
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         PasswordChar = '*'
         TabOrder = 2
         OnExit = edt_OldPasswordExit
@@ -466,6 +481,7 @@ object frm_cardmanager: Tfrm_cardmanager
         Width = 121
         Height = 20
         Color = 14020849
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         PasswordChar = '*'
         TabOrder = 3
       end
@@ -475,6 +491,7 @@ object frm_cardmanager: Tfrm_cardmanager
         Width = 121
         Height = 20
         Color = 14020849
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         PasswordChar = '*'
         TabOrder = 4
       end
@@ -484,6 +501,7 @@ object frm_cardmanager: Tfrm_cardmanager
         Width = 121
         Height = 20
         Color = 14020849
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         ReadOnly = True
         TabOrder = 1
       end
@@ -492,6 +510,7 @@ object frm_cardmanager: Tfrm_cardmanager
         Top = 13
         Width = 121
         Height = 20
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         TabOrder = 0
       end
       object RadioGroup2: TRadioGroup
@@ -570,6 +589,7 @@ object frm_cardmanager: Tfrm_cardmanager
           Width = 121
           Height = 20
           Color = 14020849
+          ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
           TabOrder = 0
         end
         object edt_Curcurrency2: TEdit
@@ -578,6 +598,7 @@ object frm_cardmanager: Tfrm_cardmanager
           Width = 121
           Height = 20
           Color = 14020849
+          ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
           TabOrder = 6
         end
         object dtp_LastTime2: TDateTimePicker
@@ -588,6 +609,7 @@ object frm_cardmanager: Tfrm_cardmanager
           Date = 37915.582335775460000000
           Time = 37915.582335775460000000
           Color = 14020849
+          ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
           TabOrder = 4
         end
         object edt_LastCurrency2: TEdit
@@ -596,6 +618,7 @@ object frm_cardmanager: Tfrm_cardmanager
           Width = 121
           Height = 20
           Color = 14020849
+          ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
           TabOrder = 5
         end
         object edt_CostScore2: TEdit
@@ -604,6 +627,7 @@ object frm_cardmanager: Tfrm_cardmanager
           Width = 121
           Height = 20
           Color = 14020849
+          ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
           TabOrder = 1
         end
         object edt_StoreCurrency2: TEdit
@@ -612,6 +636,7 @@ object frm_cardmanager: Tfrm_cardmanager
           Width = 121
           Height = 20
           Color = 14020849
+          ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
           TabOrder = 3
         end
         object edt_WarningCurrency2: TEdit
@@ -620,6 +645,7 @@ object frm_cardmanager: Tfrm_cardmanager
           Width = 121
           Height = 20
           Color = 14020849
+          ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
           TabOrder = 2
         end
       end

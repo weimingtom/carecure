@@ -63,7 +63,6 @@ type
     mnuSalaryManager: TMenuItem;
     N24: TMenuItem;
     mnuServiceMeal: TMenuItem;
-    mnuCustomerRegister: TMenuItem;
     N802: TMenuItem;
     mnuGoodsRetail: TMenuItem;
     mnuGoodsWholeSale: TMenuItem;

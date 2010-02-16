@@ -70,7 +70,7 @@ begin
   begin
     Close;
     SQL.Text :='select cost_no,cc.cus_no,cus_name,cost_sum,discount_sum,payment,change,check_type from CustomerCost cc,Customer c '+
-               'where cc.cus_no=c.cus_no and cc.cost_date='+#39+temp+#39;
+               'where cc.cus_no=c.cus_no and cc.cost_date='+#35+temp+#35; //#39为单引号#35为#号
     Open;
     i:=1;
     while not eof do

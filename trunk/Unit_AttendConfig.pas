@@ -137,7 +137,7 @@ begin
   with dmod.ADOQuery1 do
   begin
     close;
-    SQL.Text := 'select count(*) as count from AttendTime where time_name=:timename';
+    SQL.Text := 'select count(*) as [count] from AttendTime where time_name=:timename';
     Parameters.ParamValues['timename'] := trim(cbb_timename.Text);
     open;
     if FieldByName('count').AsInteger>0 then

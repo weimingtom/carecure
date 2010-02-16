@@ -20,14 +20,14 @@ object frm_attendmanager: Tfrm_attendmanager
   object Splitter1: TSplitter
     Left = 466
     Top = 41
-    Height = 415
+    Height = 408
     Align = alRight
   end
   object PageControl1: TPageControl
     Left = 0
     Top = 41
     Width = 466
-    Height = 415
+    Height = 408
     ActivePage = sht_Normal
     Align = alClient
     TabOrder = 0
@@ -37,7 +37,7 @@ object frm_attendmanager: Tfrm_attendmanager
         Left = 0
         Top = 0
         Width = 458
-        Height = 388
+        Height = 381
         Align = alClient
         ColCount = 7
         DefaultRowHeight = 20
@@ -87,6 +87,7 @@ object frm_attendmanager: Tfrm_attendmanager
     Width = 653
     Height = 41
     Align = alTop
+    ParentBackground = False
     TabOrder = 1
     object sbtn_front: TSpeedButton
       Left = 8
@@ -236,8 +237,9 @@ object frm_attendmanager: Tfrm_attendmanager
     Left = 469
     Top = 41
     Width = 184
-    Height = 415
+    Height = 408
     Align = alRight
+    ParentBackground = False
     TabOrder = 2
     object GroupBox2: TGroupBox
       Left = 1
@@ -290,6 +292,7 @@ object frm_attendmanager: Tfrm_attendmanager
         Width = 97
         Height = 20
         Color = 14020849
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         TabOrder = 0
       end
       object edt_Password: TEdit
@@ -298,6 +301,7 @@ object frm_attendmanager: Tfrm_attendmanager
         Width = 93
         Height = 20
         Color = 14020849
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         TabOrder = 1
       end
     end
@@ -305,7 +309,7 @@ object frm_attendmanager: Tfrm_attendmanager
       Left = 1
       Top = 113
       Width = 182
-      Height = 166
+      Height = 159
       Align = alClient
       Caption = #36755#20837
       TabOrder = 1
@@ -369,6 +373,7 @@ object frm_attendmanager: Tfrm_attendmanager
         Date = 37913.420521840280000000
         Time = 37913.420521840280000000
         Enabled = False
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         TabOrder = 0
       end
       object dtp_DateStart: TDateTimePicker
@@ -379,6 +384,7 @@ object frm_attendmanager: Tfrm_attendmanager
         Date = 37913.420521840280000000
         Time = 37913.420521840280000000
         Enabled = False
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         TabOrder = 1
       end
       object edt_Empname: TEdit
@@ -388,6 +394,7 @@ object frm_attendmanager: Tfrm_attendmanager
         Height = 20
         Color = 14020849
         Enabled = False
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         ReadOnly = True
         TabOrder = 2
       end
@@ -398,13 +405,14 @@ object frm_attendmanager: Tfrm_attendmanager
         Height = 20
         Color = 14020849
         Enabled = False
+        ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
         TabOrder = 3
         OnExit = edt_EmpnoExit
       end
     end
     object GroupBox3: TGroupBox
       Left = 1
-      Top = 279
+      Top = 272
       Width = 182
       Height = 135
       Align = alBottom
