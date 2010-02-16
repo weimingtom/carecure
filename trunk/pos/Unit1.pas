@@ -14,6 +14,8 @@ type
     N3: TMenuItem;
     Image1: TImage;
     procedure N3Click(Sender: TObject);
+    procedure N1Click(Sender: TObject);
+    procedure N2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -31,5 +33,7 @@ procedure TForm1.N3Click(Sender: TObject);
 begin
 application.Terminate;
 end;
+
+
 
 end.

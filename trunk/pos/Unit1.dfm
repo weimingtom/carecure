@@ -20,7 +20,7 @@ object Form1: TForm1
     Left = 0
     Top = 0
     Width = 688
-    Height = 434
+    Height = 426
     Align = alClient
   end
   object MainMenu1: TMainMenu
@@ -28,9 +28,11 @@ object Form1: TForm1
     Top = 88
     object N1: TMenuItem
       Caption = 'F1~F4 '#36827#20837#25910#27454#21488
+      OnClick = N1Click
     end
     object N2: TMenuItem
       Caption = #31995#32479#35774#32622'(&S)'
+      OnClick = N2Click
     end
     object N3: TMenuItem
       Caption = #36864#20986'(&E)'

@@ -38,7 +38,7 @@ implementation
 
 procedure Tfrm_editpassword.password_ref ;
 begin
-  sbtn_sure.Enabled := GetPower(SysUserId,'用户修改密码','修改权');
+  //sbtn_sure.Enabled := GetPower(SysUserId,'用户修改密码','修改权');
 end;
 
 procedure Tfrm_editpassword.FormClose(Sender: TObject;

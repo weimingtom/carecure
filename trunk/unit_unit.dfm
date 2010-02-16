@@ -111,6 +111,7 @@ object frm_unit: Tfrm_unit
     Width = 258
     Height = 20
     Color = 14020849
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     MaxLength = 30
     TabOrder = 0
   end
@@ -120,6 +121,7 @@ object frm_unit: Tfrm_unit
     Width = 257
     Height = 20
     Color = 14020849
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     MaxLength = 30
     TabOrder = 1
   end
@@ -129,6 +131,7 @@ object frm_unit: Tfrm_unit
     Width = 257
     Height = 20
     Color = 14020849
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     MaxLength = 20
     TabOrder = 2
   end
@@ -138,6 +141,7 @@ object frm_unit: Tfrm_unit
     Width = 257
     Height = 20
     Color = 14020849
+    ImeName = #20013#25991' ('#31616#20307') - '#32654#24335#38190#30424
     MaxLength = 20
     TabOrder = 3
   end

@@ -61,7 +61,7 @@ type
 
 implementation
 
-uses Umain, unit_UserLogin;
+uses unit_UserLogin;
 
 {$R *.dfm}
 

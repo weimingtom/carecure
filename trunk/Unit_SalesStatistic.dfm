@@ -1,6 +1,6 @@
 object frm_SalesStatistic: Tfrm_SalesStatistic
-  Left = 100
-  Top = 141
+  Left = 212
+  Top = 167
   Width = 700
   Height = 431
   Caption = #38144#21806#27983#35272
@@ -236,7 +236,7 @@ object frm_SalesStatistic: Tfrm_SalesStatistic
     Height = 264
     TabStop = False
     Align = alClient
-    DataSource = adodm.dscrlist
+    DataSource = DMod.dscrlist
     Flat = True
     FooterColor = clWindow
     FooterFont.Charset = DEFAULT_CHARSET
