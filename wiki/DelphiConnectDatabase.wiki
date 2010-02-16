@@ -10,4 +10,6 @@
 
   * [http://www.winu.cn/dispdocnew.php?tid=11097 |DELPHI连接ACCESS　用ADO方式|]
   * [http://blog.csdn.net/blog51/archive/2007/08/23/1755947.aspx |SQL语句操作Access数据库，关键字引起语法错误的问题及解决|]
+  * [http://aboutdelphi.blogspot.com/2007/04/sql-server-access.html |SQL Server 数据库转换为 Access 数据库|]
+  * []
   * []
