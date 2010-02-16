@@ -4,11 +4,11 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Menus, ExtCtrls, ComCtrls, ToolWin, ImgList,
+  Dialogs, Menus, ExtCtrls, ComCtrls, ToolWin, 
   Unit_DataModule, Unit_GoodsDictionary, Unit_StoreLimite, Unit_ReceiptQuery,
   Unit_GoodsDetail, Unit_BizDictionary, Unit_GoodsCheckIn, Unit_SalesProfit,
   Unit_StoreChanges,
-  StdCtrls, Unit_GoodsBizReturn, Unit_GoodsLoss, Unit_StoreCheck,
+  Unit_GoodsBizReturn, Unit_GoodsLoss, Unit_StoreCheck,
   Unit_StoreList, Unit_GoodsWholeSale, Unit_GoodsRetail, Unit_splash,
   Unit_SalesStatistic, Unit_AdjustSaleStat, Unit_WholeSaleSummary,
   Unit_MemberBuyQuery,
@@ -107,7 +107,6 @@ type
     N8: TMenuItem;
     mnuHelp: TMenuItem;
     N21: TMenuItem;
-    ImageList1: TImageList;
     CoolBar1: TCoolBar;
     scroll1: TPageScroller;
     ToolBar1: TToolBar;
@@ -156,7 +155,6 @@ type
     mnuBossMemberThere: TMenuItem;
     mnuBossMemberHere: TMenuItem;
     ToolButton5: TToolButton;
-    ImageList2: TImageList;
     mnuDataInitial: TMenuItem;
     skindata1: TSkinData;
     procedure mnuBasicEmployeeClick(Sender: TObject);
@@ -186,20 +184,17 @@ type
     procedure mnuDataInitialClick(Sender: TObject);
     procedure mnuSalaryManagerClick(Sender: TObject);
     procedure mnuServiceMealClick(Sender: TObject);
-    procedure mnuCustomerRegisterClick(Sender: TObject);
     procedure mnuGoodsRetailClick(Sender: TObject);
     procedure mnuGoodsWholeSaleClick(Sender: TObject);
     procedure mnuSalesStatisticClick(Sender: TObject);
     procedure mnuAdjustSaleStatClick(Sender: TObject);
     procedure mnuReceiptQueryClick(Sender: TObject);
     procedure mnuWholeSaleSummaryClick(Sender: TObject);
-    procedure mnuMemberBuyQueryClick(Sender: TObject);
     procedure mnuGoodsDictionaryClick(Sender: TObject);
     procedure mnuGoodsCheckInClick(Sender: TObject);
     procedure mnuGoodsBizReturnClick(Sender: TObject);
     procedure mnuStoreCheckClick(Sender: TObject);
     procedure mnuGoodsLossClick(Sender: TObject);
-    procedure mnuStoreLimiteClick(Sender: TObject);
     procedure mnuStoreListClick(Sender: TObject);
     procedure mnuBizDictionaryClick(Sender: TObject);
     procedure mnuDataBackUpClick(Sender: TObject);
@@ -245,7 +240,7 @@ var
   BizInfo: Tfrm_BizInfo;
 implementation
 
-uses Unit_PublicFunction, Unit_TotalPublic, upreview, Unit_UserLogin;
+uses Unit_MainFunPro;    //Unit_TotalPublic,
 
 {$R *.dfm}
 
@@ -283,57 +278,52 @@ end;
 
 procedure Tfrm_main.mnuBasicEmployeeClick(Sender: TObject);
 begin
-  DoEmployee;
+  DoBasicEmployee;
 end;
 
 procedure Tfrm_main.mnuDeveloperClick(Sender: TObject);
 begin
-  DoAbout;
+  DoDeveloper;
 end;
 
 procedure Tfrm_main.mnuBasicCustomerClick(Sender: TObject);
 begin
-  DoCustomer;
+  DoBasicCustomer;
 end;
 
 procedure Tfrm_main.mnuUserDictionaryClick(Sender: TObject);
 begin
-  DoDictionary;
+  DoUserDictionary;
 end;
 
 procedure Tfrm_main.mnuAttendConfigClick(Sender: TObject);
 begin
-  DoAttendConfig;
+  DoAttConfig;
 end;
 
 procedure Tfrm_main.mnuNormalAttendClick(Sender: TObject);
 begin
-  DoNormalAttend;
+  DoNormalAtt;
 end;
 
 procedure Tfrm_main.mnuSpecialAttendClick(Sender: TObject);
 begin
-  DoSpecialAttend;
+  DoSpecialAtt;
 end;
 
 procedure Tfrm_main.mnuAttendStatClick(Sender: TObject);
 begin
-  DoAttendStatistic;
+  DoAttStat;
 end;
 
 procedure Tfrm_main.mnuAttendManagerClick(Sender: TObject);
 begin
-  DoAttendManager;
+  DoAttManager;
 end;
 
 procedure Tfrm_main.mnuCustomerCardClick(Sender: TObject);
 begin
-  DoCreateCard;
-end;
-
-procedure Tfrm_main.mnuCardTrackClick(Sender: TObject);
-begin
-  DoCardTrack;
+  DoCustomerCard;
 end;
 
 procedure Tfrm_main.mnuCardManagerClick(Sender: TObject);
@@ -341,6 +331,10 @@ begin
   DoCardManager;
 end;
 
+procedure Tfrm_main.mnuCardTrackClick(Sender: TObject);
+begin
+  DoCardTrack;
+end;
 procedure Tfrm_main.mnuServiceBookingClick(Sender: TObject);
 begin
   DoServiceBooking;
@@ -353,9 +347,7 @@ end;
 
 procedure Tfrm_main.mnuSysExitClick(Sender: TObject);
 begin
-  if messagebox(handle, '您确实要退出系统吗?', '信息', mb_okcancel +
-    mb_iconquestion) = IDOK then
-    application.Terminate;
+  DoQuit;
 end;
 
 procedure Tfrm_main.mnuUnitClick(Sender: TObject);
@@ -365,41 +357,17 @@ end;
 
 procedure Tfrm_main.mnuUserManagerClick(Sender: TObject);
 begin
-  if application.FindComponent('frm_UserManage') = nil then
-  begin
-    UserManage := Tfrm_UserManage.create(application);
-    UserManage.Show;
-  end
-  else if not UserManage.Showing then
-    UserManage.Show;
+  DoUserManager;
 end;
 
 procedure Tfrm_main.mnuReLoginClick(Sender: TObject);
 begin
-  if skindata1.Active then
-    skindata1.Active := false;
-  DMod.toper.Open;
-  if DMod.toper.Locate('userid', operid, []) then
-  begin
-    DMod.toper.edit;
-    DMod.toper.FieldByName('退出时间').AsDateTime := now;
-    DMod.toper.Post;
-  end;
-
-  try
-    frm_UserLogin := Tfrm_UserLogin.Create(nil);
-    frm_UserLogin.Left := 0;
-    frm_UserLogin.Top := 0;
-    frm_UserLogin.ShowModal;
-  finally
-    frm_UserLogin.Free;
-    frm_UserLogin := nil;
-  end;
+  DoReLogin;
 end;
 
 procedure Tfrm_main.mnuPasswordClick(Sender: TObject);
 begin
-  DoEditPassword;
+  DoPassword;
 end;
 
 procedure Tfrm_main.mnuBasicSalaryClick(Sender: TObject);
@@ -414,7 +382,7 @@ end;
 
 procedure Tfrm_main.mnuServiceItemClick(Sender: TObject);
 begin
-  DoServiceItemExtra;
+  DoServiceItem;
 end;
 
 procedure Tfrm_main.mnuDayStatisticClick(Sender: TObject);
@@ -434,256 +402,102 @@ end;
 
 procedure Tfrm_main.mnuServiceMealClick(Sender: TObject);
 begin
-  DoServiceMealExtra;
-end;
-
-procedure Tfrm_main.mnuCustomerRegisterClick(Sender: TObject);
-begin
-  DoCustomerRegister;
+  DoServiceMeal;
 end;
 
 procedure Tfrm_main.mnuGoodsRetailClick(Sender: TObject);
 begin
-  if application.FindComponent('frm_GoodsRetail') = nil then
-  begin
-    ls := tfrm_GoodsRetail.create(application);
-    ls.Show;
-  end
-  else if not ls.Showing then
-    ls.Show;
-  ls.Edit1.Text := auser.name;
+  DoGoodsRetail;
 end;
 
 procedure Tfrm_main.mnuGoodsWholeSaleClick(Sender: TObject);
 begin
-  if application.FindComponent('frm_GoodsWholeSale') = nil then
-  begin
-    pf := tfrm_GoodsWholeSale.create(application);
-    pf.Show;
-  end
-  else if not pf.Showing then
-    pf.Show;
-  pf.Edit1.Text := auser.name;
+  DoGoodsWholeSale;
 end;
 
 procedure Tfrm_main.mnuSalesStatisticClick(Sender: TObject);
 begin
-  if application.FindComponent('frm_SalesStatistic') = nil then
-  begin
-    SalesStatistic := tfrm_SalesStatistic.create(application);
-    SalesStatistic.Show;
-  end
-  else if not SalesStatistic.Showing then
-    SalesStatistic.Show;
+  DoSalesStatistic;
 end;
 
 procedure Tfrm_main.mnuAdjustSaleStatClick(Sender: TObject);
 begin
-  if application.FindComponent('frm_AdjustSaleStat') = nil then
-  begin
-    AdjustSaleStat := tfrm_AdjustSaleStat.create(application);
-    AdjustSaleStat.Show;
-  end
-  else if not AdjustSaleStat.Showing then
-    AdjustSaleStat.Show;
+  DoAdjustSaleStat;
 end;
 
 procedure Tfrm_main.mnuReceiptQueryClick(Sender: TObject);
 begin
-  if application.FindComponent('frm_ReceiptQuery') = nil then
-  begin
-    ReceiptQuery := tfrm_ReceiptQuery.create(application);
-    ReceiptQuery.Show;
-  end
-  else if not ReceiptQuery.Showing then
-    ReceiptQuery.Show;
+  DoReceiptQuery;
 end;
 
 procedure Tfrm_main.mnuWholeSaleSummaryClick(Sender: TObject);
 begin
-  if application.FindComponent('frm_WholeSaleSummary') = nil then
-  begin
-    WholeSaleSummary := tfrm_WholeSaleSummary.create(application);
-    WholeSaleSummary.Show;
-  end
-  else if not WholeSaleSummary.Showing then
-    WholeSaleSummary.Show;
-end;
-
-procedure Tfrm_main.mnuMemberBuyQueryClick(Sender: TObject);
-begin
-  if application.FindComponent('frm_MemberBuyQuery') = nil then
-  begin
-    MemberBuyQuery := tfrm_MemberBuyQuery.create(application);
-    MemberBuyQuery.Show;
-  end
-  else if not MemberBuyQuery.Showing then
-    MemberBuyQuery.Show;
+  DoWholeSaleSummary;
 end;
 
 procedure Tfrm_main.mnuGoodsDictionaryClick(Sender: TObject);
 begin
-  if application.FindComponent('frm_GoodsDictionary') = nil then
-  begin
-    GoodsDictionary := tfrm_GoodsDictionary.create(application);
-    GoodsDictionary.Show;
-  end
-  else if not GoodsDictionary.Showing then
-    GoodsDictionary.Show;
+  DoGoodsDictionary;
 end;
 
 procedure Tfrm_main.mnuGoodsCheckInClick(Sender: TObject);
 begin
-  if application.FindComponent('frm_GoodsCheckIn') = nil then
-  begin
-    GoodsCheckIn := tfrm_GoodsCheckIn.create(application);
-    GoodsCheckIn.Show;
-  end
-  else if not GoodsCheckIn.Showing then
-    GoodsCheckIn.Show;
-  GoodsCheckIn.Edit1.Text := auser.name;
+  DoGoodsCheckIn;
 end;
 
 procedure Tfrm_main.mnuGoodsBizReturnClick(Sender: TObject);
 begin
-  if application.FindComponent('frm_GoodsBizReturn') = nil then
-  begin
-    GoodsBizReturn := tfrm_GoodsBizReturn.create(application);
-    GoodsBizReturn.Show;
-  end
-  else if not GoodsBizReturn.Showing then
-    GoodsBizReturn.Show;
-  GoodsBizReturn.Edit1.Text := auser.name;
+  DoGoodsBizReturn;
 end;
 
 procedure Tfrm_main.mnuStoreCheckClick(Sender: TObject);
 begin
-  if application.FindComponent('frm_StoreCheck') = nil then
-  begin
-    StoreCheck := tfrm_StoreCheck.create(application);
-    StoreCheck.Show;
-  end
-  else if not StoreCheck.Showing then
-    StoreCheck.Show;
-  StoreCheck.Edit1.Text := auser.name;
+  DoStoreCheck;
 end;
 
 procedure Tfrm_main.mnuGoodsLossClick(Sender: TObject);
 begin
-  if application.FindComponent('frm_GoodsLoss') = nil then
-  begin
-    GoodsLoss := tfrm_GoodsLoss.create(application);
-    GoodsLoss.Show;
-  end
-  else if not GoodsLoss.Showing then
-    GoodsLoss.Show;
-  GoodsLoss.Edit1.Text := auser.name;
-end;
-
-procedure Tfrm_main.mnuStoreLimiteClick(Sender: TObject);
-begin
-  if application.FindComponent('frm_StoreLimite') = nil then
-  begin
-    StoreLimite := tfrm_StoreLimite.create(application);
-    StoreLimite.Show;
-  end
-  else if not StoreLimite.Showing then
-    StoreLimite.Show;
+  DoGoodsLoss;
 end;
 
 procedure Tfrm_main.mnuStoreListClick(Sender: TObject);
 begin
-  if application.FindComponent('frm_StoreList') = nil then
-  begin
-    StoreList := tfrm_StoreList.create(application);
-    StoreList.Show;
-  end
-  else if not StoreList.Showing then
-    StoreList.Show;
+  DoStoreList;
 end;
 
 procedure Tfrm_main.mnuBizDictionaryClick(Sender: TObject);
 begin
-  if application.FindComponent('frm_BizDictionary') = nil then
-  begin
-    BizDictionary := tfrm_BizDictionary.create(application);
-    BizDictionary.Show;
-  end
-  else if not BizDictionary.Showing then
-    BizDictionary.Show;
-  BizDictionary.TabSheet1.Show;
+  DoBizDictionary;
 end;
 
 procedure Tfrm_main.mnuDataBackUpClick(Sender: TObject);
 begin
-  if application.FindComponent('frm_MdbManager') = nil then
-  begin
-    MdbManager := tfrm_MdbManager.create(application);
-    MdbManager.Show;
-  end
-  else if not MdbManager.Showing then
-    MdbManager.Show;
-  MdbManager.tsMdbBack.Show;
+  DoDataBackUp;
 end;
 
 procedure Tfrm_main.mnuDataRecoveryClick(Sender: TObject);
 begin
-  if application.FindComponent('frm_MdbManager') = nil then
-  begin
-    MdbManager := tfrm_MdbManager.create(application);
-    MdbManager.Show;
-  end
-  else if not MdbManager.Showing then
-    MdbManager.Show;
-  MdbManager.tsMdbRestore.Show;
+  DoDataRecovery;
 end;
 
 procedure Tfrm_main.mnuDataOptimizeClick(Sender: TObject);
 begin
-  if application.FindComponent('frm_MdbManager') = nil then
-  begin
-    MdbManager := tfrm_MdbManager.create(application);
-    MdbManager.Show;
-  end
-  else if not MdbManager.Showing then
-    MdbManager.Show;
-  MdbManager.tsMdbCompact.Show;
+  DoDataOptimize;
 end;
 
 procedure Tfrm_main.mnuDataInitialClick(Sender: TObject);
 begin
-  //DoSysInitial;
-  if application.FindComponent('frm_DataInitial') = nil then
-  begin
-    DataInitial := tfrm_DataInitial.create(application);
-    DataInitial.Show;
-  end
-  else if not DataInitial.Showing then
-    DataInitial.Show;
-
+  DoDataInitial;
 end;
 
 procedure Tfrm_main.mnuStyleClick(Sender: TObject);
 begin
-  if application.FindComponent('frm_StyleSet') = nil then
-  begin
-    StyleSet := tfrm_StyleSet.create(application);
-    StyleSet.Show;
-  end
-  else if not StyleSet.Showing then
-    StyleSet.Show;
-
+  DoStyle;
 end;
 
 procedure Tfrm_main.mnuBizInfoClick(Sender: TObject);
 begin
-  if application.FindComponent('frm_BizInfo') = nil then
-  begin
-    BizInfo := tfrm_BizInfo.create(application);
-    BizInfo.Show;
-  end
-  else if not BizInfo.Showing then
-    BizInfo.Show;
+  DoBizInfo;
 end;
 
 end.

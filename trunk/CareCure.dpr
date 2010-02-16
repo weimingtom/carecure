@@ -1,7 +1,4 @@
 program CareCure;
-
-
-
 uses
   Forms,
   windows,
@@ -28,7 +25,6 @@ uses
   Unit_Empattendance in 'Unit_Empattendance.pas' {frm_empattend},
   Unit_FrontCheck in 'Unit_FrontCheck.pas' {frm_frontcheck},
   Unit_Main in 'Unit_Main.pas' {frm_main},
-  Unit_PublicFunction in 'Unit_PublicFunction.pas',
   Unit_SelectReason in 'Unit_SelectReason.pas' {frm_selectreason},
   Unit_ServiceBooking in 'Unit_ServiceBooking.pas' {frm_servicebooking},
   Unit_ServiceItem in 'Unit_ServiceItem.pas' {frm_ServiceItem},
@@ -87,12 +83,13 @@ uses
   Unit_MdbManager in 'Unit_MdbManager.pas' {frm_MdbManager},
   Unit_DataInitial in 'Unit_DataInitial.pas' {frm_DataInitial},
   Unit_StyleSet in 'Unit_StyleSet.pas' {frm_StyleSet},
-  Unit_BizInfo in 'Unit_BizInfo.pas' {frm_BizInfo};
+  Unit_BizInfo in 'Unit_BizInfo.pas' {frm_BizInfo},
+  Unit_MainFunPro in 'Unit_MainFunPro.pas';
 
 {$R *.res}
 var
   DBFile: Tinifile;
-  DB_Source, DB_User, DB_Password : string;
+  DB_Source, DB_User, DB_Password: string;
   Frm_Dbini: Tfrm_DBini;
   //flash: tfrm_splash;
   conn: boolean;
@@ -202,8 +199,9 @@ begin
     //flash.Close;
     //flash.Free;
     Application.CreateForm(Tfrm_main, frm_main);
-  frm_UserLogin := tfrm_UserLogin.Create(application);
-    frm_UserLogin.ShowModal; //ShowModal表示显示一个独占焦点屏蔽其它窗口的可设置返回值的窗口，其关闭后才执行下面的语句。
+    frm_UserLogin := tfrm_UserLogin.Create(application);
+    frm_UserLogin.ShowModal;
+      //ShowModal表示显示一个独占焦点屏蔽其它窗口的可设置返回值的窗口，其关闭后才执行下面的语句。
     frm_UserLogin.Update;
 
     Application.Run;
@@ -211,3 +209,4 @@ begin
   else
     application.Terminate;
 end.
+

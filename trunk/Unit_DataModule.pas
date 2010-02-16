@@ -3,8 +3,8 @@ unit Unit_DataModule;
 interface
 
 uses
-  SysUtils, Classes, DB, DBTables, ADODB,
-  PublicFunOrPro;
+  SysUtils, Classes, DB, ADODB,
+  PublicFunOrPro, ImgList, Controls;
 
 type
   TDMod = class(TDataModule)
@@ -271,6 +271,8 @@ type
     dstj: TDataSource;
     ctemp: TADOCommand;
     cback: TADOCommand;
+    ImageList2: TImageList;
+    ImageList1: TImageList;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
@@ -290,8 +292,6 @@ try
 begin
 ADOCON.ConnectionString:= DB_CONNString;
 ADOCON.Connected:=true;
-//backconn.ConnectionString:= DB_CONNString;
-//backconn.Connected:=true;
 end
 except
 end;
