@@ -7,6 +7,8 @@ Delphi小经验小窍门
 
 
 = Details =
+
+  * [http://blog.csdn.net/yueyahe/archive/2006/04/20/670066.aspx |Delphi程序设计的一般问题|]
   * [http://topic.csdn.net/u/20071126/11/55c5b4c0-adc4-40c1-9b43-1a5d10e20cf8.html |很希望大家把自己做项目中的小技巧共享出来|]
 
   * [http://topic.csdn.net/t/20010302/17/77974.html |不能再菜的问题：在Delphi中代码如何换行：）|]:delphi中语句的结束是以分号;为标志,你可以随便换行写. 但字串比较特殊中间有'；'所以我用'+'搞定！  
