@@ -1,0 +1,10 @@
+#summary 参考源码
+
+= Introduction =
+
+
+= Details =
+
+
+  * [http://www.qqgb.com/Soft/source/Delphis/200308/Soft_12396.html |药店管理系统|]
+  * [http://www.delphifans.com/SoftView/SoftView_13.html |美容院管理系统1.0修改版(ADO)\]
