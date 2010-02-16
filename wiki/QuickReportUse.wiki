@@ -1,0 +1,11 @@
+#summary QuickReport使用汇总
+
+= Introduction =
+
+QuickReport使用汇总
+
+= Details =
+
+
+  * [http://topic.csdn.net/t/20050128/13/3760609.html |QuickReport导出的QRP文件能不能转换成Excel文件|]
+  * [http://www.cz-114.com/down/Soft-124932.htm |格式转换>   ONEView 1.0|]:方法：看源码下载。
