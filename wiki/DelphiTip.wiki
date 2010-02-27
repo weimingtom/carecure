@@ -47,6 +47,30 @@ Delphi小经验小窍门
   * [http://hi.baidu.com/pwfС%CE%C0/blog/item/1a3293e7c2054027b83820d9.html |TListView用法详解|]
   * [http://win.chinaunix.net/bbs/thread-27069-1-6.html |如何把选择的文件图标显示在列表中|]   [http://www.002pc.com/master/College/Language/Delphi/12429.html |技巧：如何在ListItem显示相关文件图标|]  [http://hi.baidu.com/pwfС%CE%C0/blog/item/70016eec17690c2e63d09f07.html |用ListView制作导航界面|]  [http://www.cnblogs.com/y232995558/archive/2009/04/10/1432812.html|Delphi ListView基本用法大全|]
   * [http://blog.csdn.net/cyai/archive/2008/02/22/2113744.aspx | Delphi的Hint入门指导|]
-  * []
+  * [http://delphi.ktop.com.tw/board.php?cid=30&fid=1498&tid=92297 |DBLookupListBox和DBLookupComboBox|]
+假如你有兩個table  master detail(一對多)
+master 全戶資料(datasource1)
+    戶號 <- keyfield
+    戶長
+    地址
+    電話
+    :
+detail 個人基本資料(datasource2)
+    戶號  <- keyfield
+    姓名
+    統號
+    生日
+    電子郵件
+    :
+    :
+你可以依此設定如下,
+DataField :  戶號                  <- 欲關聯的主datafield
+DataSource : datasource1 <- 欲關聯的主Datasource
+KeyField :   戶號   <- 關聯鍵值
+ListField :  姓名     <- 要顯示戶內人口
+ListSource : datasource2  <- 要顯示的Datasoruce
+
+
+
   * []
   * []
