@@ -41,6 +41,7 @@ D:\PROGRA~1\Delphi7Lite\Bin>convert -t f:\eagle\careproject\trunk\*.dfm
 
 = Details =
 
+  * [http://www.cnblogs.com/amonw/archive/2009/11/04/1595659.html |Delphi 7 窗体中文乱码问题|]
   * [http://jim19770812.blogspot.com/2009/03/delphi7-dfm.html |delphi7的dfm里中文显示成乱码的解决办法|]
   * [http://liaoxuewei1980.spaces.live.com/blog/cns!C8D670F8C5F22B6B!181.entry |Delphi乱码一例解决|]
 
@@ -51,7 +52,7 @@ D:\PROGRA~1\Delphi7Lite\Bin>convert -t f:\eagle\careproject\trunk\*.dfm
   * [http://www.delphidabbler.com/tips/66 |How to convert Delphi forms from binary to text and vice versa|]
   * [http://www.cnitblog.com/sca/archive/2006/06/16/12355.html |如何精简Delphi|]
 
-  * []
+
   * []
   * []
   * []
