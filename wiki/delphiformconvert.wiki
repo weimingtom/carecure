@@ -1,0 +1,16 @@
+#summary Delphi程式码简体繁体转换Jason Replace v1.1
+
+= Introduction =
+
+一个方便做程式码简体/繁体转换的工具，特别是因为Delphi 6以后把DFM内中文字存Unicode内码，所以一般的简繁转换工具无法支援!!
+\r\n
+\r\n必须搭配网友老胡所提供的COM元件，一起使用：
+\r\nhttp://sc.hokoy.com/Works/Program/HokoyWordKit.aspx
+\r\n
+\r\n还有为了有些DFM可能不是存成纯文字档，所以在搭配Borland公司所提供的Delphi Form Conversion Utility(convert.exe,再Delphi安装目录下的BIN有)，在执行过程如果发现该DFM不是存为文字档便会自动叫用convert.exe先将他转为纯
+
+
+= Details =
+
+
+  * [http://www.winu.cn/thread-24885-1-1.html Delphi程式码简体繁体转换Jason Replace v1.1]
