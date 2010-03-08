@@ -53,6 +53,6 @@ D:\PROGRA~1\Delphi7Lite\Bin>convert -t f:\eagle\careproject\trunk\*.dfm
   * [http://www.cnitblog.com/sca/archive/2006/06/16/12355.html |如何精简Delphi|]
 
 
-  * []
+  * [http://www.nengcha.com/code/unicode/?key=%CC%DA%C1%FA%B2%CD%D2%FB |Unicode编码查询 - 在线查询字符的Unicode编码|]
   * []
   * []
