@@ -1,7 +1,7 @@
 #summary access和sql server的语句区别
 = Introduction =
 
-Add your content here.
+
 
 
 = Details =
@@ -11,8 +11,8 @@ Add your content here.  Format your content with:
   * [http://www.360doc.com/content/07/0608/11/10506_545497.shtml |SQLServer和Access,Sql语句转换时的区别|]
   * [http://blog.csdn.net/3150379/archive/2009/04/28/4133076.aspx |access和SQL语句的区别|]
   * [http://hi.baidu.com/22ol/blog/item/7bbbfbdcad80d0aacc116676.html |asp中Access与Sql Server数据库区别总结|]
-  * [http://javasky.172baby.com/posts/123772.html|access跟sql server sql语法区别(自己总结, 不够全面)|]
-  * [http://www.ej38.com/showinfo/sql-access-sqlserver-174786.html|总结一点Access与Sqlserver的sql的差异|]
+  * [http://javasky.172baby.com/posts/123772.html |access跟sql server sql语法区别(自己总结, 不够全面)|]
+  * [http://www.ej38.com/showinfo/sql-access-sqlserver-174786.html |总结一点Access与Sqlserver的sql的差异|]
   * []
   * []
   * []
