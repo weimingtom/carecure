@@ -24,16 +24,6 @@ Usage: convert.exe [-i] [-s] [-t | -b] <filespec(s) | @filelist>
   -t  Convert to text
   -b  Convert to binary
 
-D:\PROGRA~1\Delphi7Lite\Bin>convert -t e:\eagle\careproject\trunk
-Delphi Form Conversion Utility Version 7.0
-Copyright (c) 1995,2002 Borland Software Corporation
-No files found matching e:\eagle\careproject\trunk.
-
-D:\PROGRA~1\Delphi7Lite\Bin>convert -t e:\eagle\careproject\trunk\*.dfm
-Delphi Form Conversion Utility Version 7.0
-Copyright (c) 1995,2002 Borland Software Corporation
-No files found matching e:\eagle\careproject\trunk\*.dfm.
-
 D:\PROGRA~1\Delphi7Lite\Bin>convert -t f:\eagle\careproject\trunk\*.dfm
 Delphi Form Conversion Utility Version 7.0
 Copyright (c) 1995,2002 Borland Software Corporation
