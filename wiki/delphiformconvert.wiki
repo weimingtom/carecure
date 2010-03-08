@@ -1,6 +1,8 @@
-#summary Delphi窗体二进制文本程式码简体繁体转换
+#summary Delphi编码问题，窗体二进制文本程式码简体繁体转换
 
 = Introduction =
+
+
 
 一个方便做程式码简体/繁体转换的工具，特别是因为Delphi 6以后把DFM内中文字存Unicode内码，所以一般的简繁转换工具无法支援!!
 \r\n
@@ -39,6 +41,8 @@ D:\PROGRA~1\Delphi7Lite\Bin>convert -t f:\eagle\careproject\trunk\*.dfm
 
 = Details =
 
+  * [http://jim19770812.blogspot.com/2009/03/delphi7-dfm.html |delphi7的dfm里中文显示成乱码的解决办法|]
+  * [http://liaoxuewei1980.spaces.live.com/blog/cns!C8D670F8C5F22B6B!181.entry |Delphi乱码一例解决|]
 
   * [http://www.winu.cn/thread-24885-1-1.html Delphi程式码简体繁体转换Jason Replace v1.1]
   * [http://www.2ccc.com/article.asp?articleid=1789 |世纪飞翔Delphi工程简繁互换工具|]
@@ -46,8 +50,7 @@ D:\PROGRA~1\Delphi7Lite\Bin>convert -t f:\eagle\careproject\trunk\*.dfm
   * [http://www.brothersoft.com/delphi-form-converter-download-48912.html |Delphi Form Converter 1.12 |]
   * [http://www.delphidabbler.com/tips/66 |How to convert Delphi forms from binary to text and vice versa|]
   * [http://www.cnitblog.com/sca/archive/2006/06/16/12355.html |如何精简Delphi|]
-  * []
-  * []
+
   * []
   * []
   * []
