@@ -10,6 +10,8 @@
 \r\n还有为了有些DFM可能不是存成纯文字档，所以在搭配Borland公司所提供的Delphi Form Conversion Utility(convert.exe,再Delphi安装目录下的BIN有)，在执行过程如果发现该DFM不是存为文字档便会自动叫用convert.exe先将他转为纯
 
 = Delphi convert.exe使用方法例子 =
+如是是在Delphi 7 IDE里面，可以直接按F12出窗体列表，选择窗体的保存方式为txt或bin。
+如果没装D 7，那么可以通过使用convert.exe
 {{{
 D:\>cd progra~1
 D:\PROGRA~1>dir/w
